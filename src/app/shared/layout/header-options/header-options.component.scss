@@ -1,0 +1,16 @@
+:host ::ng-deep{
+  .menu .p-menu {
+    background-color: var(--basic-800);
+    padding: 5px;
+    .p-menu-list{
+      // background-color: var(--basic-500);
+    }
+    .p-element{
+      background-color: var(--basic-1100);
+      color: var(--basic-200);
+      transition: none;
+      
+    }
+
+  }
+}

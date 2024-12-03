@@ -1,0 +1,63 @@
+@use "scss/vaiables.scss";
+@import "primeng/resources/primeng";
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeicons/primeicons.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+  height: 100dvh;
+  width: 100dvw;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Gevena, Tahoma, sans-serif;
+}
+@layer base{
+  *{
+    transition: color 1s;
+    transition: background-color 1s;
+  }
+  body{
+    background-color: var(--basic-1000);
+    color: var(--basic-200);
+  }
+
+  [class*=header]{
+    background-color: var(--basic-1100);
+    .glitch-wrapper{
+      background-color: var(--basic-1100);
+    }
+  }
+  .mobile-nav{
+    z-index: 10;
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+
+    a {
+      padding: 24px 10px;
+      // filter: drop-shadow(1px 1px 10px white);
+      &:last-child{
+        border: none;
+      }
+    }
+  }
+  .mobile-header{
+    
+  }
+  .lordIcon{
+    --lord-icon-primary: var(--basic-200);
+    --lord-icon-secondary: var(--basic-600);
+  }
+}
+::ng-deep .abc{
+  background-color: black;
+}

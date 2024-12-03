@@ -1,0 +1,44 @@
+$totalNumberOfProjects: 10;
+$animationTime: 10s;
+
+@function animationDelay($itemNumber){
+  @return calc($animationTime/$totalNumberOfProjects * ($totalNumberOfProjects - $itemNumber) * -1);
+}
+
+.wrapper {
+  margin-inline: auto;
+  overflow: hidden;
+  mask-image: linear-gradient(to right,
+  rgba(0 , 0, 0, 0),
+  rgba(0, 0, 0, 1) 20%,
+  rgba(0, 0, 0, 1) 80%,
+  rgba(0, 0, 0, 0),
+  );
+
+  &:hover .projectCard{
+    animation-play-state: paused;
+  }
+}
+.projectCard{
+  // background-color: red;
+  width: 100px;
+  height: 100px;
+  left: max(calc(100px * $totalNumberOfProjects), 100%);
+  animation: toLeft $animationTime infinite linear;
+
+  @for $i from 1 through $totalNumberOfProjects{
+    &:nth-child(#{$i}){
+      animation-delay: animationDelay($i);
+    }
+  }
+}
+.palette{
+  width: 30px;
+  height: 30px;
+}
+
+@keyframes toLeft{
+  to {
+    left: -10%;
+  }
+}
