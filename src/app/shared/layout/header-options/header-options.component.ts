@@ -4,18 +4,19 @@ import { MenuItem } from 'primeng/api';
 import { MenuModule } from 'primeng/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+
 @Component({
   selector: 'app-header-options',
   standalone: true,
   templateUrl: './header-options.component.html',
   styleUrls: ['./header-options.component.scss'],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
-    MenuModule,
     ButtonModule,
+    MenuModule,
     MatButtonModule,
-    MatIconModule
-  ],
-  // schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    MatIconModule,
+  ]
 })
 export class HeaderOptionsComponent implements OnInit{
   settingsOpt: MenuItem[] | undefined;
