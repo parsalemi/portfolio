@@ -24,8 +24,12 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     RouterLinkActive,
     BrowserAnimationsModule,
     ButtonModule,
-    HeaderOptionsComponent], 
-    providers: [provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync()] })
+    HeaderOptionsComponent,
+    HttpClientModule,
+    AngularSvgIconModule.forRoot(),
+  ], 
+  providers: [provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync()],
+})
 export class AppModule { 
   constructor(){
     defineElement(lottie.loadAnimation)
