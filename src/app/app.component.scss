@@ -7,7 +7,7 @@
 }
 .linkActive{
   position: relative;
-  color: var(--basic-100);
+  color: var(--primary-600);
   &::after{
     content: "";
     position: absolute;
@@ -15,7 +15,7 @@
     left: 10px;
     width: calc(100% - 20px);
     height: 2px;
-    background: var(--basic-100);
+    background: var(--primary-600);
     border-radius: 10px;
   }
 }
@@ -30,12 +30,12 @@
     bottom: 10%;
     width: 0;
     height: 2px;
-    background: var(--basic-100);
+    background: var(--primary-600);
     border-radius: 10px;
     transition: all .3s;
   }
   &:hover{
-    color: var(--basic-100);
+    color: var(--primary-600);
     transition: color .5s;
     &::before{
       width: calc(100% - 20px);

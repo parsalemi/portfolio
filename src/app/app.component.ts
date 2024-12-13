@@ -21,34 +21,41 @@ export class AppComponent implements OnInit{
   ){
     defineElement(lottie.loadAnimation);
     this._document.documentElement.setAttribute('data-theme', 'dark');
+    this._document.documentElement.setAttribute('data-color', 'blue');
   }
   
   toggleDark(){
     this.darkMode = !this.darkMode;
     const dataTheme = this._document.documentElement.getAttribute('data-theme');
-    console.log(dataTheme);
     if(dataTheme == 'dark'){
       this._document.documentElement.setAttribute('data-theme', 'light');
-      document.body.classList.toggle('dark');
     } else if(dataTheme == 'light'){
       this._document.documentElement.setAttribute('data-theme', 'dark');
-      document.body.classList.toggle('dark')
     }
-    console.log(this.darkMode);
     document.querySelector('.fullPage')?.classList.toggle('dark')
   }
+
+  togglePuple(){
+    const dataColor = this._document.documentElement.getAttribute('data-color');
+    if(dataColor !== 'purple'){
+      this._document.documentElement.setAttribute('data-color', 'purple');
+    }
+  }
+
+  toggleBlue(){
+    const dataColor = this._document.documentElement.getAttribute('data-color');
+    if(dataColor !== 'blue'){
+      this._document.documentElement.setAttribute('data-color', 'blue');
+    }
+  }
+
+  toggleGreen(){
+    const dataColor = this._document.documentElement.getAttribute('data-color');
+    if(dataColor !== 'green'){
+      this._document.documentElement.setAttribute('data-color', 'green');
+    }
+  }
   ngOnInit(){
-    this.settingsOpt = [
-      {
-        label: 'Options',
-        items: [
-          {
-            label: 'Dark/Light',
-            icon: 'pi pi-moon',
-            command: () => this.toggleDark,
-          }
-        ]
-      }
-    ]
+
   }
 }
