@@ -1,0 +1,176 @@
+@property --border-gradient-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
+}
+@mixin forBorderAnimation {
+  --border-gradient-angle: 0turn;
+  --outer-radius: 10px;
+  --border-size: 1px;
+  --inner-radius: calc(var(--outer-radius) - var(--border-size));
+
+	background-image: conic-gradient(from var(--border-gradient-angle) at 50% 50%, transparent, var(--primary-700) 14%, transparent 17%);
+  border-radius: var(--outer-radius);
+  background-size: contain;
+  padding: var(--border-size);
+  width: 100%;
+}
+@mixin gridItem{
+  background-color: var(--basic-1100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  border-radius: var(--inner-radius);
+  z-index: 2;
+  @include forBorderAnimation();
+}
+
+.container{
+  display: grid;
+  column-gap: 20px;
+  row-gap: 10px;
+  // padding-bottom: 6.8rem;
+
+  .about{
+    @include gridItem();
+    grid-row: 1 / 2;
+    animation: borderSpin 8s linear infinite normal running;
+  }
+  .skills{
+    @include gridItem();
+    grid-row: 2 / 3;
+    animation: borderSpin 6s linear infinite normal running;
+  }
+  .projects{
+    @include gridItem();
+    grid-row: 3 / 4;
+    animation: borderSpin 4s 2.5s linear infinite normal running;
+  }
+  .contact{
+    @include gridItem();
+    grid-row: 4 / 5;
+    animation: borderSpin 1s linear infinite normal running;
+  }
+  .resume{
+    @include gridItem();
+    grid-row: 5 / 6;
+    animation: borderSpin 4s 2s linear infinite normal running;
+  }
+  @screen sm { //576
+    grid-template-columns: repeat(1, 1fr);
+    .about{
+      @include gridItem();
+      grid-row: 1 / 2;
+      animation: borderSpin 1s linear infinite normal running;
+    }
+    .skills{
+      @include gridItem();
+      grid-row: 2 / 3;
+      animation: borderSpin 6s linear infinite normal running;
+    }
+    .projects{
+      @include gridItem();
+      grid-row: 3 / 4;
+      animation: borderSpin 4s 2.5s linear infinite normal running;
+    }
+    .resume{
+      @include gridItem();
+      grid-row: 5 / 6;
+      animation: borderSpin 4s 2s linear infinite normal running;
+    }
+    .contact{
+      @include gridItem();
+      grid-row: 4 / 5;
+      animation: borderSpin 1s linear infinite normal running;
+    }
+  }
+  @screen md { //768
+    grid-template-columns: repeat(5, 1fr);
+    .about{
+      @include gridItem();
+      grid-column: 1 / 6;
+      grid-row: 1 / 2;
+      animation: borderSpin 8s linear infinite normal running;
+    }
+    .skills{
+      @include gridItem();
+      grid-column: 1 / 5;
+      grid-row: 2 / 3;
+      animation: borderSpin 6s linear infinite normal running;
+    }
+    .projects{
+      @include gridItem();
+      grid-column: 1 / 5;
+      grid-row: 3 / 4;
+      animation: borderSpin 4s 2.5s linear infinite normal running;
+    }
+    .resume{
+      @include gridItem();
+      grid-column: 5 / 6;
+      grid-row: 3 / 4;
+      animation: borderSpin 4s 2s linear infinite normal running;
+    }
+    .contact{
+      @include gridItem();
+      grid-column: 5 / 6;
+      grid-row: 2 / 3;
+      animation: borderSpin 1s linear infinite normal running;
+    }
+  }
+  @screen lg{ //1024
+    grid-template-columns: repeat(12, 1fr);
+    .about{
+      @include gridItem();
+      grid-column: 4 / 10;
+      grid-row: 1 / 9;
+      animation: borderSpin 8s linear infinite normal running;
+    }
+    .skills{
+      @include gridItem();
+      grid-column: 1 / 4;
+      grid-row: 1 / 5;
+      animation: borderSpin 6s linear infinite normal running;
+    }
+    .contact{
+      @include gridItem();
+      grid-column: 1 / 4;
+      grid-row: 5 / 9;
+      animation: borderSpin 1s linear infinite normal running;
+    }
+    .resume{
+      @include gridItem();
+      grid-column: 10 / 13;
+      grid-row: 5 / 9;
+      animation: borderSpin 4s 2s linear infinite normal running;
+    }
+    .projects{
+      @include gridItem();
+      grid-column: 10 / 13;
+      grid-row: 1 / 5;
+      animation: borderSpin 4s 2.5s linear infinite normal running;
+    }
+  }
+}
+
+@keyframes borderSpin {
+	0% {
+  --border-gradient-angle: 0turn;
+}
+100% {
+  --border-gradient-angle: 1turn;
+}
+}
+
+.borderAnimation {
+  border-radius: var(--inner-radius);
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  position: relative;
+  background-color: var(--basic-1100);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
