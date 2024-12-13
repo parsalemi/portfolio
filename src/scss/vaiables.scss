@@ -1,52 +1,180 @@
-// All Colors
+/////////// BLUE THEME /////////////
 
-$basic-100: hsl(215, 20%, 90%);
-$basic-200: hsl(215, 18%, 80%);
-$basic-300: hsl(215, 17%, 75%);
-$basic-400: hsl(215, 16%, 70%);
-$basic-500: hsl(215, 15%, 60%);
-$basic-600: hsl(215, 17%, 50%);
-$basic-700: hsl(215, 19%, 40%);
-$basic-800: hsl(215, 22%, 30%);
-$basic-900: hsl(215, 25%, 20%);
-$basic-1000: hsl(215, 25%, 15%);
-$basic-1100: hsl(215, 25%, 10%);
+$basic-blue-100: hsl(215, 20%, 90%);
+$basic-blue-200: hsl(215, 18%, 80%);
+$basic-blue-300: hsl(215, 17%, 75%);
+$basic-blue-400: hsl(215, 16%, 70%);
+$basic-blue-500: hsl(215, 15%, 60%);
+$basic-blue-600: hsl(215, 17%, 50%);
+$basic-blue-700: hsl(215, 19%, 40%);
+$basic-blue-800: hsl(215, 22%, 30%);
+$basic-blue-900: hsl(215, 25%, 20%);
+$basic-blue-1000: hsl(215, 25%, 15%);
+$basic-blue-1100: hsl(215, 25%, 10%);
 
 //BASIC TRANSPARENT
-$basic-100-tr-10: hsla(215, 20%, 90%, .1);
-$basic-100-tr-30: hsla(215, 20%, 90%, .3);
-$basic-100-tr-50: hsla(215, 20%, 90%, .5);
-$basic-100-tr-60: hsla(215, 20%, 90%, .6);
-$basic-100-tr-80: hsla(215, 20%, 90%, .8);
+$basic-blue-100-tr-10: hsla(215, 20%, 90%, .1);
+$basic-blue-100-tr-30: hsla(215, 20%, 90%, .3);
+$basic-blue-100-tr-50: hsla(215, 20%, 90%, .5);
+$basic-blue-100-tr-60: hsla(215, 20%, 90%, .6);
+$basic-blue-100-tr-80: hsla(215, 20%, 90%, .8);
 
-$basic-700-tr-10: hsla(215, 19%, 40%, .1);
-$basic-700-tr-30: hsla(215, 19%, 40%, .3);
-$basic-700-tr-50: hsla(215, 19%, 40%, .5);
-$basic-700-tr-60: hsla(215, 19%, 40%, .6);
-$basic-700-tr-80: hsla(215, 19%, 40%, .8);
+$basic-blue-700-tr-10: hsla(215, 19%, 40%, .1);
+$basic-blue-700-tr-30: hsla(215, 19%, 40%, .3);
+$basic-blue-700-tr-50: hsla(215, 19%, 40%, .5);
+$basic-blue-700-tr-60: hsla(215, 19%, 40%, .6);
+$basic-blue-700-tr-80: hsla(215, 19%, 40%, .8);
 
 //BASIC TRANSPARENT LIGHT
-$basic-100-tr-10-ligth: hsla(215, 25%, 10%, .1);
-$basic-100-tr-30-ligth: hsla(215, 25%, 10%, .3);
-$basic-100-tr-50-ligth: hsla(215, 25%, 10%, .5);
-$basic-100-tr-60-ligth: hsla(215, 25%, 10%, .6);
-$basic-100-tr-80-ligth: hsla(215, 25%, 10%, .8);
+$basic-blue-100-tr-10-ligth: hsla(215, 25%, 10%, .1);
+$basic-blue-100-tr-30-ligth: hsla(215, 25%, 10%, .3);
+$basic-blue-100-tr-50-ligth: hsla(215, 25%, 10%, .5);
+$basic-blue-100-tr-60-ligth: hsla(215, 25%, 10%, .6);
+$basic-blue-100-tr-80-ligth: hsla(215, 25%, 10%, .8);
 
-$basic-700-tr-10: hsla(215, 15%, 60%, .1);
-$basic-700-tr-30: hsla(215, 15%, 60%, .3);
-$basic-700-tr-50: hsla(215, 15%, 60%, .5);
-$basic-700-tr-60: hsla(215, 15%, 60%, .6);
-$basic-700-tr-80: hsla(215, 15%, 60%, .8);
+$basic-blue-700-tr-10: hsla(215, 15%, 60%, .1);
+$basic-blue-700-tr-30: hsla(215, 15%, 60%, .3);
+$basic-blue-700-tr-50: hsla(215, 15%, 60%, .5);
+$basic-blue-700-tr-60: hsla(215, 15%, 60%, .6);
+$basic-blue-700-tr-80: hsla(215, 15%, 60%, .8);
 
-$primary-100: hsl(210, 95%, 90%);
-$primary-200: hsl(210, 85%, 80%);
-$primary-300: hsl(210, 75%, 70%);
-$primary-400: hsl(210, 65%, 60%);
-$primary-500: hsl(210, 60%, 50%);
-$primary-600: hsl(210, 65%, 40%);
-$primary-700: hsl(210, 75%, 30%);
-$primary-800: hsl(210, 85%, 25%);
-$primary-900: hsl(210, 95%, 20%);
+// PRIMARY
+
+$primary-blue-100: hsl(210, 95%, 90%);
+$primary-blue-200: hsl(210, 85%, 80%);
+$primary-blue-300: hsl(210, 75%, 70%);
+$primary-blue-400: hsl(210, 65%, 60%);
+$primary-blue-500: hsl(210, 60%, 50%);
+$primary-blue-600: hsl(210, 65%, 40%);
+$primary-blue-700: hsl(210, 75%, 30%);
+$primary-blue-800: hsl(210, 85%, 25%);
+$primary-blue-900: hsl(210, 95%, 20%);
+
+$primary-blue-600-tr-50: hsla(210, 65%, 40%, .2);
+
+
+/////////// PURPLE THEME /////////////
+
+// BASIC
+
+$basic-purple-100: hsl(245, 20%, 90%);
+$basic-purple-200: hsl(245, 18%, 80%);
+$basic-purple-300: hsl(245, 17%, 75%);
+$basic-purple-400: hsl(245, 16%, 70%);
+$basic-purple-500: hsl(245, 15%, 60%);
+$basic-purple-600: hsl(245, 17%, 50%);
+$basic-purple-700: hsl(245, 19%, 40%);
+$basic-purple-800: hsl(245, 22%, 30%);
+$basic-purple-900: hsl(245, 25%, 20%);
+$basic-purple-1000: hsl(245, 25%, 15%);
+$basic-purple-1100: hsl(245, 25%, 10%);
+
+// BASIC TRANSPARENT
+$basic-purple-100-tr-10: hsla(265, 20%, 90%, .1);
+$basic-purple-100-tr-30: hsla(265, 20%, 90%, .3);
+$basic-purple-100-tr-50: hsla(265, 20%, 90%, .5);
+$basic-purple-100-tr-60: hsla(265, 20%, 90%, .6);
+$basic-purple-100-tr-80: hsla(265, 20%, 90%, .8);
+
+$basic-purple-700-tr-10: hsla(265, 19%, 40%, .1);
+$basic-purple-700-tr-30: hsla(265, 19%, 40%, .3);
+$basic-purple-700-tr-50: hsla(265, 19%, 40%, .5);
+$basic-purple-700-tr-60: hsla(265, 19%, 40%, .6);
+$basic-purple-700-tr-80: hsla(265, 19%, 40%, .8);
+
+//BASIC TRANSPARENT LIGHT
+$basic-purple-100-tr-10-ligth: hsla(265, 25%, 10%, .1);
+$basic-purple-100-tr-30-ligth: hsla(265, 25%, 10%, .3);
+$basic-purple-100-tr-50-ligth: hsla(265, 25%, 10%, .5);
+$basic-purple-100-tr-60-ligth: hsla(265, 25%, 10%, .6);
+$basic-purple-100-tr-80-ligth: hsla(265, 25%, 10%, .8);
+
+$basic-purple-700-tr-10: hsla(265, 15%, 60%, .1);
+$basic-purple-700-tr-30: hsla(265, 15%, 60%, .3);
+$basic-purple-700-tr-50: hsla(265, 15%, 60%, .5);
+$basic-purple-700-tr-60: hsla(265, 15%, 60%, .6);
+$basic-purple-700-tr-80: hsla(265, 15%, 60%, .8);
+
+
+// PRIMARY
+$primary-purple-100: hsl(265, 95%, 90%);
+$primary-purple-200: hsl(265, 85%, 80%);
+$primary-purple-300: hsl(265, 75%, 70%);
+$primary-purple-400: hsl(265, 65%, 60%);
+$primary-purple-500: hsl(265, 60%, 50%);
+$primary-purple-600: hsl(265, 65%, 40%);
+$primary-purple-700: hsl(265, 75%, 30%);
+$primary-purple-800: hsl(265, 85%, 25%);
+$primary-purple-900: hsl(265, 95%, 20%);
+
+$primary-purple-600-tr-50: hsla(265, 65%, 40%, .2);
+
+
+/////////// GREEN THEME /////////////
+
+$basic-green-100: hsl(195, 20%, 90%);
+$basic-green-200: hsl(195, 18%, 80%);
+$basic-green-300: hsl(195, 17%, 75%);
+$basic-green-400: hsl(195, 16%, 70%);
+$basic-green-500: hsl(195, 15%, 60%);
+$basic-green-600: hsl(195, 17%, 50%);
+$basic-green-700: hsl(195, 19%, 40%);
+$basic-green-800: hsl(195, 22%, 30%);
+$basic-green-900: hsl(195, 25%, 20%);
+$basic-green-1000: hsl(195, 25%, 15%);
+$basic-green-1100: hsl(195, 25%, 10%);
+
+// BASIC TRANSPARENT
+$basic-green-100-tr-10: hsla(265, 20%, 90%, .1);
+$basic-green-100-tr-30: hsla(265, 20%, 90%, .3);
+$basic-green-100-tr-50: hsla(265, 20%, 90%, .5);
+$basic-green-100-tr-60: hsla(265, 20%, 90%, .6);
+$basic-green-100-tr-80: hsla(265, 20%, 90%, .8);
+
+$basic-green-700-tr-10: hsla(265, 19%, 40%, .1);
+$basic-green-700-tr-30: hsla(265, 19%, 40%, .3);
+$basic-green-700-tr-50: hsla(265, 19%, 40%, .5);
+$basic-green-700-tr-60: hsla(265, 19%, 40%, .6);
+$basic-green-700-tr-80: hsla(265, 19%, 40%, .8);
+
+//BASIC TRANSPARENT LIGHT
+$basic-green-100-tr-10-ligth: hsla(265, 25%, 10%, .1);
+$basic-green-100-tr-30-ligth: hsla(265, 25%, 10%, .3);
+$basic-green-100-tr-50-ligth: hsla(265, 25%, 10%, .5);
+$basic-green-100-tr-60-ligth: hsla(265, 25%, 10%, .6);
+$basic-green-100-tr-80-ligth: hsla(265, 25%, 10%, .8);
+
+$basic-green-700-tr-10: hsla(265, 15%, 60%, .1);
+$basic-green-700-tr-30: hsla(265, 15%, 60%, .3);
+$basic-green-700-tr-50: hsla(265, 15%, 60%, .5);
+$basic-green-700-tr-60: hsla(265, 15%, 60%, .6);
+$basic-green-700-tr-80: hsla(265, 15%, 60%, .8);
+
+// PRIMARY
+$primary-green-100: hsl(160, 95%, 90%);
+$primary-green-200: hsl(160, 85%, 80%);
+$primary-green-300: hsl(160, 75%, 70%);
+$primary-green-400: hsl(160, 65%, 60%);
+$primary-green-500: hsl(160, 60%, 50%);
+$primary-green-600: hsl(160, 65%, 40%);
+$primary-green-700: hsl(160, 75%, 30%);
+$primary-green-800: hsl(160, 85%, 25%);
+$primary-green-900: hsl(160, 94%, 20%);
+
+$primary-green-600-tr-50: hsla(140, 65%, 40%, .2);
+
+
+// ERROR, WARNING
+
+$success-100: hsl(120, 95%, 90%);
+$success-200: hsl(120, 85%, 80%);
+$success-300: hsl(120, 75%, 70%);
+$success-400: hsl(120, 65%, 60%);
+$success-500: hsl(120, 60%, 50%);
+$success-600: hsl(120, 65%, 40%);
+$success-700: hsl(120, 75%, 30%);
+$success-800: hsl(120, 85%, 25%);
+$success-900: hsl(120, 95%, 20%);
 
 $error-50: hsl(4, 100%, 95%);
 $error-100: hsl(4, 95%, 90%);
@@ -70,40 +198,52 @@ $warning-800: hsl(56, 85%, 25%);
 $warning-900: hsl(58, 95%, 20%);
 
 :root{
-  --primary-100: #{$primary-100};
-  --primary-200: #{$primary-200};
-  --primary-300: #{$primary-300};
-  --primary-400: #{$primary-400};
-  --primary-500: #{$primary-500};
-  --primary-600: #{$primary-600};
-  --primary-700: #{$primary-700};
-  --primary-800: #{$primary-800};
-  --primary-900: #{$primary-900};
+  --primary-100: #{$primary-blue-100};
+  --primary-200: #{$primary-blue-200};
+  --primary-300: #{$primary-blue-300};
+  --primary-400: #{$primary-blue-400};
+  --primary-500: #{$primary-blue-500};
+  --primary-600: #{$primary-blue-600};
+  --primary-700: #{$primary-blue-700};
+  --primary-800: #{$primary-blue-800};
+  --primary-900: #{$primary-blue-900};
 
-  --basic-100: #{$basic-100};
-  --basic-200: #{$basic-200};
-  --basic-300: #{$basic-300};
-  --basic-400: #{$basic-400};
-  --basic-500: #{$basic-500};
-  --basic-600: #{$basic-600};
-  --basic-700: #{$basic-700};
-  --basic-800: #{$basic-800};
-  --basic-900: #{$basic-900};
-  --basic-1000: #{$basic-1000};
-  --basic-1100: #{$basic-1100};
+  --primary-600-tr-50: #{$primary-blue-600-tr-50};
 
-  --basic-100-tr-10: #{$basic-100-tr-10};
-  --basic-100-tr-30: #{$basic-100-tr-30};
-  --basic-100-tr-50: #{$basic-100-tr-50};
-  --basic-100-tr-60: #{$basic-100-tr-60};
-  --basic-100-tr-80: #{$basic-100-tr-80};
+  --basic-100: #{$basic-blue-100};
+  --basic-200: #{$basic-blue-200};
+  --basic-300: #{$basic-blue-300};
+  --basic-400: #{$basic-blue-400};
+  --basic-500: #{$basic-blue-500};
+  --basic-600: #{$basic-blue-600};
+  --basic-700: #{$basic-blue-700};
+  --basic-800: #{$basic-blue-800};
+  --basic-900: #{$basic-blue-900};
+  --basic-1000: #{$basic-blue-1000};
+  --basic-1100: #{$basic-blue-1100};
 
-  --basic-700-tr-10: #{$basic-700-tr-10};
-  --basic-700-tr-30: #{$basic-700-tr-30};
-  --basic-700-tr-50: #{$basic-700-tr-50};
-  --basic-700-tr-60: #{$basic-700-tr-60};
-  --basic-700-tr-80: #{$basic-700-tr-80};
+  --basic-100-tr-10: #{$basic-blue-100-tr-10};
+  --basic-100-tr-30: #{$basic-blue-100-tr-30};
+  --basic-100-tr-50: #{$basic-blue-100-tr-50};
+  --basic-100-tr-60: #{$basic-blue-100-tr-60};
+  --basic-100-tr-80: #{$basic-blue-100-tr-80};
+
+  --basic-700-tr-10: #{$basic-blue-700-tr-10};
+  --basic-700-tr-30: #{$basic-blue-700-tr-30};
+  --basic-700-tr-50: #{$basic-blue-700-tr-50};
+  --basic-700-tr-60: #{$basic-blue-700-tr-60};
+  --basic-700-tr-80: #{$basic-blue-700-tr-80};
   
+  --success-100: #{$success-100};
+  --success-200: #{$success-200};
+  --success-300: #{$success-300};
+  --success-400: #{$success-400};
+  --success-500: #{$success-500};
+  --success-600: #{$success-600};
+  --success-700: #{$success-700};
+  --success-800: #{$success-800};
+  --success-900: #{$success-900};
+
   --error-100: #{$error-100};
   --error-200: #{$error-200};
   --error-300: #{$error-300};
@@ -125,54 +265,232 @@ $warning-900: hsl(58, 95%, 20%);
   --warning-900: #{$warning-900};
 }
 
-[data-theme="light"]{
-    --basic-100: #{$basic-1100};
-    --basic-200: #{$basic-1000};
-    --basic-300: #{$basic-900};
-    --basic-400: #{$basic-800};
-    --basic-500: #{$basic-700};
-    --basic-600: #{$basic-600};
-    --basic-700: #{$basic-500};
-    --basic-800: #{$basic-400};
-    --basic-900: #{$basic-300};
-    --basic-1000: #{$basic-200};
-    --basic-1100: #{$basic-100};
+[data-color="blue"][data-theme="dark"]{
 
-    --basic-100-tr-10: #{basic-100-tr-10-light};
-    --basic-100-tr-30: #{basic-100-tr-30-light};
-    --basic-100-tr-50: #{basic-100-tr-50-light};
-    --basic-100-tr-60: #{basic-100-tr-60-light};
-    --basic-100-tr-80: #{basic-100-tr-80-light};
+  --basic-100: #{$basic-blue-100};
+  --basic-200: #{$basic-blue-200};
+  --basic-300: #{$basic-blue-300};
+  --basic-400: #{$basic-blue-400};
+  --basic-500: #{$basic-blue-500};
+  --basic-600: #{$basic-blue-600};
+  --basic-700: #{$basic-blue-700};
+  --basic-800: #{$basic-blue-800};
+  --basic-900: #{$basic-blue-900};
+  --basic-1000: #{$basic-blue-1000};
+  --basic-1100: #{$basic-blue-1100};  
 
-    --basic-700-tr-10: #{basic-700-tr-10-light};
-    --basic-700-tr-30: #{basic-700-tr-30-light};
-    --basic-700-tr-50: #{basic-700-tr-50-light};
-    --basic-700-tr-60: #{basic-700-tr-60-light};
-    --basic-700-tr-80: #{basic-700-tr-80-light};
+  --basic-100-tr-10: #{$basic-blue-100-tr-10};
+  --basic-100-tr-30: #{$basic-blue-100-tr-30};
+  --basic-100-tr-50: #{$basic-blue-100-tr-50};
+  --basic-100-tr-60: #{$basic-blue-100-tr-60};
+  --basic-100-tr-80: #{$basic-blue-100-tr-80};
+
+  --basic-700-tr-10: #{$basic-blue-700-tr-10};
+  --basic-700-tr-30: #{$basic-blue-700-tr-30};
+  --basic-700-tr-50: #{$basic-blue-700-tr-50};
+  --basic-700-tr-60: #{$basic-blue-700-tr-60};
+  --basic-700-tr-80: #{$basic-blue-700-tr-80};
+
+  --primary-100: #{$primary-blue-100};
+  --primary-200: #{$primary-blue-200};
+  --primary-300: #{$primary-blue-300};
+  --primary-400: #{$primary-blue-400};
+  --primary-500: #{$primary-blue-500};
+  --primary-600: #{$primary-blue-600};
+  --primary-700: #{$primary-blue-700};
+  --primary-800: #{$primary-blue-800};
+  --primary-900: #{$primary-blue-900};
+
+  --primary-600-tr-50: #{$primary-blue-600-tr-50};
 }
+[data-color="blue"][data-theme="light"]{
 
-[data-theme="dark"]{
-  --basic-100: #{$basic-100};
-  --basic-200: #{$basic-200};
-  --basic-300: #{$basic-300};
-  --basic-400: #{$basic-400};
-  --basic-500: #{$basic-500};
-  --basic-600: #{$basic-600};
-  --basic-700: #{$basic-700};
-  --basic-800: #{$basic-800};
-  --basic-900: #{$basic-900};
-  --basic-1000: #{$basic-1000};
-  --basic-1100: #{$basic-1100};  
+  --basic-100: #{$basic-blue-1100};
+  --basic-200: #{$basic-blue-1000};
+  --basic-300: #{$basic-blue-900};
+  --basic-400: #{$basic-blue-800};
+  --basic-500: #{$basic-blue-700};
+  --basic-600: #{$basic-blue-600};
+  --basic-700: #{$basic-blue-500};
+  --basic-800: #{$basic-blue-400};
+  --basic-900: #{$basic-blue-300};
+  --basic-1000: #{$basic-blue-200};
+  --basic-1100: #{$basic-blue-100};
 
-  --basic-100-tr-10: #{$basic-100-tr-10};
-  --basic-100-tr-30: #{$basic-100-tr-30};
-  --basic-100-tr-50: #{$basic-100-tr-50};
-  --basic-100-tr-60: #{$basic-100-tr-60};
-  --basic-100-tr-80: #{$basic-100-tr-80};
+  --basic-100-tr-10: #{basic-blue-100-tr-10-light};
+  --basic-100-tr-30: #{basic-blue-100-tr-30-light};
+  --basic-100-tr-50: #{basic-blue-100-tr-50-light};
+  --basic-100-tr-60: #{basic-blue-100-tr-60-light};
+  --basic-100-tr-80: #{basic-blue-100-tr-80-light};
 
-  --basic-700-tr-10: #{$basic-700-tr-10};
-  --basic-700-tr-30: #{$basic-700-tr-30};
-  --basic-700-tr-50: #{$basic-700-tr-50};
-  --basic-700-tr-60: #{$basic-700-tr-60};
-  --basic-700-tr-80: #{$basic-700-tr-80};
+  --basic-700-tr-10: #{basic-blue-700-tr-10-light};
+  --basic-700-tr-30: #{basic-blue-700-tr-30-light};
+  --basic-700-tr-50: #{basic-blue-700-tr-50-light};
+  --basic-700-tr-60: #{basic-blue-700-tr-60-light};
+  --basic-700-tr-80: #{basic-blue-700-tr-80-light};
+
+  --primary-100: #{$primary-blue-100};
+  --primary-200: #{$primary-blue-200};
+  --primary-300: #{$primary-blue-300};
+  --primary-400: #{$primary-blue-400};
+  --primary-500: #{$primary-blue-500};
+  --primary-600: #{$primary-blue-600};
+  --primary-700: #{$primary-blue-700};
+  --primary-800: #{$primary-blue-800};
+  --primary-900: #{$primary-blue-900};
+
+  --primary-600-tr-50: #{$primary-blue-600-tr-50};
+
+}
+[data-color="purple"][data-theme="dark"]{
+
+  --basic-100: #{$basic-purple-100};
+  --basic-200: #{$basic-purple-200};
+  --basic-300: #{$basic-purple-300};
+  --basic-400: #{$basic-purple-400};
+  --basic-500: #{$basic-purple-500};
+  --basic-600: #{$basic-purple-600};
+  --basic-700: #{$basic-purple-700};
+  --basic-800: #{$basic-purple-800};
+  --basic-900: #{$basic-purple-900};
+  --basic-1000: #{$basic-purple-1000};
+  --basic-1100: #{$basic-purple-1100}; 
+
+  --basic-100-tr-10: #{$basic-purple-100-tr-10};
+  --basic-100-tr-30: #{$basic-purple-100-tr-30};
+  --basic-100-tr-50: #{$basic-purple-100-tr-50};
+  --basic-100-tr-60: #{$basic-purple-100-tr-60};
+  --basic-100-tr-80: #{$basic-purple-100-tr-80};
+
+  --basic-700-tr-10: #{$basic-purple-700-tr-10};
+  --basic-700-tr-30: #{$basic-purple-700-tr-30};
+  --basic-700-tr-50: #{$basic-purple-700-tr-50};
+  --basic-700-tr-60: #{$basic-purple-700-tr-60};
+  --basic-700-tr-80: #{$basic-purple-700-tr-80};
+
+  --primary-100: #{$primary-purple-100};
+  --primary-200: #{$primary-purple-200};
+  --primary-300: #{$primary-purple-300};
+  --primary-400: #{$primary-purple-400};
+  --primary-500: #{$primary-purple-500};
+  --primary-600: #{$primary-purple-600};
+  --primary-700: #{$primary-purple-700};
+  --primary-800: #{$primary-purple-800};
+  --primary-900: #{$primary-purple-900};
+
+  --primary-600-tr-50: #{$primary-purple-600-tr-50};
+}
+[data-color="purple"][data-theme="light"]{
+
+  --basic-100: #{$basic-purple-1100};
+  --basic-200: #{$basic-purple-1000};
+  --basic-300: #{$basic-purple-900};
+  --basic-400: #{$basic-purple-800};
+  --basic-500: #{$basic-purple-700};
+  --basic-600: #{$basic-purple-600};
+  --basic-700: #{$basic-purple-500};
+  --basic-800: #{$basic-purple-400};
+  --basic-900: #{$basic-purple-300};
+  --basic-1000: #{$basic-purple-200};
+  --basic-1100: #{$basic-purple-100};
+
+  --basic-100-tr-10: #{basic-purple-100-tr-10-light};
+  --basic-100-tr-30: #{basic-purple-100-tr-30-light};
+  --basic-100-tr-50: #{basic-purple-100-tr-50-light};
+  --basic-100-tr-60: #{basic-purple-100-tr-60-light};
+  --basic-100-tr-80: #{basic-purple-100-tr-80-light};
+
+  --basic-700-tr-10: #{basic-purple-700-tr-10-light};
+  --basic-700-tr-30: #{basic-purple-700-tr-30-light};
+  --basic-700-tr-50: #{basic-purple-700-tr-50-light};
+  --basic-700-tr-60: #{basic-purple-700-tr-60-light};
+  --basic-700-tr-80: #{basic-purple-700-tr-80-light};
+
+  --primary-100: #{$primary-purple-100};
+  --primary-200: #{$primary-purple-200};
+  --primary-300: #{$primary-purple-300};
+  --primary-400: #{$primary-purple-400};
+  --primary-500: #{$primary-purple-500};
+  --primary-600: #{$primary-purple-600};
+  --primary-700: #{$primary-purple-700};
+  --primary-800: #{$primary-purple-800};
+  --primary-900: #{$primary-purple-900};
+
+  --primary-600-tr-50: #{$primary-purple-600-tr-50};
+}
+[data-color="green"][data-theme="dark"]{
+
+  --basic-100: #{$basic-green-100};
+  --basic-200: #{$basic-green-200};
+  --basic-300: #{$basic-green-300};
+  --basic-400: #{$basic-green-400};
+  --basic-500: #{$basic-green-500};
+  --basic-600: #{$basic-green-600};
+  --basic-700: #{$basic-green-700};
+  --basic-800: #{$basic-green-800};
+  --basic-900: #{$basic-green-900};
+  --basic-1000: #{$basic-green-1000};
+  --basic-1100: #{$basic-green-1100}; 
+
+  --basic-100-tr-10: #{$basic-green-100-tr-10};
+  --basic-100-tr-30: #{$basic-green-100-tr-30};
+  --basic-100-tr-50: #{$basic-green-100-tr-50};
+  --basic-100-tr-60: #{$basic-green-100-tr-60};
+  --basic-100-tr-80: #{$basic-green-100-tr-80};
+
+  --basic-700-tr-10: #{$basic-green-700-tr-10};
+  --basic-700-tr-30: #{$basic-green-700-tr-30};
+  --basic-700-tr-50: #{$basic-green-700-tr-50};
+  --basic-700-tr-60: #{$basic-green-700-tr-60};
+  --basic-700-tr-80: #{$basic-green-700-tr-80};
+
+  --primary-100: #{$primary-green-100};
+  --primary-200: #{$primary-green-200};
+  --primary-300: #{$primary-green-300};
+  --primary-400: #{$primary-green-400};
+  --primary-500: #{$primary-green-500};
+  --primary-600: #{$primary-green-600};
+  --primary-700: #{$primary-green-700};
+  --primary-800: #{$primary-green-800};
+  --primary-900: #{$primary-green-900};
+
+  --primary-600-tr-50: #{$primary-green-600-tr-50}; 
+}
+[data-color="green"][data-theme="light"]{
+  
+  --basic-100: #{$basic-green-1100};
+  --basic-200: #{$basic-green-1000};
+  --basic-300: #{$basic-green-900};
+  --basic-400: #{$basic-green-800};
+  --basic-500: #{$basic-green-700};
+  --basic-600: #{$basic-green-600};
+  --basic-700: #{$basic-green-500};
+  --basic-800: #{$basic-green-400};
+  --basic-900: #{$basic-green-300};
+  --basic-1000: #{$basic-green-200};
+  --basic-1100: #{$basic-green-100}; 
+
+  --basic-100-tr-10: #{basic-green-100-tr-10-light};
+  --basic-100-tr-30: #{basic-green-100-tr-30-light};
+  --basic-100-tr-50: #{basic-green-100-tr-50-light};
+  --basic-100-tr-60: #{basic-green-100-tr-60-light};
+  --basic-100-tr-80: #{basic-green-100-tr-80-light};
+
+  --basic-700-tr-10: #{basic-green-700-tr-10-light};
+  --basic-700-tr-30: #{basic-green-700-tr-30-light};
+  --basic-700-tr-50: #{basic-green-700-tr-50-light};
+  --basic-700-tr-60: #{basic-green-700-tr-60-light};
+  --basic-700-tr-80: #{basic-green-700-tr-80-light};
+
+  --primary-100: #{$primary-green-100};
+  --primary-200: #{$primary-green-200};
+  --primary-300: #{$primary-green-300};
+  --primary-400: #{$primary-green-400};
+  --primary-500: #{$primary-green-500};
+  --primary-600: #{$primary-green-600};
+  --primary-700: #{$primary-green-700};
+  --primary-800: #{$primary-green-800};
+  --primary-900: #{$primary-green-900};
+
+  --primary-600-tr-50: #{$primary-green-600-tr-50};
 }
