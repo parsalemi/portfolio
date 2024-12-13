@@ -21,6 +21,9 @@ import { MatIconModule } from '@angular/material/icon';
 export class HeaderOptionsComponent implements OnInit{
   settingsOpt: MenuItem[] | undefined;
   @Output() darkMode = new EventEmitter();
+  @Output() purpleTheme = new EventEmitter();
+  @Output() blueTheme = new EventEmitter();
+  @Output() greenTheme = new EventEmitter();
 
   ngOnInit(): void {
     this.settingsOpt = [
@@ -31,6 +34,29 @@ export class HeaderOptionsComponent implements OnInit{
             label: 'Dark/Light',
             icon: 'pi pi-moon',
             command: () => this.darkMode.emit(),
+          },
+        ]
+      },
+      {
+        label: 'Themes',
+        items: [
+          {
+            label: 'Purple',
+            icon: 'pi pi-circle-fill',
+            iconStyle: {color: 'hsla(265, 65%, 40%, .7)', fontSize: '12px'},
+            command: () => this.purpleTheme.emit(),
+          },
+          {
+            label: 'Blue',
+            icon: 'pi pi-circle-fill',
+            iconStyle: {color: 'hsla(215, 65%, 40%, .7)', fontSize: '12px'},
+            command: () => this.blueTheme.emit(),
+          },
+          {
+            label: 'Green',
+            icon: 'pi pi-circle-fill',
+            iconStyle: {color: 'hsla(165, 65%, 40%, .7)', fontSize: '12px'},
+            command: () => this.greenTheme.emit(),
           }
         ]
       }
