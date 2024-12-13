@@ -23,6 +23,7 @@ body{
   body{
     background-color: var(--basic-1000);
     color: var(--basic-200);
+    max-width: 100%;
   }
 
   [class*=header]{
@@ -53,9 +54,22 @@ body{
   .mobile-header{
     
   }
-  .lordIcon{
-    --lord-icon-primary: var(--basic-200);
-    --lord-icon-secondary: var(--basic-600);
+
+  .btn-primary{
+    background-color: var(--primary-600);
+    color: var(--basic-200);
+    padding: 10px 20px;
+    border-radius: .8rem;
+    text-align: center;
+    font-size: .8rem;
+  }
+  .btn-secondary{
+    background-color: transparent;
+    border: 2px solid var(--primary-600);
+    color: var(--basic-200);
+    padding: 10px 20px;
+    border-radius: .8rem;
+    text-align: center;
+    font-size: .8rem;
   }
 }
-
