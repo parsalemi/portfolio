@@ -14,7 +14,7 @@ export class AppComponent implements OnInit{
   title = 'Parsalemi Portfolio';
   darkMode: boolean = true;
   settingsOpt: MenuItem[] | undefined;
-
+  
   constructor(
     @Inject(DOCUMENT) private _document: Document,
     @Inject(PLATFORM_ID) private _platformId: string,
