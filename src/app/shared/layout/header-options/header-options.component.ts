@@ -33,10 +33,9 @@ export class HeaderOptionsComponent implements OnInit, OnChanges{
         label: 'Options',
         items: [
           {
-            // label: 'Dark/Light',
             label: changes['darkTheme'].currentValue ? 'Light' : 'Dark',
-            // icon: 'pi pi-moon',
             icon: changes['darkTheme'].currentValue ? 'pi pi-sun' : 'pi pi-moon',
+            iconStyle: {color: 'var(--basic-400)'},
             command: () => this.darkMode.emit(),
           },
         ]
@@ -75,6 +74,7 @@ export class HeaderOptionsComponent implements OnInit, OnChanges{
           {
             label: 'Light',
             icon: 'pi pi-sun',
+            iconStyle: {color: 'var(--basic-400)'},
             command: () => this.darkMode.emit(),
           },
         ]
