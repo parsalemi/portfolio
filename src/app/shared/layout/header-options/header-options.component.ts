@@ -1,9 +1,10 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Inject, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { MenuItem } from 'primeng/api';
 import { MenuModule } from 'primeng/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-header-options',
@@ -18,21 +19,62 @@ import { MatIconModule } from '@angular/material/icon';
     MatIconModule,
   ]
 })
-export class HeaderOptionsComponent implements OnInit{
+export class HeaderOptionsComponent implements OnInit, OnChanges{
   settingsOpt: MenuItem[] | undefined;
   @Output() darkMode = new EventEmitter();
   @Output() purpleTheme = new EventEmitter();
   @Output() blueTheme = new EventEmitter();
   @Output() greenTheme = new EventEmitter();
+  @Input() darkTheme: Boolean = true;
 
+  ngOnChanges(changes: SimpleChanges): void {
+    this.settingsOpt = [
+      {
+        label: 'Options',
+        items: [
+          {
+            // label: 'Dark/Light',
+            label: changes['darkTheme'].currentValue ? 'Light' : 'Dark',
+            // icon: 'pi pi-moon',
+            icon: changes['darkTheme'].currentValue ? 'pi pi-sun' : 'pi pi-moon',
+            command: () => this.darkMode.emit(),
+          },
+        ]
+      },
+      {
+        label: 'Themes',
+        items: [
+          {
+            label: 'Purple',
+            icon: 'pi pi-circle-fill',
+            iconStyle: {color: 'hsla(265, 65%, 40%, .7)', fontSize: '12px'},
+            command: () => this.purpleTheme.emit(),
+          },
+          {
+            label: 'Blue',
+            icon: 'pi pi-circle-fill',
+            iconStyle: {color: 'hsla(215, 65%, 40%, .7)', fontSize: '12px'},
+            command: () => this.blueTheme.emit(),
+          },
+          {
+            label: 'Green',
+            icon: 'pi pi-circle-fill',
+            iconStyle: {color: 'hsla(165, 65%, 40%, .7)', fontSize: '12px'},
+            command: () => this.greenTheme.emit(),
+          }
+        ]
+      }
+    ]    
+
+  }
   ngOnInit(): void {
     this.settingsOpt = [
       {
         label: 'Options',
         items: [
           {
-            label: 'Dark/Light',
-            icon: 'pi pi-moon',
+            label: 'Light',
+            icon: 'pi pi-sun',
             command: () => this.darkMode.emit(),
           },
         ]
