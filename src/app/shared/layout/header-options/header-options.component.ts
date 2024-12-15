@@ -1,10 +1,9 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Inject, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { MenuItem } from 'primeng/api';
 import { MenuModule } from 'primeng/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-header-options',
@@ -25,19 +24,34 @@ export class HeaderOptionsComponent implements OnInit, OnChanges{
   @Output() purpleTheme = new EventEmitter();
   @Output() blueTheme = new EventEmitter();
   @Output() greenTheme = new EventEmitter();
+  @Output() toggleAnimation = new EventEmitter();
   @Input() darkTheme: Boolean = true;
+  @Input() animated: Boolean = true;
 
+  _animated !: boolean;
+  _darkTheme !: boolean;
   ngOnChanges(changes: SimpleChanges): void {
+    if(changes['animated'] !== undefined){
+      this._animated = changes['animated'].currentValue;
+    }
+    if(changes['darkTheme'] !== undefined){
+      this._darkTheme = changes['darkTheme'].currentValue;
+    }
     this.settingsOpt = [
       {
         label: 'Options',
         items: [
           {
-            label: changes['darkTheme'].currentValue ? 'Light' : 'Dark',
-            icon: changes['darkTheme'].currentValue ? 'pi pi-sun' : 'pi pi-moon',
+            label: this._darkTheme ? 'Light' : 'Dark',
+            icon: this._darkTheme ? 'pi pi-sun' : 'pi pi-moon',
             iconStyle: {color: 'var(--basic-400)'},
             command: () => this.darkMode.emit(),
           },
+          {
+            label: 'Border animation',
+            icon: this._animated ? 'pi pi-stop-circle' : 'pi pi-play-circle',
+            command: () => this.toggleAnimation.emit(),
+          }
         ]
       },
       {
@@ -77,6 +91,11 @@ export class HeaderOptionsComponent implements OnInit, OnChanges{
             iconStyle: {color: 'var(--basic-400)'},
             command: () => this.darkMode.emit(),
           },
+          {
+            label: 'Border Animation',
+            icon: 'pi pi-stop-circle',
+            command: () => this.toggleAnimation.emit(),
+          }
         ]
       },
       {

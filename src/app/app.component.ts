@@ -13,6 +13,7 @@ import { MenuItem } from 'primeng/api';
 export class AppComponent implements OnInit{
   title = 'Parsalemi Portfolio';
   darkMode: boolean = true;
+  animatedBorder: boolean = true;
   settingsOpt: MenuItem[] | undefined;
   
   constructor(
@@ -54,6 +55,22 @@ export class AppComponent implements OnInit{
     if(dataColor !== 'green'){
       this._document.documentElement.setAttribute('data-color', 'green');
     }
+  }
+  toggleAnimation(){
+    this.animatedBorder = !this.animatedBorder;
+    const arr = [];
+    const aboutEl = this._document.querySelector('.about');
+    const projectsEl = this._document.querySelector('.projects');
+    const skillsEl = this._document.querySelector('.skills');
+    const contactEl = this._document.querySelector('.contact');
+    arr.push(aboutEl,projectsEl,skillsEl,contactEl);
+    arr.forEach( (el: any) => {
+      if(el.style.backgroundImage == 'none'){
+        el.style.backgroundImage = 'conic-gradient(from var(--border-gradient-angle) at 50% 50%, transparent, var(--primary-700) 14%, transparent 17%)';
+      }else {
+        el.style.backgroundImage = 'none';
+      }
+    })
   }
   ngOnInit(){
 
