@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule],
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss'],
+  imports: [
+
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ContactComponent {
 
