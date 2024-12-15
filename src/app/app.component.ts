@@ -63,7 +63,10 @@ export class AppComponent implements OnInit{
     const projectsEl = this._document.querySelector('.projects');
     const skillsEl = this._document.querySelector('.skills');
     const contactEl = this._document.querySelector('.contact');
-    arr.push(aboutEl,projectsEl,skillsEl,contactEl);
+    const resumeEl = this._document.querySelector('.resume');
+    
+    arr.push(aboutEl, projectsEl, skillsEl, contactEl, resumeEl);
+
     arr.forEach( (el: any) => {
       if(el.style.backgroundImage == 'none'){
         el.style.backgroundImage = 'conic-gradient(from var(--border-gradient-angle) at 50% 50%, transparent, var(--primary-700) 14%, transparent 17%)';
