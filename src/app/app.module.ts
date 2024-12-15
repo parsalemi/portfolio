@@ -13,6 +13,8 @@ import { ButtonModule } from 'primeng/button';
 import { HeaderOptionsComponent } from "./shared/layout/header-options/header-options.component";
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { TooltipModule } from 'primeng/tooltip';
+
 @NgModule({ 
   declarations: [
     AppComponent
@@ -27,6 +29,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
     ButtonModule,
     HeaderOptionsComponent,
     HttpClientModule,
+    TooltipModule,
     AngularSvgIconModule.forRoot(),
   ], 
   providers: [provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync()],
