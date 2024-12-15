@@ -20,10 +20,6 @@ const routes: Routes = [
     loadComponent: () => import('./components/contact/contact.component').then(c => c.ContactComponent),
   },
   {
-    path: 'resume',
-    loadComponent: () => import('./components/resume/resume.component').then(c => c.ResumeComponent),
-  },
-  {
     path: '**',
     loadComponent: () => import('./components/page-not-found/page-not-found.component').then(c => c.PageNotFoundComponent),
   }
