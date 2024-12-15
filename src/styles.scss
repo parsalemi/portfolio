@@ -95,7 +95,8 @@ body{
     padding: 10px 20px;
     border-radius: .8rem;
     text-align: center;
-    font-size: .8rem;
+    font-size: .875rem;
+    text-wrap: nowrap;
   }
   .btn-secondary{
     background-color: transparent;
@@ -104,6 +105,7 @@ body{
     padding: 10px 20px;
     border-radius: .8rem;
     text-align: center;
-    font-size: .8rem;
+    font-size: .875rem;
+    text-wrap: nowrap;
   }
 }
