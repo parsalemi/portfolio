@@ -6,6 +6,41 @@
 @tailwind components;
 @tailwind utilities;
 
+[id*="pn_id"]{
+  background: none;
+  box-shadow: none;
+}
+.menu .p-menu {
+  background-color: var(--basic-800);
+  padding: 5px;
+  border-radius: 20px;
+  }
+  .p-menu-list{
+    background-color: var(--basic-700);
+    border-radius: 30px;
+  }
+  .p-menuitem{
+    background-color: var(--basic-900);
+    &:last-child{
+      border-radius: 0 0 20px 20px;
+    }
+  }
+  .p-menuitem-content{
+    &:hover{
+      background-color: var(--basic-1000);
+    }
+  }
+  .p-menuitem-text{
+    color: var(--basic-300);
+  }
+  .p-submenu-header{
+    color: var(--basic-300);
+    background-color: var(--basic-800);
+    &:first-child{
+      border-radius: 20px 20px 0 0;
+    }
+  }
+
 
 body{
   height: 100dvh;
@@ -14,7 +49,7 @@ body{
   margin: 0;
   box-sizing: border-box;
   font-family: Gevena, Tahoma, sans-serif;
-}
+  }
 @layer base{
   *{
     transition: color 1s;
@@ -24,6 +59,7 @@ body{
     background-color: var(--basic-1000);
     color: var(--basic-200);
     max-width: 100%;
+
   }
 
   [class*=header]{
@@ -40,8 +76,7 @@ body{
     bottom: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 5%;
+    justify-content: space-evenly;
     box-shadow: 0 -40px 50px var(--basic-1000);
     a {
       padding: 24px 10px;
