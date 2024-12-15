@@ -42,10 +42,9 @@ body{
     align-items: center;
     justify-content: center;
     gap: 5%;
-
+    box-shadow: 0 -40px 50px var(--basic-1000);
     a {
       padding: 24px 10px;
-      // filter: drop-shadow(1px 1px 10px white);
       &:last-child{
         border: none;
       }
