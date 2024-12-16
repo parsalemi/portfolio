@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import lottie from 'lottie-web';
 import { defineElement } from '@lordicon/element';
 import { DOCUMENT } from '@angular/common';
@@ -57,7 +57,6 @@ export class AppComponent implements OnInit{
     }
   }
   toggleAnimation(){
-    this.animatedBorder = !this.animatedBorder;
     const arr = [];
     const aboutEl = this._document.querySelector('.about');
     const projectsEl = this._document.querySelector('.projects');
@@ -68,10 +67,13 @@ export class AppComponent implements OnInit{
     arr.push(aboutEl, projectsEl, skillsEl, contactEl, resumeEl);
 
     arr.forEach( (el: any) => {
-      if(el.style.backgroundImage == 'none'){
-        el.style.backgroundImage = 'conic-gradient(from var(--border-gradient-angle) at 50% 50%, transparent, var(--primary-700) 14%, transparent 17%)';
-      }else {
-        el.style.backgroundImage = 'none';
+      if(el){
+        this.animatedBorder = !this.animatedBorder;
+        if(el.style.backgroundImage == 'none'){
+          el.style.backgroundImage = 'conic-gradient(from var(--border-gradient-angle) at 50% 50%, transparent, var(--primary-700) 14%, transparent 17%)';
+        }else {
+          el.style.backgroundImage = 'none';
+        }
       }
     })
   }
