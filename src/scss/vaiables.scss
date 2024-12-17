@@ -197,7 +197,68 @@ $warning-700: hsl(56, 75%, 30%);
 $warning-800: hsl(56, 85%, 25%);
 $warning-900: hsl(58, 95%, 20%);
 
+////////// TYPOGRAPHY ///////////
+
+$h1-fontSize: 1.75rem;
+$h1-lineHeight: 2.25rem;
+
+$h2-fontSize: 1.625rem;
+$h2-lineHeight: 2rem;
+
+$h3-fontSize: 1.5rem;
+$h3-lineHeight: 1.875rem;
+
+$h4-fontSize: 1.25rem;
+$h4-lineHeight: 1.75rem;
+
+$h5-fontSize: 1rem;
+$h5-lineHeight: 1.25rem;
+
+$xl-fontSize: 1rem;
+$xl-lineHeight: 1.25rem;
+
+$lg-fontSize: .875rem;
+$lg-lineHeight: 1.25rem;
+
+$md-fontSize: .75rem;
+$md-lineHeight: 1.125rem;
+
+$sm-fontSize: .625rem;
+$sm-lineHeight: 1rem;
+
+// DESKTOP
+
+$h1-fontSize-desktop: 1.75rem;
+$h1-lineHeight-desktop: 2.25rem;
+
+$h2-fontSize-desktop: 1.625rem;
+$h2-lineHeight-desktop: 2rem;
+
+$h3-fontSize-desktop: 1.5rem;
+$h3-lineHeight-desktop: 1.875rem;
+
+$h4-fontSize-desktop: 1.25rem;
+$h4-lineHeight-desktop: 1.75rem;
+
+$h5-fontSize-desktop: 1rem;
+$h5-lineHeight-desktop: 1.25rem;
+
+$xl-fontSize-desktop: 1rem;
+$xl-lineHeight-desktop: 1.25rem;
+
+$lg-fontSize-desktop: .875rem;
+$lg-lineHeight-desktop: 1.25rem;
+
+$md-fontSize-desktop: .75rem;
+$md-lineHeight-desktop: 1.125rem;
+
+$sm-fontSize-desktop: .625rem;
+$sm-lineHeight-desktop: 1rem;
+
+
+
 :root{
+
   --primary-100: #{$primary-blue-100};
   --primary-200: #{$primary-blue-200};
   --primary-300: #{$primary-blue-300};
@@ -263,6 +324,63 @@ $warning-900: hsl(58, 95%, 20%);
   --warning-700: #{$warning-700};
   --warning-800: #{$warning-800};
   --warning-900: #{$warning-900};
+
+  --h1-fontSize: #{$h1-fontSize};
+  --h1-lineHeight: #{$h1-lineHeight};
+
+  --h2-fontSize: #{$h2-fontSize};
+  --h2-lineHeight: #{$h2-lineHeight};
+
+  --h3-fontSize: #{$h3-fontSize};
+  --h3-lineHeight: #{$h3-lineHeight};
+
+  --h4-fontSize: #{$h4-fontSize};
+  --h4-lineHeight: #{$h4-lineHeight};
+
+  --h5-fontSize: #{$h5-fontSize};
+  --h5-lineHeight: #{$h5-lineHeight};
+
+  --xl-fontSize: #{$xl-fontSize};
+  --xl-lineHeigth: #{$xl-lineHeight};
+
+  --lg-fontSize: #{$lg-fontSize};
+  --lg-lineHeight: #{$lg-lineHeight};
+
+  --md-fontSize: #{$md-fontSize};
+  --md-lineHeight: #{$md-lineHeight};
+
+  --sm-fontSize: #{$sm-fontSize};
+  --sm-lineHeight: #{$sm-lineHeight};
+
+  @media (min-width: 1024px){
+
+    --h1-fontSize: #{$h1-fontSize-desktop};
+    --h1-lineHeight: #{$h1-lineHeight-desktop};
+
+    --h2-fontSize: #{$h2-fontSize-desktop};
+    --h2-lineHeight: #{$h2-lineHeight-desktop};
+
+    --h3-fontSize: #{$h3-fontSize-desktop};
+    --h3-lineHeight: #{$h3-lineHeight-desktop};
+
+    --h4-fontSize: #{$h4-fontSize-desktop};
+    --h4-lineHeight: #{$h4-lineHeight-desktop};
+
+    --h5-fontSize: #{$h5-fontSize-desktop};
+    --h5-lineHeight: #{$h5-lineHeight-desktop};
+
+    --xl-fontSize: #{$xl-fontSize-desktop};
+    --xl-lineHeigth: #{$xl-lineHeight-desktop};
+
+    --lg-fontSize: #{$lg-fontSize-desktop};
+    --lg-lineHeight: #{$lg-lineHeight-desktop};
+
+    --md-fontSize: #{$md-fontSize-desktop};
+    --md-lineHeight: #{$md-lineHeight-desktop};
+
+    --sm-fontSize: #{$sm-fontSize-desktop};
+    --sm-lineHeight: #{$sm-lineHeight-desktop};
+  }
 }
 
 [data-color="blue"][data-theme="dark"]{
