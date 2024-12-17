@@ -18,7 +18,6 @@ export class AppComponent implements OnInit{
   
   constructor(
     @Inject(DOCUMENT) private _document: Document,
-    @Inject(PLATFORM_ID) private _platformId: string,
   ){
     defineElement(lottie.loadAnimation);
     this._document.documentElement.setAttribute('data-theme', 'dark');

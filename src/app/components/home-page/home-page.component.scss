@@ -25,9 +25,6 @@
   z-index: 2;
   @include forBorderAnimation();
 }
-.noAnime{
-  background-image: none;
-}
 .container{
   display: grid;
   column-gap: 20px;
