@@ -185,3 +185,39 @@ p{
     border-radius: 20px 20px 0 0;
   }
 }
+
+// ACCESSIBILY
+:focus-visible{
+  background-color: var(--warning-400);
+  border: none;
+  color: black;
+  outline: 2px dashed black;
+  transition: none;
+  font-family: 'Titillium-bold';
+  svg{
+    stroke: black;
+    fill: black;
+    path{
+      fill: black;
+    }
+    #rays{
+      stroke: black;
+    }
+  }
+  i{
+    color: black;
+  }
+  .lordIcon{
+    --lord-icon-primary: black;
+    --lord-icon-secondary: black;   
+  }
+  .lordIconLinkedin{
+    --lord-icon-primary: black;
+    --lord-icon-secondary: black;   
+  }
+}
+[data-theme="dark"]{
+  :focus-visible{
+    outline-color: white;
+  }
+}
