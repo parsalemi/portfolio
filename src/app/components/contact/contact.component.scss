@@ -1,11 +1,3 @@
-.lordIcon{
-  --lord-icon-primary: var(--basic-200);
-  --lord-icon-secondary: var(--primary-600);
-}
-.lordIconLinkedin{
-  --lord-icon-primary: var(--primary-600);
-  --lord-icon-secondary: var(--basic-200);
-}
 .card{
   display: flex;
   flex-direction: column;
@@ -18,5 +10,6 @@
 
   @screen md{
     flex-direction: row;
+    justify-content: space-between;
   }
 }
