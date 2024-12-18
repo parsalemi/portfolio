@@ -6,3 +6,17 @@
   --lord-icon-primary: var(--primary-600);
   --lord-icon-secondary: var(--basic-200);
 }
+.card{
+  display: flex;
+  flex-direction: column;
+  background-color: var(--basic-1100);
+  padding: 2.5rem;
+  gap: 1.25rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+
+  @screen md{
+    flex-direction: row;
+  }
+}
