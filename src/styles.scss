@@ -158,12 +158,16 @@ p{
 .p-menu-list{
   background-color: var(--basic-700);
   border-radius: 30px;
-  @apply shadow-5
+  overflow: hidden;
+  @apply shadow-5;
 }
 .p-menuitem{
   background-color: var(--basic-900);
-  &:last-child{
-    border-radius: 0 0 20px 20px;
+  &.p-focus{
+    background-color: transparent;
+    .p-ripple{
+      background-color: var(--basic-1000);
+    }
   }
 }
 .p-menuitem-content{
