@@ -64,7 +64,7 @@ p{
     background-color: var(--basic-1000);
     color: var(--basic-200);
     max-width: 100%;
-
+    overflow-x: hidden;
   }
   [class*=header]{
     background-color: var(--basic-1100);
@@ -134,7 +134,16 @@ p{
     }
   }
 }
+// LORD ICONS
 
+.lordIcon{
+  --lord-icon-primary: var(--basic-200);
+  --lord-icon-secondary: var(--primary-600);
+}
+.lordIconLinkedin{
+  --lord-icon-primary: var(--primary-600);
+  --lord-icon-secondary: var(--basic-200);
+}
 // PRIME NG
 
 [id*="pn_id"]{
