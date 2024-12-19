@@ -55,6 +55,20 @@ h6{
 p{
   @apply text-xl;
 }
+.linkActive{
+  position: relative;
+  color: var(--primary-600);
+  &::after{
+    content: "";
+    position: absolute;
+    bottom: 10%;
+    left: 10px;
+    width: calc(100% - 20px);
+    height: 2px;
+    background: var(--primary-600);
+    border-radius: 10px;
+  }
+}
 @layer base{
   *{
     transition: color 1s;
@@ -208,6 +222,9 @@ p{
     }
   }
   i{
+    color: black;
+  }
+  .linkActive{
     color: black;
   }
   .lordIcon{

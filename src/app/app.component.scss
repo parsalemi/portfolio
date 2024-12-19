@@ -5,20 +5,6 @@
 .mobile-nav a {
   @apply flex flex-col gap-1 items-center justify-center
 }
-.linkActive{
-  position: relative;
-  color: var(--primary-600);
-  &::after{
-    content: "";
-    position: absolute;
-    bottom: 10%;
-    left: 10px;
-    width: calc(100% - 20px);
-    height: 2px;
-    background: var(--primary-600);
-    border-radius: 10px;
-  }
-}
 
 .mid a{
   position: relative;
