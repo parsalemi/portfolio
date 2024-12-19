@@ -16,12 +16,12 @@
     bottom: 10%;
     width: 0;
     height: 2px;
-    background: var(--primary-600);
+    background: var(--primary-300);
     border-radius: 10px;
     transition: all .3s;
   }
   &:hover{
-    color: var(--primary-600);
+    color: var(--primary-300);
     transition: color .5s;
     &::before{
       width: calc(100% - 20px);

@@ -57,7 +57,7 @@ p{
 }
 .linkActive{
   position: relative;
-  color: var(--primary-600);
+  color: var(--primary-300);
   &::after{
     content: "";
     position: absolute;
@@ -65,7 +65,7 @@ p{
     left: 10px;
     width: calc(100% - 20px);
     height: 2px;
-    background: var(--primary-600);
+    background: var(--primary-400);
     border-radius: 10px;
   }
 }
