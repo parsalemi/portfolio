@@ -241,3 +241,11 @@ p{
     outline-color: white;
   }
 }
+[data-theme="light"]{
+  .linkActive{
+    color: var(--primary-600);
+    &::after{
+      background: var(--primary-600);
+    }
+  }
+}
