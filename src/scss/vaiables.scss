@@ -57,17 +57,17 @@ $primary-blue-600-tr-50: hsla(210, 65%, 40%, .2);
 
 // BASIC
 
-$basic-purple-100: hsl(245, 20%, 90%);
-$basic-purple-200: hsl(245, 18%, 80%);
-$basic-purple-300: hsl(245, 17%, 75%);
-$basic-purple-400: hsl(245, 16%, 70%);
-$basic-purple-500: hsl(245, 15%, 60%);
-$basic-purple-600: hsl(245, 17%, 50%);
-$basic-purple-700: hsl(245, 19%, 40%);
-$basic-purple-800: hsl(245, 22%, 30%);
-$basic-purple-900: hsl(245, 25%, 20%);
-$basic-purple-1000: hsl(245, 25%, 15%);
-$basic-purple-1100: hsl(245, 25%, 10%);
+$basic-purple-100: hsl(245, 12%, 90%);
+$basic-purple-200: hsl(245, 10%, 80%);
+$basic-purple-300: hsl(245, 12%, 75%);
+$basic-purple-400: hsl(245, 12%, 70%);
+$basic-purple-500: hsl(245, 10%, 60%);
+$basic-purple-600: hsl(245, 13%, 50%);
+$basic-purple-700: hsl(245, 15%, 40%);
+$basic-purple-800: hsl(245, 18%, 30%);
+$basic-purple-900: hsl(245, 20%, 20%);
+$basic-purple-1000: hsl(245, 20%, 15%);
+$basic-purple-1100: hsl(245, 20%, 10%);
 
 // BASIC TRANSPARENT
 $basic-purple-100-tr-10: hsla(265, 20%, 90%, .1);
@@ -125,41 +125,41 @@ $basic-green-1000: hsl(195, 25%, 15%);
 $basic-green-1100: hsl(195, 25%, 10%);
 
 // BASIC TRANSPARENT
-$basic-green-100-tr-10: hsla(265, 20%, 90%, .1);
-$basic-green-100-tr-30: hsla(265, 20%, 90%, .3);
-$basic-green-100-tr-50: hsla(265, 20%, 90%, .5);
-$basic-green-100-tr-60: hsla(265, 20%, 90%, .6);
-$basic-green-100-tr-80: hsla(265, 20%, 90%, .8);
+$basic-green-100-tr-10: hsla(195, 20%, 90%, .1);
+$basic-green-100-tr-30: hsla(195, 20%, 90%, .3);
+$basic-green-100-tr-50: hsla(195, 20%, 90%, .5);
+$basic-green-100-tr-60: hsla(195, 20%, 90%, .6);
+$basic-green-100-tr-80: hsla(195, 20%, 90%, .8);
 
-$basic-green-700-tr-10: hsla(265, 19%, 40%, .1);
-$basic-green-700-tr-30: hsla(265, 19%, 40%, .3);
-$basic-green-700-tr-50: hsla(265, 19%, 40%, .5);
-$basic-green-700-tr-60: hsla(265, 19%, 40%, .6);
-$basic-green-700-tr-80: hsla(265, 19%, 40%, .8);
+$basic-green-700-tr-10: hsla(195, 19%, 40%, .1);
+$basic-green-700-tr-30: hsla(195, 19%, 40%, .3);
+$basic-green-700-tr-50: hsla(195, 19%, 40%, .5);
+$basic-green-700-tr-60: hsla(195, 19%, 40%, .6);
+$basic-green-700-tr-80: hsla(195, 19%, 40%, .8);
 
 //BASIC TRANSPARENT LIGHT
-$basic-green-100-tr-10-ligth: hsla(265, 25%, 10%, .1);
-$basic-green-100-tr-30-ligth: hsla(265, 25%, 10%, .3);
-$basic-green-100-tr-50-ligth: hsla(265, 25%, 10%, .5);
-$basic-green-100-tr-60-ligth: hsla(265, 25%, 10%, .6);
-$basic-green-100-tr-80-ligth: hsla(265, 25%, 10%, .8);
+$basic-green-100-tr-10-ligth: hsla(195, 25%, 10%, .1);
+$basic-green-100-tr-30-ligth: hsla(195, 25%, 10%, .3);
+$basic-green-100-tr-50-ligth: hsla(195, 25%, 10%, .5);
+$basic-green-100-tr-60-ligth: hsla(195, 25%, 10%, .6);
+$basic-green-100-tr-80-ligth: hsla(195, 25%, 10%, .8);
 
-$basic-green-700-tr-10: hsla(265, 15%, 60%, .1);
-$basic-green-700-tr-30: hsla(265, 15%, 60%, .3);
-$basic-green-700-tr-50: hsla(265, 15%, 60%, .5);
-$basic-green-700-tr-60: hsla(265, 15%, 60%, .6);
-$basic-green-700-tr-80: hsla(265, 15%, 60%, .8);
+$basic-green-700-tr-10: hsla(195, 15%, 60%, .1);
+$basic-green-700-tr-30: hsla(195, 15%, 60%, .3);
+$basic-green-700-tr-50: hsla(195, 15%, 60%, .5);
+$basic-green-700-tr-60: hsla(195, 15%, 60%, .6);
+$basic-green-700-tr-80: hsla(195, 15%, 60%, .8);
 
 // PRIMARY
-$primary-green-100: hsl(160, 95%, 90%);
-$primary-green-200: hsl(160, 85%, 80%);
-$primary-green-300: hsl(160, 75%, 70%);
-$primary-green-400: hsl(160, 65%, 60%);
-$primary-green-500: hsl(160, 60%, 50%);
-$primary-green-600: hsl(160, 65%, 40%);
-$primary-green-700: hsl(160, 75%, 30%);
-$primary-green-800: hsl(160, 85%, 25%);
-$primary-green-900: hsl(160, 94%, 20%);
+$primary-green-100: hsl(160, 95%, 95%);
+$primary-green-200: hsl(160, 85%, 70%);
+$primary-green-300: hsl(160, 75%, 60%);
+$primary-green-400: hsl(160, 65%, 50%);
+$primary-green-500: hsl(160, 60%, 45%);
+$primary-green-600: hsl(160, 65%, 30%);
+$primary-green-700: hsl(160, 75%, 20%);
+$primary-green-800: hsl(160, 85%, 15%);
+$primary-green-900: hsl(160, 94%, 10%);
 
 $primary-green-600-tr-50: hsla(140, 65%, 40%, .2);
 
