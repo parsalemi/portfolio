@@ -235,6 +235,10 @@ p{
     --lord-icon-primary: black;
     --lord-icon-secondary: black;   
   }
+  .p-card{
+    background-color: yellow;
+    color: black;
+  }
 }
 [data-theme="dark"]{
   :focus-visible{
