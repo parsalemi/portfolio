@@ -1,79 +1,91 @@
-<p-button label="check" icon="pi pi-check"></p-button>
-<div class="wrapper w-[90%] h-28 relative">
-  <div class="projectCard absolute bg-primary-50"><a routerLink="../sudoku">sudoku</a></div>
-  <div class="projectCard absolute bg-primary-100"><a routerLink="../weather">weather</a></div>
-  <div class="projectCard absolute bg-primary-200"><a routerLink="../wordGuess">word guess</a></div>
-  <div class="projectCard absolute bg-primary-300">4</div>
-  <div class="projectCard absolute bg-primary-400">5</div>
-  <div class="projectCard absolute bg-primary-500">6</div>
-  <div class="projectCard absolute bg-primary-600">7</div>
-  <div class="projectCard absolute bg-primary-700">8</div>
-  <div class="projectCard absolute bg-primary-800">9</div>
-  <div class="projectCard absolute bg-primary-900">10</div>
-</div>
-<div class="flex gap-1 ml-20 mt-20">
-  <div class="palette bg-primary-100"></div>
-  <div class="palette bg-primary-200"></div>
-  <div class="palette bg-primary-300"></div>
-  <div class="palette bg-primary-400"></div>
-  <div class="palette bg-primary-500"></div>
-  <div class="palette bg-primary-600"></div>
-  <div class="palette bg-primary-700"></div>
-  <div class="palette bg-primary-800"></div>
-  <div class="palette bg-primary-900"></div>
-  primary
-</div>
-<div class="flex gap-1 ml-20 mt-5">
-  <div class="palette bg-error-100"></div>
-  <div class="palette bg-error-200"></div>
-  <div class="palette bg-error-300"></div>
-  <div class="palette bg-error-400"></div>
-  <div class="palette bg-error-500"></div>
-  <div class="palette bg-error-600"></div>
-  <div class="palette bg-error-700"></div>
-  <div class="palette bg-error-800"></div>
-  <div class="palette bg-error-900"></div>
-  error
-</div>
-<div class="flex gap-1 ml-20 mt-5">
-  <div class="palette bg-warning-100"></div>
-  <div class="palette bg-warning-200"></div>
-  <div class="palette bg-warning-300"></div>
-  <div class="palette bg-warning-400"></div>
-  <div class="palette bg-warning-500"></div>
-  <div class="palette bg-warning-600"></div>
-  <div class="palette bg-warning-700"></div>
-  <div class="palette bg-warning-800"></div>
-  <div class="palette bg-warning-900"></div>
-  warning
-</div>
-<div class="flex gap-1 ml-20 mt-5">
-  <div class="palette bg-success-100"></div>
-  <div class="palette bg-success-200"></div>
-  <div class="palette bg-success-300"></div>
-  <div class="palette bg-success-400"></div>
-  <div class="palette bg-success-500"></div>
-  <div class="palette bg-success-600"></div>
-  <div class="palette bg-success-700"></div>
-  <div class="palette bg-success-800"></div>
-  <div class="palette bg-success-900"></div>
-  warning
-</div>
-<div class="flex gap-1 ml-20 mt-5">
-  <div class="palette bg-basic-100"></div>
-  <div class="palette bg-basic-200"></div>
-  <div class="palette bg-basic-300"></div>
-  <div class="palette bg-basic-400"></div>
-  <div class="palette bg-basic-500"></div>
-  <div class="palette bg-basic-600"></div>
-  <div class="palette bg-basic-700"></div>
-  <div class="palette bg-basic-800"></div>
-  <div class="palette bg-basic-900"></div>
-  <div class="palette bg-basic-1000"></div>
-  <div class="palette bg-basic-1100"></div>
-  gray
+<!-- FOR LARGE SCREEN -->
+<div class="lgWrapper w-full hidden lg:flex h-[600px] relative items-center justify-center">
+  @for(project of projects; track project.title){
+  <div class="lgProjectCard absolute">
+    <a [href]="project.ownProject ? '../projects/'+project.link : project.link">
+      <p-card [header]="project.title" [style]="{width: '300px', height: '500px'}" styleClass="relative shadow-3 hover:shadow-2 bg-basic-1100 text-basic-400">
+        <ng-template pTemplate="header">
+          <img src="../../../../assets/weatherCardBackgrounds/cloudy.webp"/>
+          
+        </ng-template>
+        <p>{{project.description}}</p>
+        <ng-template pTemplate="footer">
+          <div class="flex justify-between">
+            <div class="flex gap-2 absolute bottom-5">
+              @for(svg of project.techsSvg; track svg){
+                <svg-icon src="../../../../assets/svg/{{svg}}.svg"></svg-icon>
+              }
+            </div>
+            @if(project.ownProject){
+              <div class="absolute bottom-5 right-5">
+                <p-tag styleClass="mt-5 ml-5 bg-basic-900 text-lg text-basic-100" value="own"/>
+              </div>
+              }
+          </div>
+        </ng-template>
+      </p-card>
+    </a>
+  </div>
+}
 </div>
 
+<!-- FOR MEDIUM SCREEN -->
+<div class="mdWrapper h-[550px] w-full hidden md:flex lg:hidden relative">
+  @for(project of projects; track project.title){
+    <div class="mdProjectCard absolute">
+      <a [href]="project.ownProject ? '../projects/'+project.link : project.link">
+        <p-card [header]="project.title" [style]="{width: '300px', height: '500px'}" styleClass="relative shadow-3 hover:shadow-1 bg-basic-1100 text-basic-400">
+          <ng-template pTemplate="header">
+            <img src="../../../../assets/weatherCardBackgrounds/cloudy.webp"/>
+            
+          </ng-template>
+          <p>{{project.description}}</p>
+          <ng-template pTemplate="footer">
+            <div class="flex justify-between">
+              <div class="flex gap-2 absolute bottom-5">
+                @for(svg of project.techsSvg; track svg){
+                  <svg-icon src="../../../../assets/svg/{{svg}}.svg"></svg-icon>
+                }
+              </div>
+              @if(project.ownProject){
+                <div class="absolute bottom-5 right-5">
+                  <p-tag styleClass="mt-5 ml-5 bg-basic-900 text-lg text-basic-100" value="own"/>
+                </div>
+                }
+            </div>
+          </ng-template>
+        </p-card>
+      </a>
+    </div>
+  }
+</div>
 
-
-
+<!-- FOR SMALL SCREEN -->
+<div class="smWrapper w-full md:hidden flex flex-col items-center justify-center gap-10 last:mb-28">
+  @for(project of projects; track project.title){
+    <div class="">
+      <a [href]="project.ownProject ? '../projects/'+project.link : project.link">
+        <p-card [header]="project.title" [style]="{width: '300px', height: '500px'}" styleClass="relative shadow-3 hover:shadow-1 bg-basic-1100 text-basic-400">
+          <ng-template pTemplate="header">
+            <img src="../../../../assets/weatherCardBackgrounds/cloudy.webp"/>
+          </ng-template>
+          <p>{{project.description}}</p>
+          <ng-template pTemplate="footer">
+            <div class="flex justify-between">
+              <div class="flex gap-2 absolute bottom-5">
+                @for(svg of project.techsSvg; track svg){
+                  <svg-icon src="../../../../assets/svg/{{svg}}.svg"></svg-icon>
+                }
+              </div>
+              @if(project.ownProject){
+                <div class="absolute bottom-5 right-5">
+                  <p-tag styleClass="mt-5 ml-5 bg-basic-900 text-lg text-basic-100" value="own"/>
+                </div>
+                }
+            </div>
+          </ng-template>
+        </p-card>
+      </a>
+    </div>
+  }
+</div>
