@@ -1,10 +1,10 @@
-import { Component, inject, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { WeatherCity } from 'src/app/models/weather';
 import { WeatherService } from 'src/app/services/weather.service';
 import { FormsModule } from '@angular/forms';
-import { AsyncPipe, LowerCasePipe, NgFor, NgForOf, NgIf, NgStyle } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { AsyncPipe, NgClass, NgStyle } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -15,27 +15,25 @@ import { DatePipe } from '@angular/common';
   imports: [
     FormsModule,
     AsyncPipe,
-    NgIf,
-    NgFor,
-    NgForOf,
     RouterLink,
     DatePipe,
     NgStyle,
+    NgClass,
   ],
 })
 export class AllWeathersComponent {
   todayDate = new Date();
-
-  public _weather$: Observable<WeatherCity>;
   public someWeathers$: Observable<WeatherCity>[] = [];
-  
   _api = inject(WeatherService);
-  locations: string[] = ['dubai', 'newyork', 'isfahan', 'losangeles', 'shiraz', 'tehran', 'barcelona', 'madrid', 'paris', 'baqdad', 'berlin', 'london'];
   userLocation: string = this.getUserLoc();
   loading: boolean = false;
-  constructor(){
-    this._weather$ = this._api.getData(this.userLocation);
+  locations: string[] = [
+    'tehran', 'isfahan', 'shiraz', 'mashhad', 'yazd', 'tabriz', 
+    'barcelona', 'dubai', 'newyork', 'losangeles', 'madrid', 'paris',
+    'baqdad', 'berlin', 'london', 'liverpool', 'milan', 'moscow'
+  ];
 
+  constructor(private _router: Router){
     for(let i = 0; i < this.locations.length; i++){
       this.someWeathers$.push(this._api.getData(this.locations[i]));
     }
@@ -75,8 +73,13 @@ export class AllWeathersComponent {
       return `UTC +${tz}`
     }
   }
-
-
+  convertF2C(f: number){
+    return Math.floor((f - 32) * 5/9);
+  }
+  searchCity(city: string){
+    console.log(city);
+    this._router.navigate(['projects/weather/'+city]);
+  }
   ngOnInit(){
     // this.cardBgc('01:00:300',);
     console.log(this.todayDate);

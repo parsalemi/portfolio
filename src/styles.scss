@@ -256,3 +256,8 @@ p{
     }
   }
 }
+[data-theme="dark"]{
+  .weatherIcon{
+    filter: brightness(10000%);
+  }
+}

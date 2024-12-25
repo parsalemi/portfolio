@@ -1,0 +1,71 @@
+$totalNumberOfCards: 6;
+$animationTime: 15s;
+$cardWidth: 320px;
+
+@function animationDelay($itemNumber){
+  @return calc($animationTime/$totalNumberOfCards * ($totalNumberOfCards - $itemNumber) * -1);
+}
+
+.cityInput{
+  background-color: var(--basic-800);
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-align: center;
+  color: var(--basic-200);
+  &:focus{
+    outline: none;
+  }
+  &:focus-visible{
+    outline: 1px solid var(--primary-500);
+  }
+  &::placeholder{
+    text-align: center;
+    color: var(--basic-500);
+  }
+}
+.lgWrapper {
+  margin-inline: auto;
+  overflow-x: hidden;
+  overflow-y: visible;
+  mask-image: linear-gradient(to right,
+  rgba(0 , 0, 0, 0),
+  rgba(0, 0, 0, 1) 20%,
+  rgba(0, 0, 0, 1) 80%,
+  rgba(0, 0, 0, 0),
+  );
+
+  &:hover .lgCard{
+    animation-play-state: paused;
+  }
+  &:hover .lgCardRight{
+    animation-play-state: paused;
+  }
+}
+.lgCard{
+  // background-color: red;
+  left: max(calc($cardWidth * $totalNumberOfCards), 100%);
+  animation: toLeftLg $animationTime infinite linear;
+
+  @for $i from 1 through $totalNumberOfCards{
+    &:nth-child(#{$i}){
+      animation-delay: animationDelay($i);
+    }
+  }
+}
+.lgCardRight{
+  // background-color: red;
+  left: max(calc($cardWidth * $totalNumberOfCards), 100%);
+  animation: toLeftLg $animationTime infinite reverse linear;
+
+  @for $i from 1 through $totalNumberOfCards{
+    &:nth-child(#{$i}){
+      animation-delay: animationDelay($i);
+    }
+  }
+}
+@keyframes toLeftLg{
+  to {
+    left: -45%;
+  }
+}
