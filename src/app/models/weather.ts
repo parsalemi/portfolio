@@ -19,6 +19,7 @@ export interface Days{
   conditions: string;
   description: string;
   icon: string;
+  hours: Hour[];
 }
 export interface Current {
   datetime: string;
@@ -28,5 +29,10 @@ export interface Current {
   conditions: string;
   sunrise: string;
   sunset: string;
+  icon: string;
+}
+export interface Hour{
+  temp: number;
+  conditions: string;
   icon: string;
 }

@@ -1,11 +1,131 @@
-<div class="main w-full h-full" *ngIf="city$ | async as city">
-  <div class="item1">{{city.address}}</div>
-  <div class="item2">2</div>
-  <div class="item3">3</div>
-  <div class="item4">4</div>
-  <div class="item5">5</div>
-  <div class="item6">6</div>
-  <div class="item7">7</div>
-  <div class="item8">8</div>
-  <div class="item9">9</div>
+<div class="hidden md:flex">
+  <div class="main w-full h-[calc(100vh-10rem)]" *ngIf="city$ | async as city">
+    <div class="item1">
+        <div class="flex flex-col justify-between items-center h-full">
+          <div class="flex items-center justify-between w-full">
+            <div class="flex flex-col gap-2">
+              <h4 class="text-4xl">{{city.days[0].datetime | date : 'EEEE'}}</h4>
+              <h2>{{city.days[0].datetime}}</h2>
+            </div>
+            <h2 class="text-5xl capitalize">{{city.address}}</h2>
+          </div>
+          <div class="flex items-center justify-around w-full">
+            <div class="flex gap-10 w-1/2 items-start justify-start">
+              <h4 class="text-6xl" [ngClass]="convertF2C(city.currentConditions.temp) > 40 ? 'text-error-400' : convertF2C(city.currentConditions.temp) < 10 ? 'text-primary-500' : 'text-basic-500'">
+                {{convertF2C(city.currentConditions.temp)}}&deg;
+              </h4>
+              <div class="flex flex-col gap-2">
+                <svg-icon [svgStyle]="{'width.px': 64, 'height.px': 64}" src="../../../../../assets/weatherIcons/{{city.currentConditions.icon}}.svg"></svg-icon>
+                <h5 class="text-2xl">{{city.currentConditions.conditions}}</h5>
+              </div>
+            </div>
+            <div class="flex gap-10">
+              <div class="flex flex-col gap-2">
+                <h4>{{convertF2C(city.days[0].tempmax)}}&deg;</h4>
+                <svg-icon src="../../../../../assets/weatherIcons/sun.svg"></svg-icon>
+              </div>
+              <div class="flex flex-col gap-2">
+                <h4>{{convertF2C(city.days[0].tempmin)}}&deg;</h4>
+                <svg-icon src="../../../../../assets/weatherIcons/moon.svg"></svg-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="item2 flex flex-col gap-5 items-center justify-center">
+      <div class="flex justify-around w-full">
+        <svg-icon class="w-1/4" src="../../../../../assets/weatherIcons/sun.svg"></svg-icon>
+        <div class="flex w-3/4 justify-between">
+          @for(dayIcon of city.days.slice(0, 7); track dayIcon){
+            <svg-icon [svgStyle]="{'width.px': 24, 'height.px': 24}" src="../../../../../assets/weatherIcons/{{dayIcon.hours[12].icon}}.svg"></svg-icon>
+          }
+        </div>
+      </div>
+      <div class="flex justify-around w-full">
+        <svg-icon class="w-1/4" src="../../../../../assets/weatherIcons/moon.svg"></svg-icon>
+        <div class="flex w-3/4 justify-between">
+          @for(dayIcon of city.days.slice(7, 14); track dayIcon){
+            <svg-icon [svgStyle]="{'width.px': 24, 'height.px': 24}" src="../../../../../assets/weatherIcons/{{dayIcon.hours[21].icon}}.svg"></svg-icon>
+          }
+        </div>
+      </div>
+    </div>
+    <div class="item3 flex justify-between items-center">
+        @for(hour of hourArr; track hour){
+          <div class="flex flex-col gap-2 items-center justify-center">
+            <h4 class="flex gap-0">
+              {{hour}}
+            </h4>
+            <svg-icon [svgStyle]="{'width.px': 24, 'height.px': 24}" src="../../../../../assets/weatherIcons/{{city.days[0].hours[hour].icon}}.svg"></svg-icon>
+            <h5 [ngClass]="convertF2C(city.days[0].hours[hour].temp) > 40 ? 'text-error-400' : convertF2C(city.days[0].hours[hour].temp) < 10 ? 'text-primary-500' : 'text-basic-500'">
+              {{convertF2C(city.days[0].hours[hour].temp) | number : '1.0-0'}}&deg;
+            </h5>
+          </div>
+        }
+    </div>
+    <div class="item4 flex flex-col justify-around">
+      <h3>TODAY</h3>
+      <div class="flex items-center justify-between">
+        <h1 class="text-4xl" [ngClass]="convertF2C(city.days[0].hours[12].temp) > 40 ? 'text-error-400' : convertF2C(city.days[0].hours[12].temp) < 10 ? 'text-primary-500' : 'text-basic-500'" >{{convertF2C(city.days[0].hours[12].temp)}}&deg;</h1>
+        <svg-icon [svgStyle]="{'width.px': 60, 'height.px': 60}" src="../../../../../assets/weatherIcons/{{city.days[0].hours[12].icon}}.svg"></svg-icon>
+      </div>
+      <div class="flex items-center justify-between">
+        <h1 class="text-4xl" [ngClass]="convertF2C(city.days[0].hours[21].temp) > 40 ? 'text-error-400' : convertF2C(city.days[0].hours[21].temp) < 10 ? 'text-primary-500' : 'text-basic-500'">{{convertF2C(city.days[0].hours[21].temp)}}&deg;</h1>
+        <svg-icon [svgStyle]="{'width.px': 60, 'height.px': 60}" src="../../../../../assets/weatherIcons/{{city.days[0].hours[21].icon}}.svg"></svg-icon>
+      </div>
+    </div>
+    <div class="item5 flex flex-col justify-around">
+      <h3>TOMORROW</h3>
+      <div class="flex items-center justify-between">
+        <h1 class="text-4xl" [ngClass]="convertF2C(city.days[1].hours[12].temp) > 40 ? 'text-error-400' : convertF2C(city.days[1].hours[12].temp) < 10 ? 'text-primary-500' : 'text-basic-500'">{{convertF2C(city.days[1].hours[12].temp)}}&deg;</h1>
+        <svg-icon [svgStyle]="{'width.px': 60, 'height.px': 60}" src="../../../../../assets/weatherIcons/{{city.days[1].hours[12].icon}}.svg"></svg-icon>
+      </div>
+      <div class="flex items-center justify-between">
+        <h1 class="text-4xl" [ngClass]="convertF2C(city.days[1].hours[21].temp) > 40 ? 'text-error-400' : convertF2C(city.days[1].hours[21].temp) < 10 ? 'text-primary-500' : 'text-basic-500'">{{convertF2C(city.days[1].hours[21].temp)}}&deg;</h1>
+        <svg-icon [svgStyle]="{'width.px': 60, 'height.px': 60}" src="../../../../../assets/weatherIcons/{{city.days[1].hours[21].icon}}.svg"></svg-icon>
+      </div>
+    </div>
+    <div class="item6 flex flex-col justify-between">
+      <h3>MORNING</h3>
+      <div class="flex justify-around items-center">
+        <svg-icon [svgStyle]="{'width.px': 60, 'height.px': 60}" src="../../../../../assets/weatherIcons/{{city.days[0].hours[8].icon}}.svg"></svg-icon>
+        <h1 class="text-4xl" [ngClass]="convertF2C(city.days[0].hours[8].temp) > 40 ? 'text-error-400' : convertF2C(city.days[0].hours[8].temp) < 10 ? 'text-primary-500' : 'text-basic-500'">
+          {{convertF2C(city.days[0].hours[8].temp)}}&deg;
+        </h1>
+      </div>
+    </div>
+    <div class="item7 flex flex-col justify-between">
+      <h3>NOON</h3>
+      <div class="flex justify-around items-center">
+        <svg-icon [svgStyle]="{'width.px': 60, 'height.px': 60}" src="../../../../../assets/weatherIcons/{{city.days[0].hours[13].icon}}.svg"></svg-icon>
+        <h1 class="text-4xl" [ngClass]="convertF2C(city.days[0].hours[13].temp) > 40 ? 'text-error-400' : convertF2C(city.days[0].hours[13].temp) < 10 ? 'text-primary-500' : 'text-basic-500'">
+          {{convertF2C(city.days[0].hours[13].temp)}}&deg;
+        </h1>
+      </div>
+    </div>
+    <div class="item8 flex flex-col justify-between">
+      <h3>EVENING</h3>
+      <div class="flex justify-around items-center">
+        <svg-icon [svgStyle]="{'width.px': 60, 'height.px': 60}" src="../../../../../assets/weatherIcons/{{city.days[0].hours[21].icon}}.svg"></svg-icon>
+        <h1 class="text-4xl" [ngClass]="convertF2C(city.days[0].hours[21].temp) > 40 ? 'text-error-400' : convertF2C(city.days[0].hours[21].temp) < 10 ? 'text-primary-500' : 'text-basic-500'">
+          {{convertF2C(city.days[0].hours[21].temp)}}&deg;
+        </h1>
+      </div>
+    </div>
+    <div class="item9 flex items-center justify-around">
+      @for(day of city.days.slice(0, 7); track day){
+        <div class="flex flex-col items-center justify-center gap-2">
+          <h4>{{day.datetime | date : 'EEEE'}}</h4>
+          <svg-icon src="../../../../../assets/weatherIcons/{{day.icon}}.svg"></svg-icon>
+          <div class="flex flex-col">
+            <h5>{{convertF2C(day.tempmax)}}&deg;</h5>
+            <h5>{{convertF2C(day.tempmin)}}&deg;</h5>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>
+<div class="flex md:hidden">
+  faslkdfasld;k
 </div>

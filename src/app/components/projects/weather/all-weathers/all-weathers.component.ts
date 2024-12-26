@@ -34,9 +34,9 @@ export class AllWeathersComponent {
   ];
 
   constructor(private _router: Router){
-    for(let i = 0; i < this.locations.length; i++){
-      this.someWeathers$.push(this._api.getData(this.locations[i]));
-    }
+    // for(let i = 0; i < this.locations.length; i++){
+    //   this.someWeathers$.push(this._api.getData(this.locations[i]));
+    // }
   }
   getUserLoc(): string{
     let lat = 0;
