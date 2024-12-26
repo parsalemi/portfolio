@@ -17,7 +17,7 @@ $cardWidth: 320px;
     outline: none;
   }
   &:focus-visible{
-    outline: 1px solid var(--primary-500);
+    outline: 2px solid var(--primary-500);
   }
   &::placeholder{
     text-align: center;

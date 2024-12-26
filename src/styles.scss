@@ -255,9 +255,15 @@ p{
       background: var(--primary-600);
     }
   }
+  .cityInput{
+    box-shadow: inset 0 2px 5px var(--basic-600), inset 0 -2px 5px var(--basic-1000);
+  }
 }
 [data-theme="dark"]{
   .weatherIcon{
     filter: brightness(10000%);
+  }
+  .cityInput{
+    box-shadow: inset 0 2px 5px var(--basic-1000), inset 0 -2px 5px var(--basic-700);
   }
 }
