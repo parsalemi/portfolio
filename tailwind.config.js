@@ -22,17 +22,7 @@ module.exports = {
       'primary-5': '0 15px 35px var(--primary-900)',
       'none': '0 0 0 #000',
     },
-    fontSize: {
-      'h1': ['var(--h1-fontSize)', {lineHeight: 'var(--h1-lineHeight)'}],
-      'h2': ['var(--h2-fontSize)', {lineHeight: 'var(--h2-lineHeight)'}],
-      'h3': ['var(--h3-fontSize)', {lineHeight: 'var(--h3-lineHeight)'}],
-      'h4': ['var(--h4-fontSize)', {lineHeight: 'var(--h4-lineHeight)'}],
-      'h5': ['var(--h5-fontSize)', {lineHeight: 'var(--h5-lineHeight)'}],
-      'xl': ['var(--xl-fontSize)', {lineHeight: 'var(--xl-lineHeight)'}],
-      'lg': ['var(--lg-fontSize)', {lineHeight: 'var(--lg-lineHeight)'}],
-      'md': ['var(--md-fontSize)', {lineHeight: 'var(--md-lineHeight)'}],
-      'sm': ['var(--sm-fontSize)', {lineHeight: 'var(--sm-lineHeight)'}],
-    },
+
     colors:{
       primary:{
         100: 'var(--primary-100)',
@@ -110,7 +100,18 @@ module.exports = {
     extend: {
       dropShadow:{
         neon: '0px 0px 5px white'
-      }
+      },
+      fontSize: {
+        'h1': ['var(--h1-fontSize)', {lineHeight: 'var(--h1-lineHeight)'}],
+        'h2': ['var(--h2-fontSize)', {lineHeight: 'var(--h2-lineHeight)'}],
+        'h3': ['var(--h3-fontSize)', {lineHeight: 'var(--h3-lineHeight)'}],
+        'h4': ['var(--h4-fontSize)', {lineHeight: 'var(--h4-lineHeight)'}],
+        'h5': ['var(--h5-fontSize)', {lineHeight: 'var(--h5-lineHeight)'}],
+        'xl': ['var(--xl-fontSize)', {lineHeight: 'var(--xl-lineHeight)'}],
+        'lg': ['var(--lg-fontSize)', {lineHeight: 'var(--lg-lineHeight)'}],
+        'md': ['var(--md-fontSize)', {lineHeight: 'var(--md-lineHeight)'}],
+        'sm': ['var(--sm-fontSize)', {lineHeight: 'var(--sm-lineHeight)'}],
+      },
     },
   },
   plugins: [
