@@ -1,5 +1,5 @@
 <div class="main w-full md:h-[calc(100vh-10rem)]" *ngIf="city$ | async as city">
-  <div class="item1">
+  <div class="item1 overflow-hidden">
       <div class="flex flex-col justify-between items-center h-full">
         <div class="flex items-center justify-between w-full">
           <div class="flex flex-col gap-2">
@@ -15,7 +15,7 @@
             </h4>
             <div class="flex flex-col gap-2 items-center justify-center">
               <svg-icon [svgStyle]="{'width.px': 64, 'height.px': 64}" src="../../../../../assets/weatherIcons/{{city.currentConditions.icon}}.svg"></svg-icon>
-              <h5 class="text-2xl">{{city.currentConditions.conditions}}</h5>
+              <h5 class="text-2xl md:hidden lg:block">{{city.currentConditions.conditions}}</h5>
             </div>
           </div>
           <div class="flex flex-col md:flex-row gap-10">
@@ -62,7 +62,7 @@
         </div>
       }
   </div>
-  <div class="item4 flex flex-col justify-around">
+  <div class="item4 flex flex-col gap-5 justify-around">
     <h3>TODAY</h3>
     <div class="flex items-center justify-around">
       <h1 class="text-4xl" [ngClass]="convertF2C(city.days[0].hours[12].temp) > 40 ? 'text-error-400' : convertF2C(city.days[0].hours[12].temp) < 10 ? 'text-[#3380cc]' : 'text-basic-500'" >{{convertF2C(city.days[0].hours[12].temp)}}&deg;</h1>
@@ -73,7 +73,7 @@
       <svg-icon [svgStyle]="{'width.px': 60, 'height.px': 60}" src="../../../../../assets/weatherIcons/{{city.days[0].hours[21].icon}}.svg"></svg-icon>
     </div>
   </div>
-  <div class="item5 flex flex-col justify-around">
+  <div class="item5 flex flex-col gap-5 justify-around">
     <h3>TOMORROW</h3>
     <div class="flex items-center justify-around">
       <h1 class="text-4xl" [ngClass]="convertF2C(city.days[1].hours[12].temp) > 40 ? 'text-error-400' : convertF2C(city.days[1].hours[12].temp) < 10 ? 'text-[#3380cc]' : 'text-basic-500'">{{convertF2C(city.days[1].hours[12].temp)}}&deg;</h1>

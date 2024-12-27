@@ -5,69 +5,49 @@
   text-align: center;
   background-color: var(--basic-1100);
   color: var(--basic-500);
-  // overflow: hidden;
+  border: 1px solid var(--basic-900);
 }
 .main{
   display: grid;
   align-content: stretch;
   gap: 10px;
-  // padding: 10px;
   padding-bottom: 150px;
   grid-template-columns: minmax(300px, auto);
   
   .item1{
     @include gridItem();
-    align-self: stretch;
-    justify-self: stretch;
-
     grid-column: 1fr;
   }
   .item2{
-    width: 100%;
-    height: 100%;
     @include gridItem();
     grid-column: 1fr;
   }
   .item3{
-    width: 100%;
-    height: 100%;
     @include gridItem();
     grid-column: 1fr;
   }
   .item4{
-    width: 100%;
-    height: 100%;
     @include gridItem();
     grid-column: 1fr;
   }
   .item5{
-    width: 100%;
-    height: 100%;
     @include gridItem();
     grid-column: 1fr;
   }
   .item6{
-    width: 100%;
-    height: 100%;
     @include gridItem();
     grid-column: 1fr;
   }
   .item7{
-    width: 100%;
-    height: 100%;
     @include gridItem();
     grid-column: 1fr;
   }
   .item8{
-    width: 100%;
-    height: 100%;
     @include gridItem();
     grid-column: 1fr;
   }
   .item9{
     @include gridItem();
-    width: 100%;
-    height: 100%;
     grid-column: 1fr;
   }
   @screen md {
