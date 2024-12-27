@@ -20,8 +20,7 @@
 				>
 					<div class="w-full h-10 flex items-start justify-between border-b-2 border-primary-900">
 						<div class="flex gap-2 justify-center items-center">
-							<img class="weatherIcon"
-							src="../../../../assets/weatherIcons/{{weathers.currentConditions.icon}}.png" height="30" width="30" alt="{{weathers.currentConditions.conditions}} icon">
+							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.currentConditions.icon}}.svg"></svg-icon>
 							<h5>{{weathers.currentConditions.conditions.split(',')[0]}}</h5>
 						</div>
 						<div>
@@ -36,7 +35,7 @@
 							<p>At : {{weathers.currentConditions.datetime}}</p>
 						</div>
 						<div>
-							<p #date class="text-2xl float-right">{{todayDate | date: 'shortDate' : forTime(weathers.tzoffset)}}</p>
+							<p #date class="text-xl float-right">{{todayDate | date: 'shortDate' : forTime(weathers.tzoffset)}}</p>
 							<h1 class="capitalize">{{weathers.address}}</h1>
 						</div>
 					</div>
@@ -44,22 +43,22 @@
 					<div class="h-10 flex gap-2 justify-around border-t-2 border-primary-900">
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[0].conditions.split(',')[0]}}</p>
-							<img class="weatherIcon" src="../../../../assets/weatherIcons/{{weathers.days[0].icon}}.png" alt="" height="20" width="20">
+							<svg-icon src="../../../../assets/weatherIcons/{{weathers.days[0].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[1].conditions.split(',')[0]}}</p>
-							<img class="weatherIcon" src="../../../../assets/weatherIcons/{{weathers.days[1].icon}}.png" alt="" height="20" width="20">
+							<svg-icon src="../../../../assets/weatherIcons/{{weathers.days[1].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[2].conditions.split(',')[0]}}</p>
-							<img class="weatherIcon"  src="../../../../assets/weatherIcons/{{weathers.days[2].icon}}.png" alt="" height="20" width="20">
+							<svg-icon src="../../../../assets/weatherIcons/{{weathers.days[2].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[3].conditions.split(',')[0]}}</p>
-							<img class="weatherIcon"  src="../../../../assets/weatherIcons/{{weathers.days[3].icon}}.png" alt="" height="20" width="20">
+							<svg-icon src="../../../../assets/weatherIcons/{{weathers.days[3].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 					</div>
 				</a>
@@ -91,12 +90,11 @@
 				>
 					<div class="w-full h-10 flex items-start justify-between border-b-2 border-primary-900">
 						<div class="flex gap-2 justify-center items-center">
-							<img class="weatherIcon"
-							src="../../../../assets/weatherIcons/{{weathers.currentConditions.icon}}.png" height="30" width="30" alt="{{weathers.currentConditions.conditions}} icon">
+							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.currentConditions.icon}}.svg"></svg-icon>
 							<h5>{{weathers.currentConditions.conditions.split(',')[0]}}</h5>
 						</div>
 						<div>
-							<h3 #time class="text-nowrap">{{todayDate | date: 'shortTime' : forTime(weathers.tzoffset)}}</h3>
+							<h1 class="capitalize">{{weathers.address}}</h1>
 						</div>
 					</div>
 					<div class="h-24 flex">
@@ -107,30 +105,30 @@
 							<p>At : {{weathers.currentConditions.datetime}}</p>
 						</div>
 						<div>
-							<p #date class="text-2xl float-right">{{todayDate | date: 'shortDate' : forTime(weathers.tzoffset)}}</p>
-							<h1 class="capitalize">{{weathers.address}}</h1>
+							<h3 #time class="text-nowrap">{{todayDate | date: 'shortTime' : forTime(weathers.tzoffset)}}</h3>
+							<p #date class="text-xl float-right">{{todayDate | date: 'shortDate' : forTime(weathers.tzoffset)}}</p>
 						</div>
 					</div>
 
 					<div class="h-10 flex gap-2 justify-around border-t-2 border-primary-900">
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[0].conditions.split(',')[0]}}</p>
-							<img class="weatherIcon" src="../../../../assets/weatherIcons/{{weathers.days[0].icon}}.png" alt="" height="20" width="20">
+							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[0].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[1].conditions.split(',')[0]}}</p>
-							<img class="weatherIcon" src="../../../../assets/weatherIcons/{{weathers.days[1].icon}}.png" alt="" height="20" width="20">
+							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[1].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[2].conditions.split(',')[0]}}</p>
-							<img class="weatherIcon"  src="../../../../assets/weatherIcons/{{weathers.days[2].icon}}.png" alt="" height="20" width="20">
+							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[2].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[3].conditions.split(',')[0]}}</p>
-							<img class="weatherIcon"  src="../../../../assets/weatherIcons/{{weathers.days[3].icon}}.png" alt="" height="20" width="20">
+							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[3].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 					</div>
 				</a>
@@ -147,12 +145,11 @@
 				>
 					<div class="w-full h-10 flex items-start justify-between border-b-2 border-primary-900">
 						<div class="flex gap-2 justify-center items-center">
-							<img class="weatherIcon"
-							src="../../../../assets/weatherIcons/{{weathers.currentConditions.icon}}.png" height="30" width="30" alt="{{weathers.currentConditions.conditions}} icon">
+							<svg-icon src="../../../../../assets/{{weathers.currentConditions.icon}}.svg"></svg-icon>
 							<h5>{{weathers.currentConditions.conditions.split(',')[0]}}</h5>
 						</div>
 						<div>
-							<h3 #time class="text-nowrap">{{todayDate | date: 'shortTime' : forTime(weathers.tzoffset)}}</h3>
+							<h1 class="capitalize">{{weathers.address}}</h1>
 						</div>
 					</div>
 					<div class="h-24 flex">
@@ -163,30 +160,30 @@
 							<p>At : {{weathers.currentConditions.datetime}}</p>
 						</div>
 						<div>
-							<p #date class="text-2xl float-right">{{todayDate | date: 'shortDate' : forTime(weathers.tzoffset)}}</p>
-							<h1 class="capitalize">{{weathers.address}}</h1>
+							<h3 #time class="text-nowrap">{{todayDate | date: 'shortTime' : forTime(weathers.tzoffset)}}</h3>
+							<p #date class="text-xl float-right">{{todayDate | date: 'shortDate' : forTime(weathers.tzoffset)}}</p>
 						</div>
 					</div>
 
 					<div class="h-10 flex gap-2 justify-around border-t-2 border-primary-900">
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[0].conditions.split(',')[0]}}</p>
-							<img class="weatherIcon" src="../../../../assets/weatherIcons/{{weathers.days[0].icon}}.png" alt="" height="20" width="20">
+							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[0].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[1].conditions.split(',')[0]}}</p>
-							<img class="weatherIcon" src="../../../../assets/weatherIcons/{{weathers.days[1].icon}}.png" alt="" height="20" width="20">
+							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[1].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[2].conditions.split(',')[0]}}</p>
-							<img class="weatherIcon"  src="../../../../assets/weatherIcons/{{weathers.days[2].icon}}.png" alt="" height="20" width="20">
+							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[2].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[3].conditions.split(',')[0]}}</p>
-							<img class="weatherIcon"  src="../../../../assets/weatherIcons/{{weathers.days[3].icon}}.png" alt="" height="20" width="20">
+							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[3].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 					</div>
 				</a>
@@ -203,12 +200,11 @@
 				>
 					<div class="w-full h-10 flex items-start justify-between border-b-2 border-primary-900">
 						<div class="flex gap-2 justify-center items-center">
-							<img class="weatherIcon"
-							src="../../../../assets/weatherIcons/{{weathers.currentConditions.icon}}.png" height="30" width="30" alt="{{weathers.currentConditions.conditions}} icon">
+							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.currentConditions.icon}}.svg"></svg-icon>
 							<h5>{{weathers.currentConditions.conditions.split(',')[0]}}</h5>
 						</div>
 						<div>
-							<h3 #time class="text-nowrap">{{todayDate | date: 'shortTime' : forTime(weathers.tzoffset)}}</h3>
+							<h1 class="capitalize">{{weathers.address}}</h1>
 						</div>
 					</div>
 					<div class="h-24 flex">
@@ -219,30 +215,30 @@
 							<p>At : {{weathers.currentConditions.datetime}}</p>
 						</div>
 						<div>
-							<p #date class="text-2xl float-right">{{todayDate | date: 'shortDate' : forTime(weathers.tzoffset)}}</p>
-							<h1 class="capitalize">{{weathers.address}}</h1>
+							<h3 #time class="text-nowrap">{{todayDate | date: 'shortTime' : forTime(weathers.tzoffset)}}</h3>
+							<p #date class="text-xl float-right">{{todayDate | date: 'shortDate' : forTime(weathers.tzoffset)}}</p>
 						</div>
 					</div>
 
 					<div class="h-10 flex gap-2 justify-around border-t-2 border-primary-900">
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[0].conditions.split(',')[0]}}</p>
-							<img class="weatherIcon" src="../../../../assets/weatherIcons/{{weathers.days[0].icon}}.png" alt="" height="20" width="20">
+							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[0].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[1].conditions.split(',')[0]}}</p>
-							<img class="weatherIcon" src="../../../../assets/weatherIcons/{{weathers.days[1].icon}}.png" alt="" height="20" width="20">
+							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[1].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[2].conditions.split(',')[0]}}</p>
-							<img class="weatherIcon"  src="../../../../assets/weatherIcons/{{weathers.days[2].icon}}.png" alt="" height="20" width="20">
+							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[2].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[3].conditions.split(',')[0]}}</p>
-							<img class="weatherIcon"  src="../../../../assets/weatherIcons/{{weathers.days[3].icon}}.png" alt="" height="20" width="20">
+							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[0].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 					</div>
 				</a>

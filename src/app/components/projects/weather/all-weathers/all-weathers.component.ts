@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AsyncPipe, NgClass, NgStyle } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 @Component({
   selector: 'app-all-weathers',
@@ -19,6 +20,7 @@ import { DatePipe } from '@angular/common';
     DatePipe,
     NgStyle,
     NgClass,
+    AngularSvgIconModule,
   ],
 })
 export class AllWeathersComponent {
@@ -34,9 +36,9 @@ export class AllWeathersComponent {
   ];
 
   constructor(private _router: Router){
-    // for(let i = 0; i < this.locations.length; i++){
-    //   this.someWeathers$.push(this._api.getData(this.locations[i]));
-    // }
+    for(let i = 0; i < this.locations.length; i++){
+      this.someWeathers$.push(this._api.getData(this.locations[i]));
+    }
   }
   getUserLoc(): string{
     let lat = 0;
