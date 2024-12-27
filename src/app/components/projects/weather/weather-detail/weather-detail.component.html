@@ -10,7 +10,7 @@
         </div>
         <div class="flex items-center justify-around w-full">
           <div class="flex gap-5 w-1/2 items-center md:items-start justify-center">
-            <h4 class="text-6xl" [ngClass]="convertF2C(city.currentConditions.temp) > 40 ? 'text-error-400' : convertF2C(city.currentConditions.temp) < 10 ? 'text-primary-500' : 'text-basic-500'">
+            <h4 class="text-6xl" [ngClass]="convertF2C(city.currentConditions.temp) > 40 ? 'text-error-400' : convertF2C(city.currentConditions.temp) < 10 ? 'text-[#3380cc]' : 'text-basic-500'">
               {{convertF2C(city.currentConditions.temp)}}&deg;
             </h4>
             <div class="flex flex-col gap-2 items-center justify-center">
@@ -56,7 +56,7 @@
             {{hour}}
           </h4>
           <svg-icon [svgStyle]="{'width.px': 24, 'height.px': 24}" src="../../../../../assets/weatherIcons/{{city.days[0].hours[hour].icon}}.svg"></svg-icon>
-          <h5 [ngClass]="convertF2C(city.days[0].hours[hour].temp) > 40 ? 'text-error-400' : convertF2C(city.days[0].hours[hour].temp) < 10 ? 'text-primary-500' : 'text-basic-500'">
+          <h5 [ngClass]="convertF2C(city.days[0].hours[hour].temp) > 40 ? 'text-error-400' : convertF2C(city.days[0].hours[hour].temp) < 10 ? 'text-[#3380cc]' : 'text-basic-500'">
             {{convertF2C(city.days[0].hours[hour].temp) | number : '1.0-0'}}&deg;
           </h5>
         </div>
@@ -65,22 +65,22 @@
   <div class="item4 flex flex-col justify-around">
     <h3>TODAY</h3>
     <div class="flex items-center justify-around">
-      <h1 class="text-4xl" [ngClass]="convertF2C(city.days[0].hours[12].temp) > 40 ? 'text-error-400' : convertF2C(city.days[0].hours[12].temp) < 10 ? 'text-primary-500' : 'text-basic-500'" >{{convertF2C(city.days[0].hours[12].temp)}}&deg;</h1>
+      <h1 class="text-4xl" [ngClass]="convertF2C(city.days[0].hours[12].temp) > 40 ? 'text-error-400' : convertF2C(city.days[0].hours[12].temp) < 10 ? 'text-[#3380cc]' : 'text-basic-500'" >{{convertF2C(city.days[0].hours[12].temp)}}&deg;</h1>
       <svg-icon [svgStyle]="{'width.px': 60, 'height.px': 60}" src="../../../../../assets/weatherIcons/{{city.days[0].hours[12].icon}}.svg"></svg-icon>
     </div>
     <div class="flex items-center justify-around">
-      <h1 class="text-4xl" [ngClass]="convertF2C(city.days[0].hours[21].temp) > 40 ? 'text-error-400' : convertF2C(city.days[0].hours[21].temp) < 10 ? 'text-primary-500' : 'text-basic-500'">{{convertF2C(city.days[0].hours[21].temp)}}&deg;</h1>
+      <h1 class="text-4xl" [ngClass]="convertF2C(city.days[0].hours[21].temp) > 40 ? 'text-error-400' : convertF2C(city.days[0].hours[21].temp) < 10 ? 'text-[#3380cc]' : 'text-basic-500'">{{convertF2C(city.days[0].hours[21].temp)}}&deg;</h1>
       <svg-icon [svgStyle]="{'width.px': 60, 'height.px': 60}" src="../../../../../assets/weatherIcons/{{city.days[0].hours[21].icon}}.svg"></svg-icon>
     </div>
   </div>
   <div class="item5 flex flex-col justify-around">
     <h3>TOMORROW</h3>
     <div class="flex items-center justify-around">
-      <h1 class="text-4xl" [ngClass]="convertF2C(city.days[1].hours[12].temp) > 40 ? 'text-error-400' : convertF2C(city.days[1].hours[12].temp) < 10 ? 'text-primary-500' : 'text-basic-500'">{{convertF2C(city.days[1].hours[12].temp)}}&deg;</h1>
+      <h1 class="text-4xl" [ngClass]="convertF2C(city.days[1].hours[12].temp) > 40 ? 'text-error-400' : convertF2C(city.days[1].hours[12].temp) < 10 ? 'text-[#3380cc]' : 'text-basic-500'">{{convertF2C(city.days[1].hours[12].temp)}}&deg;</h1>
       <svg-icon [svgStyle]="{'width.px': 60, 'height.px': 60}" src="../../../../../assets/weatherIcons/{{city.days[1].hours[12].icon}}.svg"></svg-icon>
     </div>
     <div class="flex items-center justify-around">
-      <h1 class="text-4xl" [ngClass]="convertF2C(city.days[1].hours[21].temp) > 40 ? 'text-error-400' : convertF2C(city.days[1].hours[21].temp) < 10 ? 'text-primary-500' : 'text-basic-500'">{{convertF2C(city.days[1].hours[21].temp)}}&deg;</h1>
+      <h1 class="text-4xl" [ngClass]="convertF2C(city.days[1].hours[21].temp) > 40 ? 'text-error-400' : convertF2C(city.days[1].hours[21].temp) < 10 ? 'text-[#3380cc]' : 'text-basic-500'">{{convertF2C(city.days[1].hours[21].temp)}}&deg;</h1>
       <svg-icon [svgStyle]="{'width.px': 60, 'height.px': 60}" src="../../../../../assets/weatherIcons/{{city.days[1].hours[21].icon}}.svg"></svg-icon>
     </div>
   </div>
@@ -88,7 +88,7 @@
     <h3>MORNING</h3>
     <div class="flex justify-around items-center">
       <svg-icon [svgStyle]="{'width.px': 60, 'height.px': 60}" src="../../../../../assets/weatherIcons/{{city.days[0].hours[8].icon}}.svg"></svg-icon>
-      <h1 class="text-4xl" [ngClass]="convertF2C(city.days[0].hours[8].temp) > 40 ? 'text-error-400' : convertF2C(city.days[0].hours[8].temp) < 10 ? 'text-primary-500' : 'text-basic-500'">
+      <h1 class="text-4xl" [ngClass]="convertF2C(city.days[0].hours[8].temp) > 40 ? 'text-error-400' : convertF2C(city.days[0].hours[8].temp) < 10 ? 'text-[#3380cc]' : 'text-basic-500'">
         {{convertF2C(city.days[0].hours[8].temp)}}&deg;
       </h1>
     </div>
@@ -97,7 +97,7 @@
     <h3>NOON</h3>
     <div class="flex justify-around items-center">
       <svg-icon [svgStyle]="{'width.px': 60, 'height.px': 60}" src="../../../../../assets/weatherIcons/{{city.days[0].hours[13].icon}}.svg"></svg-icon>
-      <h1 class="text-4xl" [ngClass]="convertF2C(city.days[0].hours[13].temp) > 40 ? 'text-error-400' : convertF2C(city.days[0].hours[13].temp) < 10 ? 'text-primary-500' : 'text-basic-500'">
+      <h1 class="text-4xl" [ngClass]="convertF2C(city.days[0].hours[13].temp) > 40 ? 'text-error-400' : convertF2C(city.days[0].hours[13].temp) < 10 ? 'text-[#3380cc]' : 'text-basic-500'">
         {{convertF2C(city.days[0].hours[13].temp)}}&deg;
       </h1>
     </div>
@@ -106,7 +106,7 @@
     <h3>EVENING</h3>
     <div class="flex justify-around items-center">
       <svg-icon [svgStyle]="{'width.px': 60, 'height.px': 60}" src="../../../../../assets/weatherIcons/{{city.days[0].hours[21].icon}}.svg"></svg-icon>
-      <h1 class="text-4xl" [ngClass]="convertF2C(city.days[0].hours[21].temp) > 40 ? 'text-error-400' : convertF2C(city.days[0].hours[21].temp) < 10 ? 'text-primary-500' : 'text-basic-500'">
+      <h1 class="text-4xl" [ngClass]="convertF2C(city.days[0].hours[21].temp) > 40 ? 'text-error-400' : convertF2C(city.days[0].hours[21].temp) < 10 ? 'text-[#3380cc]' : 'text-basic-500'">
         {{convertF2C(city.days[0].hours[21].temp)}}&deg;
       </h1>
     </div>
