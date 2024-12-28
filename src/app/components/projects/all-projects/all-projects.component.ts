@@ -25,6 +25,7 @@ export class AllProjectsComponent {
       techsSvg: ['angular', 'sass', 'tailwind', 'rxjs'],
       link: 'weather',
       ownProject: true,
+      finished: true,
     },
     {
       title: 'Sudoku',
@@ -33,14 +34,16 @@ export class AllProjectsComponent {
       techsSvg: ['angular', 'tailwind'],
       link: 'sudoku',
       ownProject: true,
+      finished: false,
     },
     {
       title: 'Word guess',
-      description: 'Word guess game (5 letters) that shows the correct letter in correct position (green), corrent letter in wrong postition (yellow) and wrong letter (red)',
-      img: 'wordGuess',
+      description: 'Word guess game (5 letters)',
+      img: 'wordguess',
       techsSvg: ['html', 'css', 'js'],
       link: 'wordGuess',
       ownProject: true,
+      finished: true,
     },
     {
       title: 'OMP Finex',
@@ -49,6 +52,7 @@ export class AllProjectsComponent {
       techsSvg: ['angular', 'rxjs', 'tailwind', 'svelte'],
       link: 'https://ompfinex.com',
       ownProject: false,
+      finished: true,
     }
   ]
   handleLink(el: HTMLAnchorElement, ownProject: boolean, link: string){
@@ -68,4 +72,5 @@ interface Project {
   techsSvg: string[];
   link: string;
   ownProject: boolean;
+  finished: boolean;
 }

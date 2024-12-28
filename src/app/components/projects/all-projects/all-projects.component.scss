@@ -24,7 +24,12 @@ $cardWidth: 300px;
   // background-color: red;
   left: max(calc($cardWidth * $totalNumberOfProjects), 100%);
   animation: toLeftLg $animationTime infinite linear;
-
+  transition: transform .5s;
+  &:hover{
+    transition: .5s;
+    transform: scale(1.1);
+    @apply shadow-4;
+  }
   @for $i from 1 through $totalNumberOfProjects{
     &:nth-child(#{$i}){
       animation-delay: animationDelay($i);
