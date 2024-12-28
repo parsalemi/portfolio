@@ -1,18 +1,23 @@
-import { ViewChildren, AfterViewInit, Component } from '@angular/core';
-import { NgForOf } from '@angular/common';
+import { ViewChildren, AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { MessageService } from 'primeng/api';
+import { RippleModule } from 'primeng/ripple';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-word-game',
   standalone: true,
   templateUrl: './word-game.component.html',
   styleUrls: ['./word-game.component.scss'],
+  providers: [MessageService],
   imports: [
-    NgForOf
+    ToastModule,
+    RippleModule
   ],
 })
-export class WordGameComponent implements AfterViewInit{
+export class WordGameComponent implements AfterViewInit, OnInit{
   @ViewChildren('row') rows: any;
-  @ViewChildren('letter') letters: any;
+  @ViewChildren('letter') letters!: HTMLInputElement;
+  @ViewChild('resetBtn') resetBtn: any;
   wordsArr = [
     'shoot', 'shout', 'false', 'alert', 'tough', 'rough', 'beach', 'break', 'crowd', 
     'breed', 'crown', 'brief', 'chart', 'curve', 'bring', 'about', 'click', 'music',                
@@ -21,52 +26,44 @@ export class WordGameComponent implements AfterViewInit{
     'class', 'value', 'table', 'start', 'below', 'movie', 'point', 'three', 'women'
   ];
   wordOfDay = this.wordsArr[Math.floor(Math.random() * this.wordsArr.length)];
-  button = document.querySelectorAll('button');
   word_row = document.querySelectorAll('.row');
   public wordRow : any;
   public lettersInRow: any;
+  public reset: any;
   row = 0;
   letter = 0;
   gameOver = false;
   guessed = false;
-  constructor(){
+  constructor(private _message: MessageService){
     
   }
   ngAfterViewInit(){
     this.wordRow = this.rows._results;
     this.lettersInRow = this.wordRow[this.row].nativeElement.children;
-    this.button.forEach( (e: any) => {
-      e.addEventListener("click", () => {
-        this.keyPress(e.attributes["data-key"].value);
-      });
-    });
-
+    console.log(this.wordOfDay);
     window.addEventListener('keydown', (e) => {
       const key = e.key.toLowerCase();
       if(key.match(/\b[a-z]{1}\b/g) || key === 'enter' || key === 'delete' || key === 'backspace'){
         this.keyPress(e.key.toUpperCase());
       };
     })
-    
   }
   main(key: any){
-    if(this.letter < 5){
-      // word_row[row].querySelectorAll('.letter')[letter].innerHTML = key;
-      this.wordRow[this.row].nativeElement.children[this.letter].innerText = key;
+    if(this.letter < 5 && !this.gameOver){
+      this.wordRow[this.row].nativeElement.children[this.letter].value = key;
       this.letter += 1;
+      this.wordRow[this.row].nativeElement.children[this.letter].focus(); 
+      this.wordRow[this.row].nativeElement.children[this.letter].value = '?'; 
     }
   }
   checkWord() {
-    // const rowLetters = word_row[row].querySelectorAll('.letter');
     const rowLetters = this.wordRow[this.row].nativeElement.childNodes;
-    console.log();
-    console.log(rowLetters);
     let numOfCorrectLetters = 0;
     rowLetters.forEach( (e: any, index: any) => {
-      if(this.wordOfDay.toLowerCase().charAt(index) === e.innerText.toLowerCase()){
+      if(this.wordOfDay.toLowerCase().charAt(index) === e.value.toLowerCase()){
         e.classList.add('word-green');
         numOfCorrectLetters++;
-      }else if(this.wordOfDay.toLowerCase().indexOf(e.innerText.toLowerCase()) > -1){
+      }else if(this.wordOfDay.toLowerCase().indexOf(e.value.toLowerCase()) > -1){
         e.classList.add('word-yellow');
       }else{
         e.classList.add('word-red');
@@ -74,43 +71,40 @@ export class WordGameComponent implements AfterViewInit{
     });
 
     if(numOfCorrectLetters === 5){
+      this._message.add({severity: 'success', summary: 'Congratulations', detail: 'Try Another Word', life: 3000})
       this.gameOver = true;
-      this.guessed = true;
-      this.button.forEach( (e) => {
-        e.setAttribute('disables', 'true');
-      });
-
-      alert('congratulations'); 
+      this.guessed = true;      
+      this.wordRow[this.row].nativeElement.children[4].blur();
+      this.wordRow[this.row].nativeElement.children[this.letter].setAttribute('disabled', 'true');
+      
     }else if( this.row === 8){
       this.gameOver = true;
-      alert('Maybe next time. The answer is : ' + this.wordOfDay);
+      this.wordRow[this.row].nativeElement.children[4].blur();
+      this._message.add({severity: 'error', summary: 'Maybe Next Time', detail: `Answer is ${this.wordOfDay}`, life: 3000})
     }
   }    
   enter() {
     if(this.letter < 5){
-      alert('not enough letters');
+      this._message.add({severity: 'info', summary: 'Not Enough Letters', detail: 'Type A 5 Letter Word', life: 3000})
     }else {
       this.checkWord();
       this.row += 1;
       this.letter = 0;
+      this.wordRow[this.row].nativeElement.children[this.letter].focus();
     }
   }
   deleteLetter(){
-    // const letterDel = word_row[row].querySelectorAll('.letter');
-    const letterDel = this.wordRow[this.row].nativeElement.children;
+    let letterDel = this.wordRow[this.row].nativeElement.children;
     for(let i = letterDel.length - 1; i >= 0; i--){
-      let erase = letterDel[i];
-      if(erase.innerHTML !== ''){
-        erase.innerText = '';
-        this.letter--;
-        break;
-      }
+      letterDel[i].value = '';
+      this.letter = 0;
+      letterDel[0].focus();
     }
   }
   keyPress(key: any){
-    if(key.toLowerCase() === 'enter'){
+    if(key.toLowerCase() === 'enter' && !this.gameOver){
       this.enter();
-    }else if(key.toLowerCase() === 'del' || key.toLowerCase() === 'delete' || key.toLowerCase() === 'backspace'){
+    }else if(key.toLowerCase() === 'del' || key.toLowerCase() === 'delete' || key.toLowerCase() === 'backspace' && !this.gameOver){
       this.deleteLetter();
     }else{
       this.main(key);
@@ -118,5 +112,8 @@ export class WordGameComponent implements AfterViewInit{
   }
   resetGame(){
     location.reload();
+  }
+  ngOnInit(): void {
+    
   }
 }

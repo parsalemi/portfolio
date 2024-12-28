@@ -1,20 +1,20 @@
-<div class="main">
-  <div class="wordsContainer">
-      <h1 class="self-center font-extrabold text-4xl text-white mb-10">Start Typing</h1>
-      <div #row class="row" *ngFor="let div of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
-          <div #letter class="letter"></div>
-          <div #letter class="letter"></div>
-          <div #letter class="letter"></div>
-          <div #letter class="letter"></div>
-          <div #letter class="letter"></div>
-      </div>
-  </div>
-  <button class="absolute top-[40%] left-60 px-4 py-3 font-bold text-white bg-[#4c60f7] rounded-xl flex gap-2 items-center justify-center" (click)="resetGame()">
-      <svg version="1.1" width="13" height="13" viewBox="0 0 256 256" fill="currentColor">
-          <g style="fill: red; color: red; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
-              <path fill="currentColor" d="M 75.702 53.014 c -2.142 7.995 -7.27 14.678 -14.439 18.816 c -7.168 4.138 -15.519 5.239 -23.514 3.095 c -16.505 -4.423 -26.335 -21.448 -21.913 -37.953 C 20.258 20.467 37.286 10.64 53.79 15.06 c 4.213 1.129 8.076 3.118 11.413 5.809 l -8.349 8.35 h 26.654 V 2.565 l -8.354 8.354 c -5.1 -4.405 -11.133 -7.61 -17.74 -9.381 C 33.451 -4.882 8.735 9.389 2.314 33.35 c -6.42 23.961 7.851 48.678 31.811 55.098 C 38.001 89.486 41.934 90 45.842 90 c 7.795 0 15.488 -2.044 22.42 -6.046 c 10.407 -6.008 17.851 -15.709 20.962 -27.317 L 75.702 53.014 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
-          </g>
-      </svg>
+<div class="main w-full h-full flex items-center justify-center">
+  <div class="wordsContainer flex flex-col gap-5 items-center justify-center">
+    <p-toast position="top-center"/>
+    <h1 class="self-center font-extrabold text-4xl text-white">Start Typing</h1>
+    <button #resetBtn class="btn-primary text-2xl self-stretch" id="resetBtn" (click)="resetGame()">
       Reset
-  </button>
+    </button>
+    <div>
+      @for(div of [1, 2, 3, 4, 5, 6, 7, 8, 9]; track div){
+        <div #row class="row mt-3 flex gap-2 last:pb-28 md:last:pb-0">
+          <input type="text" maxlength="1" #letter class="letter bg-basic-1100 shadow-2"/>
+          <input type="text" maxlength="1" #letter class="letter bg-basic-1100 shadow-2"/>
+          <input type="text" maxlength="1" #letter class="letter bg-basic-1100 shadow-2"/>
+          <input type="text" maxlength="1" #letter class="letter bg-basic-1100 shadow-2"/>
+          <input type="text" maxlength="1" #letter class="letter bg-basic-1100 shadow-2"/>
+        </div>
+      }
+    </div>
+  </div>
 </div>

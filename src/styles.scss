@@ -202,6 +202,37 @@ p{
     border-radius: 20px 20px 0 0;
   }
 }
+.p-toast-message-success{
+  background-color: transparent;
+  backdrop-filter: hue-rotate(300deg) blur(10px);
+  background-color: transparent;
+  // background-color: var(--success-100);
+  border: 2px solid var(--success-300);
+  color: var(--success-700); 
+  .p-toast-message-icon{
+    color: var(--success-700);
+  }
+}
+.p-toast-message-error{
+  background-color: transparent;
+  backdrop-filter: hue-rotate(130deg) blur(10px); background-color: transparent;
+  // background-color: var(--error-100);
+  border: 2px solid var(--error-300);
+  color: var(--error-400);
+  .p-toast-message-icon{
+    color: var(--error-400);
+  }
+}
+.p-toast-message-info{
+  background-color: transparent;
+  backdrop-filter: hue-rotate(200deg) blur(10px);
+  // background-color: var(--warning-100);
+  border: 2px solid var(--warning-300);
+  color: var(--warning-600);
+  .p-toast-message-icon{
+    color: var(--warning-600);
+  }
+}
 .mat-mdc-progress-bar{
     --mdc-linear-progress-active-indicator-color: var(--primary-600);
     --mdc-linear-progress-track-color: var(--primary-600-tr-50);
@@ -242,10 +273,15 @@ p{
     background-color: yellow;
     color: black;
   }
+  
 }
 [data-theme="dark"]{
   :focus-visible{
     outline-color: white;
+    .letter{
+      outline: none;
+      background-color: black;
+    }
   }
 }
 [data-theme="light"]{
