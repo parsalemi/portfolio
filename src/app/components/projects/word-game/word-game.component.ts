@@ -1,8 +1,7 @@
 import { ViewChildren, AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MessageService } from 'primeng/api';
+import { MessageService, PrimeIcons } from 'primeng/api';
 import { RippleModule } from 'primeng/ripple';
 import { ToastModule } from 'primeng/toast';
-
 @Component({
   selector: 'app-word-game',
   standalone: true,
@@ -11,7 +10,7 @@ import { ToastModule } from 'primeng/toast';
   providers: [MessageService],
   imports: [
     ToastModule,
-    RippleModule
+    RippleModule,
   ],
 })
 export class WordGameComponent implements AfterViewInit, OnInit{
