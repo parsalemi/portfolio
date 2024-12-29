@@ -38,7 +38,7 @@
       <a [href]="project.ownProject ? '../projects/'+project.link : project.link">
         <p-card [header]="project.title" [style]="{width: '300px', height: '500px'}" styleClass="relative shadow-3 hover:shadow-1 bg-basic-1100 text-basic-400">
           <ng-template pTemplate="header">
-            <img src="../../../../assets/weatherCardBackgrounds/cloudy.webp"/>
+            <img src="../../../../assets/projectsImg/{{project.img}}.webp"/>
             
           </ng-template>
           <p>{{project.description}}</p>
@@ -52,6 +52,9 @@
               @if(project.ownProject){
                 <div class="absolute bottom-5 right-5">
                   <p-tag styleClass="mt-5 ml-5 bg-basic-900 text-lg text-basic-100" value="own"/>
+                  @if(!project.finished){
+                    <p-tag styleClass="mt-5 ml-2 bg-error-200 text-lg text-error-900" value="unfinished"/>
+                  }
                 </div>
                 }
             </div>
@@ -69,7 +72,7 @@
       <a [href]="project.ownProject ? '../projects/'+project.link : project.link">
         <p-card [header]="project.title" [style]="{width: '300px', height: '500px'}" styleClass="relative shadow-3 hover:shadow-1 bg-basic-1100 text-basic-400">
           <ng-template pTemplate="header">
-            <img src="../../../../assets/weatherCardBackgrounds/cloudy.webp"/>
+            <img src="../../../../assets/projectsImg/{{project.img}}.webp"/>
           </ng-template>
           <p>{{project.description}}</p>
           <ng-template pTemplate="footer">
@@ -82,6 +85,9 @@
               @if(project.ownProject){
                 <div class="absolute bottom-5 right-5">
                   <p-tag styleClass="mt-5 ml-5 bg-basic-900 text-lg text-basic-100" value="own"/>
+                  @if(!project.finished){
+                    <p-tag styleClass="mt-5 ml-2 bg-error-200 text-lg text-error-900" value="unfinished"/>
+                  }
                 </div>
                 }
             </div>
