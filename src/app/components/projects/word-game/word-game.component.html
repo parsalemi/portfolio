@@ -1,14 +1,17 @@
-<div #help class="flex hidden h-80 w-[90%] md:w-auto p-5 fixed top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 bg-basic-1100 border-2 border-primary-600 flex-col gap-5 md:items-start items-center justify-evenly rounded-3xl shadow-primary-5">
+<div #help class="flex hidden z-[1000] h-80 w-[90%] md:w-auto p-5 fixed top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 bg-basic-1100 border-2 border-primary-600 flex-col gap-5 md:items-start items-center justify-evenly rounded-3xl shadow-primary-5">
+  <button (click)="help.classList.add('hidden')">
+    <i class="pi pi-times absolute top-5 right-5 text-basic-200"></i>
+  </button>
   <div class="flex gap-2 items-center justify-center">
-    <div class="rounded-full h-4 w-4 bg-success-400"></div>
+    <div class="rounded-full h-4 w-4 bg-success-800"></div>
     <p>Correct Letter In Correct Position</p>
   </div>
   <div class="flex gap-2 items-center justify-center">
-    <div class="rounded-full h-4 w-4 bg-warning-400"></div>
+    <div class="rounded-full h-4 w-4 bg-warning-600"></div>
     <p>Correct Letter In Wrong Position</p>
   </div>
   <div class="flex gap-2 items-center justify-center">
-    <div class="rounded-full h-4 w-4 bg-error-400"></div>
+    <div class="rounded-full h-4 w-4 bg-error-700"></div>
     <p>Wrong Letter</p>
   </div>
 </div>
@@ -26,7 +29,7 @@
       </button>
     </div>
     <div>
-      @for(div of [1, 2, 3, 4, 5, 6, 7, 8, 9]; track div){
+      @for(div of [1, 2, 3, 4, 5]; track div){
         <div #row class="row mt-3 flex gap-2 last:pb-28 md:last:pb-0">
           <input type="text" maxlength="1" #letter class="letter bg-basic-1100 shadow-2"/>
           <input type="text" maxlength="1" #letter class="letter bg-basic-1100 shadow-2"/>

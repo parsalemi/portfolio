@@ -203,10 +203,7 @@ p{
   }
 }
 .p-toast-message-success{
-  background-color: transparent;
-  backdrop-filter: hue-rotate(300deg) blur(10px);
-  background-color: transparent;
-  // background-color: var(--success-100);
+  background-color: var(--success-100);
   border: 2px solid var(--success-300);
   color: var(--success-700); 
   .p-toast-message-icon{
@@ -214,9 +211,7 @@ p{
   }
 }
 .p-toast-message-error{
-  background-color: transparent;
-  backdrop-filter: hue-rotate(130deg) blur(10px); background-color: transparent;
-  // background-color: var(--error-100);
+  background-color: var(--error-100);
   border: 2px solid var(--error-300);
   color: var(--error-400);
   .p-toast-message-icon{
@@ -224,9 +219,7 @@ p{
   }
 }
 .p-toast-message-info{
-  background-color: transparent;
-  backdrop-filter: hue-rotate(200deg) blur(10px);
-  // background-color: var(--warning-100);
+  background-color: var(--warning-100);
   border: 2px solid var(--warning-300);
   color: var(--warning-600);
   .p-toast-message-icon{

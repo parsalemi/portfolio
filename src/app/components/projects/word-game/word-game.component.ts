@@ -70,21 +70,21 @@ export class WordGameComponent implements AfterViewInit, OnInit{
     });
 
     if(numOfCorrectLetters === 5){
-      this._message.add({severity: 'success', summary: 'Congratulations', detail: 'Try Another Word', life: 3000})
+      this._message.add({severity: 'success', summary: 'Congratulations', detail: 'Try Another Word', life: 5000})
       this.gameOver = true;
       this.guessed = true;      
       this.wordRow[this.row].nativeElement.children[4].blur();
       this.wordRow[this.row].nativeElement.children[this.letter].setAttribute('disabled', 'true');
       
-    }else if( this.row === 8){
+    }else if( this.row === 4){
       this.gameOver = true;
       this.wordRow[this.row].nativeElement.children[4].blur();
-      this._message.add({severity: 'error', summary: 'Maybe Next Time', detail: `Answer is ${this.wordOfDay}`, life: 3000})
+      this._message.add({severity: 'error', summary: 'Maybe Next Time', detail: `Answer is ${this.wordOfDay}`, life: 10000})
     }
   }    
   enter() {
     if(this.letter < 5){
-      this._message.add({severity: 'info', summary: 'Not Enough Letters', detail: 'Type A 5 Letter Word', life: 3000})
+      this._message.add({severity: 'info', summary: 'Not Enough Letters', detail: 'Type A 5 Letter Word', life: 5000})
     }else {
       this.checkWord();
       this.row += 1;
