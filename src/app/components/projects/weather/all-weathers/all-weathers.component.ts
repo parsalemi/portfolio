@@ -27,7 +27,6 @@ export class AllWeathersComponent {
   todayDate = new Date();
   public someWeathers$: Observable<WeatherCity>[] = [];
   _api = inject(WeatherService);
-  userLocation: string = this.getUserLoc();
   loading: boolean = false;
   locations: string[] = [
     'tehran', 'isfahan', 'shiraz', 'mashhad', 'yazd', 'tabriz', 
@@ -51,13 +50,6 @@ export class AllWeathersComponent {
     }
     return `${lat},${lng}`
   }
-  
-  cardBgc(time: string, event: any){
-    if(parseInt(time.split(':')[0]) < 12){
-      console.log(event);
-      event.target.style.backgroundColor = 'black';
-    }
-  }
   forTime(tz: number): string{
     let text = ''
     if(tz % 1 !== 0 && tz > 0){
@@ -67,7 +59,6 @@ export class AllWeathersComponent {
     }else if(tz % 1 !== 0 && tz < 0){
       tz = tz + 0.5;
       text = `${tz}:30`
-      console.log(text);
       return `UTC ` + text
     }else if(tz < 0){
       return `UTC ${tz}`
@@ -83,8 +74,6 @@ export class AllWeathersComponent {
     this._router.navigate(['projects/weather/'+searchableCity]);
   }
   ngOnInit(){
-    // this.cardBgc('01:00:300',);
-    console.log(this.todayDate);
   }
 }
 

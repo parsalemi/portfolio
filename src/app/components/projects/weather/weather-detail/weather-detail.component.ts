@@ -33,12 +33,10 @@ export class WeatherDetailComponent implements OnInit{
   ngOnInit(): void {
     let currentHour: any = this.datePipe.transform(new Date(), 'H');
     const hours = [parseInt(currentHour)];
-    console.log(currentHour);
     for(let i = 1; i < 10; i++){
       let h: number = currentHour == 24 ? 0 : currentHour + i > 24 ? i - 1 : parseInt(currentHour) + i;
       hours.push(h);
     }
     this.hourArr = hours;
-    console.log(this.hourArr);
   }
 }
