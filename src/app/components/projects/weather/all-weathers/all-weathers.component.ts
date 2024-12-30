@@ -79,8 +79,8 @@ export class AllWeathersComponent {
     return Math.floor((f - 32) * 5/9);
   }
   searchCity(city: string){
-    console.log(city);
-    this._router.navigate(['projects/weather/'+city]);
+    let searchableCity = city.split(' ').join('');
+    this._router.navigate(['projects/weather/'+searchableCity]);
   }
   ngOnInit(){
     // this.cardBgc('01:00:300',);
