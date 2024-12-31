@@ -115,5 +115,12 @@ module.exports = {
     },
   },
   plugins: [
+    require('tailwindcss/plugin')(({ matchUtilities }) => {
+      matchUtilities({
+        'group': (value) => ({
+          [`@apply ${value.replaceAll(',', ' ')}`]: {}
+        })
+      })
+    })
   ],
 }
