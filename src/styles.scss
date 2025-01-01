@@ -70,6 +70,9 @@ p{
   }
 }
 @layer base{
+  .highlight{
+    background-color: var(--primary-600);
+  }
   app-main{
     width: 100%;
   }

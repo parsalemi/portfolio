@@ -1,28 +1,32 @@
-<div class="main w-full h-full flex flex-col items-center justify-center">
-    <div class="border-2 border-black">
-        <div class="row flex {{div % 3 == 0 && div !== 9 ? 'border-b-2' : ''}} {{div % 3 == 1 && div !== 1}}" 
-        *ngFor="let div of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
-            <button 
-            #slot
-            [attr.data-x]="div"
-            [attr.data-y]="button"
-            class="slot bg-transparent h-14 w-14 {{button % 3 == 0 && button !== 9 ? 'border-r-2' : 'mr-0'}}" 
-            (click)="setNumber(selectedCell, cellNumber, $event)" 
-            *ngFor="let button of [1, 2, 3, 4, 5, 6, 7, 8, 9]">-</button>
-        </div> 
-    </div>
-
-    <div class="flex items-center justify-center">
-        <button 
-        class="py-3 px-5 mr-4 font-bold bg-blue-500 focus:bg-blue-900" 
-        value="{{number}}" 
-        (click)="placeNumber(number)" 
-        *ngFor="let number of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
-            {{number}}
+<div class="main w-full flex flex-col items-center justify-center">
+  <p-toast position="center"/>
+  <h2 class="mb-5 text-error-500">Errors : {{errors}}</h2>
+  <div class="rounded-xl bg-basic-1000 overflow-hidden">
+    <mat-progress-bar mode="determinate" [value]="progress" class="progress mb-5"></mat-progress-bar>
+    @for(div of [1, 2, 3, 4, 5, 6, 7, 8, 9]; track div){
+      <div class="row flex gap-1 {{div !== 9 ? 'mb-1' : ''}} {{div % 3 == 0 && div !== 9 ? 'rowSeperator' : ''}}">
+        @for(button of [1, 2, 3, 4, 5, 6, 7, 8, 9]; track button){
+          <button 
+          #slot
+          [attr.data-x]="div"
+          [attr.data-y]="button"
+          class="slot shadow-1 text-basic-100 text-center text-h3 rounded-xl border-2 border-basic-900 bg-basic-1100 w-10 h-10 md:group-[h-14,w-14] {{button % 3 == 0 && button !== 9 ? 'colSeperator' : 'mr-0'}}" 
+          (mouseover)="highlightRowAndCol(div, button)"
+          (mouseout)="removeHighlight(div, button)"
+          >
         </button>
-        <button class="py-3 px-3 bg-blue-800 focus:bg-white flex gap-1 items-center justify-center" (click)="placeNumber('erase')">
-            erase
-            <svg fill="#000000" height="15px" width="15px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M509.607,173.926L338.073,2.393C336.542,0.861,334.463,0,332.297,0s-4.245,0.861-5.777,2.393L87.126,241.787 c-3.191,3.191-3.191,8.364,0,11.554l1.926,1.926L2.393,341.926c-3.191,3.191-3.191,8.364,0,11.554l156.127,156.127 c1.595,1.595,3.686,2.393,5.777,2.393c2.09,0,4.182-0.797,5.777-2.393l86.659-86.659l1.926,1.926 c1.595,1.595,3.686,2.393,5.777,2.393c2.09,0,4.182-0.797,5.777-2.393L509.607,185.48c1.533-1.532,2.393-3.61,2.393-5.777 S511.139,175.458,509.607,173.926z M332.297,19.725l34.664,34.663l-227.84,227.84l-32.732-32.732 c-0.011-0.011-1.931-1.931-1.931-1.931L332.297,19.725z M164.297,492.276L19.725,347.702l80.881-80.881l144.572,144.572 L164.297,492.276z M264.436,407.543l-1.921-1.921c-0.011-0.011-32.743-32.743-32.743-32.743l40.44-40.44 c3.191-3.191,3.191-8.364,0-11.554c-3.191-3.191-8.364-3.191-11.554,0l-40.44,40.44l-67.544-67.544l227.84-227.84l67.544,67.544 l-164.292,164.29c-3.191,3.191-3.191,8.364,0,11.554c1.595,1.596,3.686,2.393,5.777,2.393c2.091,0,4.182-0.797,5.777-2.393 l164.291-164.29l34.664,34.663L264.436,407.543z"></path> </g> </g> </g></svg>
-        </button>
+        }
+    </div> 
+  }
   </div>
+
+  <div class="flex items-center justify-center flex-wrap gap-5 mt-5">
+    @for(number of [1, 2, 3, 4, 5, 6, 7, 8 ,9]; track number){
+      <button 
+      #activeBtn
+      class="btn-secondary text-h4 rounded-lg" 
+      value="{{number}}" 
+      (click)="activeNumber(number, activeBtn)">{{number}}</button>
+    }
+</div>
 </div>
