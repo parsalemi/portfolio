@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { CardModule } from 'primeng/card';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { TagModule } from 'primeng/tag';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-all-projects',
@@ -17,6 +18,7 @@ import { TagModule } from 'primeng/tag';
   ],
 })
 export class AllProjectsComponent {
+  env = environment;
   projects: Project[] = [
     {
       title: 'Weather App',

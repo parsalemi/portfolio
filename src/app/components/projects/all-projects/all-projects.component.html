@@ -5,14 +5,14 @@
     <a [href]="project.ownProject ? '../projects/'+project.link : project.link">
       <p-card [header]="project.title" [style]="{width: '300px', height: '500px'}" styleClass="relative shadow-3 bg-basic-1100 text-basic-400">
         <ng-template pTemplate="header">
-          <img src="../../../../assets/projectsImg/{{project.img}}.webp"/>
+          <img src="{{env.staticFileUrl}}/projectsImg/{{project.img}}.webp"/>
         </ng-template>
         <p>{{project.description}}</p>
         <ng-template pTemplate="footer">
           <div class="flex justify-between">
             <div class="flex gap-2 absolute bottom-5">
               @for(svg of project.techsSvg; track svg){
-                <svg-icon src="../../../../assets/svg/{{svg}}.svg"></svg-icon>
+                <svg-icon src="{{env.staticFileUrl}}/svg/{{svg}}.svg"></svg-icon>
               }
             </div>
             @if(project.ownProject){
@@ -38,7 +38,7 @@
       <a [href]="project.ownProject ? '../projects/'+project.link : project.link">
         <p-card [header]="project.title" [style]="{width: '300px', height: '500px'}" styleClass="relative shadow-3 hover:shadow-1 bg-basic-1100 text-basic-400">
           <ng-template pTemplate="header">
-            <img src="../../../../assets/projectsImg/{{project.img}}.webp"/>
+            <img src="{{env.staticFileUrl}}/projectsImg/{{project.img}}.webp"/>
             
           </ng-template>
           <p>{{project.description}}</p>
@@ -46,7 +46,7 @@
             <div class="flex justify-between">
               <div class="flex gap-2 absolute bottom-5">
                 @for(svg of project.techsSvg; track svg){
-                  <svg-icon src="../../../../assets/svg/{{svg}}.svg"></svg-icon>
+                  <svg-icon src="{{env.staticFileUrl}}/svg/{{svg}}.svg"></svg-icon>
                 }
               </div>
               @if(project.ownProject){
@@ -72,14 +72,14 @@
       <a [href]="project.ownProject ? '../projects/'+project.link : project.link">
         <p-card [header]="project.title" [style]="{width: '300px', height: '500px'}" styleClass="relative shadow-3 hover:shadow-1 bg-basic-1100 text-basic-400">
           <ng-template pTemplate="header">
-            <img src="../../../../assets/projectsImg/{{project.img}}.webp"/>
+            <img src="{{env.staticFileUrl}}/projectsImg/{{project.img}}.webp"/>
           </ng-template>
           <p>{{project.description}}</p>
           <ng-template pTemplate="footer">
             <div class="flex justify-between">
               <div class="flex gap-2 absolute bottom-5">
                 @for(svg of project.techsSvg; track svg){
-                  <svg-icon src="../../../../assets/svg/{{svg}}.svg"></svg-icon>
+                  <svg-icon src="{{env.staticFileUrl}}/svg/{{svg}}.svg"></svg-icon>
                 }
               </div>
               @if(project.ownProject){

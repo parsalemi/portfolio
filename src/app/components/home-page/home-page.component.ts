@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { SkillsComponent } from './skills/skills.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { ContactComponent } from './contact/contact.component';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home-page',
@@ -16,9 +17,6 @@ import { ContactComponent } from './contact/contact.component';
     ContactComponent
   ],
 })
-export class HomePageComponent implements OnInit{
-
-  ngOnInit(){
-
-  }
+export class HomePageComponent{
+  env = environment;
 }

@@ -20,7 +20,7 @@
 				>
 					<div class="w-full h-10 flex items-start justify-between border-b-2 border-primary-900">
 						<div class="flex gap-2 justify-center items-center">
-							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.currentConditions.icon}}.svg"></svg-icon>
+							<svg-icon src="{{env.staticFileUrl}}/weatherIcons/{{weathers.currentConditions.icon}}.svg"></svg-icon>
 							<h5>{{weathers.currentConditions.conditions.split(',')[0]}}</h5>
 						</div>
 						<div>
@@ -43,22 +43,22 @@
 					<div class="h-10 flex gap-2 justify-around border-t-2 border-primary-900">
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[0].conditions.split(',')[0]}}</p>
-							<svg-icon src="../../../../assets/weatherIcons/{{weathers.days[0].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
+							<svg-icon src="{{env.staticFileUrl}}/weatherIcons/{{weathers.days[0].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[1].conditions.split(',')[0]}}</p>
-							<svg-icon src="../../../../assets/weatherIcons/{{weathers.days[1].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
+							<svg-icon src="{{env.staticFileUrl}}/weatherIcons/{{weathers.days[1].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[2].conditions.split(',')[0]}}</p>
-							<svg-icon src="../../../../assets/weatherIcons/{{weathers.days[2].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
+							<svg-icon src="{{env.staticFileUrl}}/weatherIcons/{{weathers.days[2].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[3].conditions.split(',')[0]}}</p>
-							<svg-icon src="../../../../assets/weatherIcons/{{weathers.days[3].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
+							<svg-icon src="{{env.staticFileUrl}}/weatherIcons/{{weathers.days[3].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 					</div>
 				</a>
@@ -90,7 +90,7 @@
 				>
 					<div class="w-full h-10 flex items-start justify-between border-b-2 border-primary-900">
 						<div class="flex gap-2 justify-center items-center">
-							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.currentConditions.icon}}.svg"></svg-icon>
+							<svg-icon src="{{env.staticFileUrl}}/weatherIcons/{{weathers.currentConditions.icon}}.svg"></svg-icon>
 							<h5>{{weathers.currentConditions.conditions.split(',')[0]}}</h5>
 						</div>
 						<div>
@@ -113,22 +113,22 @@
 					<div class="h-10 flex gap-2 justify-around border-t-2 border-primary-900">
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[0].conditions.split(',')[0]}}</p>
-							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[0].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
+							<svg-icon src="{{env.staticFileUrl}}/weatherIcons/{{weathers.days[0].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[1].conditions.split(',')[0]}}</p>
-							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[1].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
+							<svg-icon src="{{env.staticFileUrl}}/weatherIcons/{{weathers.days[1].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[2].conditions.split(',')[0]}}</p>
-							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[2].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
+							<svg-icon src="{{env.staticFileUrl}}/weatherIcons/{{weathers.days[2].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[3].conditions.split(',')[0]}}</p>
-							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[3].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
+							<svg-icon src="{{env.staticFileUrl}}/weatherIcons/{{weathers.days[3].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 					</div>
 				</a>
@@ -145,7 +145,7 @@
 				>
 					<div class="w-full h-10 flex items-start justify-between border-b-2 border-primary-900">
 						<div class="flex gap-2 justify-center items-center">
-							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.currentConditions.icon}}.svg"></svg-icon>
+							<svg-icon src="{{env.staticFileUrl}}/weatherIcons/{{weathers.currentConditions.icon}}.svg"></svg-icon>
 							<h5>{{weathers.currentConditions.conditions.split(',')[0]}}</h5>
 						</div>
 						<div>
@@ -168,22 +168,22 @@
 					<div class="h-10 flex gap-2 justify-around border-t-2 border-primary-900">
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[0].conditions.split(',')[0]}}</p>
-							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[0].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
+							<svg-icon src="{{env.staticFileUrl}}/weatherIcons/{{weathers.days[0].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[1].conditions.split(',')[0]}}</p>
-							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[1].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
+							<svg-icon src="{{env.staticFileUrl}}/weatherIcons/{{weathers.days[1].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[2].conditions.split(',')[0]}}</p>
-							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[2].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
+							<svg-icon src="{{env.staticFileUrl}}/weatherIcons/{{weathers.days[2].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[3].conditions.split(',')[0]}}</p>
-							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[3].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
+							<svg-icon src="{{env.staticFileUrl}}/weatherIcons/{{weathers.days[3].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 					</div>
 				</a>
@@ -200,7 +200,7 @@
 				>
 					<div class="w-full h-10 flex items-start justify-between border-b-2 border-primary-900">
 						<div class="flex gap-2 justify-center items-center">
-							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.currentConditions.icon}}.svg"></svg-icon>
+							<svg-icon src="{{env.staticFileUrl}}/weatherIcons/{{weathers.currentConditions.icon}}.svg"></svg-icon>
 							<h5>{{weathers.currentConditions.conditions.split(',')[0]}}</h5>
 						</div>
 						<div>
@@ -223,22 +223,22 @@
 					<div class="h-10 flex gap-2 justify-around border-t-2 border-primary-900">
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[0].conditions.split(',')[0]}}</p>
-							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[0].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
+							<svg-icon src="{{env.staticFileUrl}}/weatherIcons/{{weathers.days[0].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[1].conditions.split(',')[0]}}</p>
-							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[1].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
+							<svg-icon src="{{env.staticFileUrl}}/weatherIcons/{{weathers.days[1].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[2].conditions.split(',')[0]}}</p>
-							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[2].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
+							<svg-icon src="{{env.staticFileUrl}}/weatherIcons/{{weathers.days[2].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 
 						<div class="h-full w-16 flex flex-col items-center justify-center text-center">
 							<p class="w-16 text-sm truncate">{{weathers.days[3].conditions.split(',')[0]}}</p>
-							<svg-icon src="../../../../../assets/weatherIcons/{{weathers.days[0].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
+							<svg-icon src="{{env.staticFileUrl}}/weatherIcons/{{weathers.days[0].icon}}.svg" [svgStyle]="{'width.px': 20, 'height.px': 20}"></svg-icon>
 						</div>
 					</div>
 				</a>

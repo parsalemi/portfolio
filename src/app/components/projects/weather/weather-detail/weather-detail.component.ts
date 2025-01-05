@@ -3,6 +3,7 @@ import { AsyncPipe, DatePipe, DecimalPipe, NgClass, NgIf } from '@angular/common
 import { WeatherService } from 'src/app/services/weather.service';
 import { ActivatedRoute } from '@angular/router';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-weather-detail',
@@ -21,7 +22,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 })
 export class WeatherDetailComponent implements OnInit{
   constructor(private route: ActivatedRoute, private datePipe: DatePipe){}
-  
+  env = environment;
   loading: boolean = false;
   private _api = inject(WeatherService);
   private _city = this.route.snapshot.paramMap.get('city') || '';

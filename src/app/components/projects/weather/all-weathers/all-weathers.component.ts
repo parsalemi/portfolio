@@ -7,6 +7,7 @@ import { AsyncPipe, NgClass, NgStyle } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-all-weathers',
@@ -24,6 +25,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
   ],
 })
 export class AllWeathersComponent {
+  env = environment;
   todayDate = new Date();
   public someWeathers$: Observable<WeatherCity>[] = [];
   _api = inject(WeatherService);

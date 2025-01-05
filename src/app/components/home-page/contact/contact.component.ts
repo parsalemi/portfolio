@@ -1,5 +1,7 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TooltipModule } from 'primeng/tooltip';
+import { environment } from 'src/environments/environment';
+
 @Component({
   selector: 'app-contact',
   standalone: true,
@@ -11,5 +13,5 @@ import { TooltipModule } from 'primeng/tooltip';
   ],
 })
 export class ContactComponent {
-
+  env = environment;
 }

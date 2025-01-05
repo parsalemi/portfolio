@@ -3,6 +3,7 @@ import lottie from 'lottie-web';
 import { defineElement } from '@lordicon/element';
 import { DOCUMENT } from '@angular/common';
 import { MenuItem } from 'primeng/api';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ export class AppComponent implements OnInit{
   darkMode: boolean = true;
   animatedBorder: boolean = true;
   settingsOpt: MenuItem[] | undefined;
+  env = environment;
   
   constructor(
     @Inject(DOCUMENT) private _document: Document,
