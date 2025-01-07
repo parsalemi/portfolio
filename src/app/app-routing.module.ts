@@ -10,6 +10,7 @@ const routes: Routes = [
   {
     path: 'home',
     loadComponent: () => import('../app/components/home-page/home-page.component').then(c => c.HomePageComponent),
+    title: 'Parsalemi Portfolio Home Page',
   },
   {
     path: 'projects',
@@ -18,10 +19,12 @@ const routes: Routes = [
   {
     path: 'contact',
     loadComponent: () => import('./components/contact/contact.component').then(c => c.ContactComponent),
+    title: 'Contact',
   },
   {
     path: '**',
     loadComponent: () => import('./components/page-not-found/page-not-found.component').then(c => c.PageNotFoundComponent),
+    title: '404 Not Found',
   }
 ];
 
