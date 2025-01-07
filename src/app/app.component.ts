@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AppComponent implements OnInit{
   title = 'Parsalemi Portfolio';
-  darkMode: boolean =  localStorage.getItem('theme') == 'dark' ? true : false;
+  darkMode: boolean = !localStorage.getItem('theme') ? true : localStorage.getItem('theme') == 'dark' ? true : false;
   animatedBorder: boolean = true;
   settingsOpt: MenuItem[] | undefined;
   env = environment;
