@@ -25,7 +25,7 @@ export class HeaderOptionsComponent implements OnInit, OnChanges{
   @Output() blueTheme = new EventEmitter();
   @Output() greenTheme = new EventEmitter();
   @Output() toggleAnimation = new EventEmitter();
-  @Input() darkTheme: Boolean = true;
+  @Input() darkTheme: Boolean = localStorage.getItem('theme') == 'dark' ? true : false;
   @Input() animated: Boolean = true;
 
   _animated !: boolean;
@@ -86,8 +86,8 @@ export class HeaderOptionsComponent implements OnInit, OnChanges{
         label: 'Options',
         items: [
           {
-            label: 'Light',
-            icon: 'pi pi-sun',
+            label: this.darkTheme ? 'Light' : 'Dark',
+            icon: this.darkTheme ? 'pi pi-sun' : 'pi pi-moon',
             iconStyle: {color: 'var(--basic-400)'},
             command: () => this.darkMode.emit(),
           },

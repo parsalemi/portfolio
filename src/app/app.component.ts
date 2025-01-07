@@ -13,17 +13,21 @@ import { environment } from 'src/environments/environment';
 })
 export class AppComponent implements OnInit{
   title = 'Parsalemi Portfolio';
-  darkMode: boolean = true;
+  darkMode: boolean = localStorage.getItem('theme') == 'dark' ? true : false;
   animatedBorder: boolean = true;
   settingsOpt: MenuItem[] | undefined;
   env = environment;
+  userTheme: string | null = localStorage.getItem('theme');
+  userColor: string | null = localStorage.getItem('color');
   
   constructor(
     @Inject(DOCUMENT) private _document: Document,
   ){
     defineElement(lottie.loadAnimation);
-    this._document.documentElement.setAttribute('data-theme', 'dark');
-    this._document.documentElement.setAttribute('data-color', 'blue');
+    localStorage.setItem('theme', this.userTheme as string);
+    localStorage.setItem('color', this.userColor as string);
+    this._document.documentElement.setAttribute('data-theme', this.userTheme as string);
+    this._document.documentElement.setAttribute('data-color', this.userColor as string);
   }
   
   toggleDark(){
@@ -31,16 +35,20 @@ export class AppComponent implements OnInit{
     const dataTheme = this._document.documentElement.getAttribute('data-theme');
     if(dataTheme == 'dark'){
       this._document.documentElement.setAttribute('data-theme', 'light');
+      document.querySelector('.fullPage')?.classList.add('dark')
+      localStorage.setItem('theme', 'light')
     } else if(dataTheme == 'light'){
       this._document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark')
+      document.querySelector('.fullPage')?.classList.remove('dark')
     }
-    document.querySelector('.fullPage')?.classList.toggle('dark')
   }
 
   togglePuple(){
     const dataColor = this._document.documentElement.getAttribute('data-color');
     if(dataColor !== 'purple'){
       this._document.documentElement.setAttribute('data-color', 'purple');
+      localStorage.setItem('color', 'purple')
     }
   }
 
@@ -48,6 +56,7 @@ export class AppComponent implements OnInit{
     const dataColor = this._document.documentElement.getAttribute('data-color');
     if(dataColor !== 'blue'){
       this._document.documentElement.setAttribute('data-color', 'blue');
+      localStorage.setItem('color', 'blue')
     }
   }
 
@@ -55,6 +64,7 @@ export class AppComponent implements OnInit{
     const dataColor = this._document.documentElement.getAttribute('data-color');
     if(dataColor !== 'green'){
       this._document.documentElement.setAttribute('data-color', 'green');
+      localStorage.setItem('color', 'green')
     }
   }
   toggleAnimation(){
@@ -79,6 +89,9 @@ export class AppComponent implements OnInit{
     })
   }
   ngOnInit(){
-
+    // localStorage.setItem('theme', 'dark')
+    // localStorage.setItem('color', 'blue')
+    let isDark = localStorage.getItem('theme') == 'dark' ? true : false;
+    document.querySelector('.fullPage')?.classList.add(isDark ? '' : 'dark');
   }
 }
