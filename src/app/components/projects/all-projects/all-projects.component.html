@@ -35,7 +35,7 @@
 <div class="mdWrapper h-[550px] w-full hidden md:flex lg:hidden relative">
   @for(project of projects; track project.title){
     <div class="mdProjectCard absolute">
-      <a [href]="project.ownProject ? '../projects/'+project.link : project.link">
+      <a [href]="project.ownProject ? '#/projects/'+project.link : project.link">
         <p-card [header]="project.title" [style]="{width: '300px', height: '500px'}" styleClass="relative shadow-3 hover:shadow-1 bg-basic-1100 text-basic-400">
           <ng-template pTemplate="header">
             <img src="{{env.staticFileUrl}}/projectsImg/{{project.img}}.webp"/>
@@ -69,7 +69,7 @@
 <div class="smWrapper w-full md:hidden flex flex-col items-center justify-center gap-10 last:mb-28">
   @for(project of projects; track project.title){
     <div class="">
-      <a [href]="project.ownProject ? '../projects/'+project.link : project.link">
+      <a [href]="project.ownProject ? '#/projects/'+project.link : project.link">
         <p-card [header]="project.title" [style]="{width: '300px', height: '500px'}" styleClass="relative shadow-3 hover:shadow-1 bg-basic-1100 text-basic-400">
           <ng-template pTemplate="header">
             <img src="{{env.staticFileUrl}}/projectsImg/{{project.img}}.webp"/>
