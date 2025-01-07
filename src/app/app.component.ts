@@ -13,12 +13,12 @@ import { environment } from 'src/environments/environment';
 })
 export class AppComponent implements OnInit{
   title = 'Parsalemi Portfolio';
-  darkMode: boolean = localStorage.getItem('theme') == 'dark' ? true : false;
+  darkMode: boolean =  localStorage.getItem('theme') == 'dark' ? true : false;
   animatedBorder: boolean = true;
   settingsOpt: MenuItem[] | undefined;
   env = environment;
-  userTheme: string | null = localStorage.getItem('theme');
-  userColor: string | null = localStorage.getItem('color');
+  userTheme: string | null = localStorage.getItem('theme') ? localStorage.getItem('theme') : 'dark';
+  userColor: string | null = localStorage.getItem('color') ? localStorage.getItem('color') : 'blue';
   
   constructor(
     @Inject(DOCUMENT) private _document: Document,
