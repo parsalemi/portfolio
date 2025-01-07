@@ -39,7 +39,6 @@ export class WordGameComponent implements AfterViewInit, OnInit{
   ngAfterViewInit(){
     this.wordRow = this.rows._results;
     this.lettersInRow = this.wordRow[this.row].nativeElement.children;
-    console.log(this.wordOfDay);
     window.addEventListener('keydown', (e) => {
       const key = e.key.toLowerCase();
       if(key.match(/\b[a-z]{1}\b/g) || key === 'enter' || key === 'delete' || key === 'backspace'){

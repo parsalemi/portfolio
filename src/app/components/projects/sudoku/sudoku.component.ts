@@ -128,7 +128,7 @@ export class SudokuComponent implements AfterViewInit{
       }
       else {
         this.errors++;
-        // this.message.add({severity: 'error', summary: 'Wrong!', detail: 'Try Again', life: 3000})
+        this.message.add({severity: 'error', summary: 'Wrong!', detail: 'Try Again', life: 500})
       }
       if(this.calcProgress(this.filledSlots) === 100){
         this.message.add({severity: 'success', summary: 'Congratulation!', detail: 'Puzzle Completed', life: 5000})

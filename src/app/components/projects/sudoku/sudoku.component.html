@@ -10,7 +10,7 @@
           #slot
           [attr.data-x]="div"
           [attr.data-y]="button"
-          class="slot shadow-1 text-basic-100 text-center text-h3 rounded-xl border-2 border-basic-900 bg-basic-1100 w-10 h-10 md:group-[h-14,w-14] {{button % 3 == 0 && button !== 9 ? 'colSeperator' : 'mr-0'}}" 
+          class="slot shadow-1 text-basic-100 text-center text-h4 rounded-xl border-2 border-basic-900 bg-basic-1100 w-9 h-9 md:group-[h-14,w-14,text-h2] {{button % 3 == 0 && button !== 9 ? 'colSeperator' : 'mr-0'}}" 
           (mouseover)="highlightRowAndCol(div, button)"
           (mouseout)="removeHighlight(div, button)"
           >
@@ -20,7 +20,7 @@
   }
   </div>
 
-  <div class="flex items-center justify-center flex-wrap gap-5 mt-5">
+  <div class="flex items-center justify-center flex-wrap gap-3 mt-5 pb-32">
     @for(number of [1, 2, 3, 4, 5, 6, 7, 8 ,9]; track number){
       <button 
       #activeBtn
