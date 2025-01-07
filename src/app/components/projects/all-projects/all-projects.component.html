@@ -2,7 +2,7 @@
 <div class="lgWrapper w-full hidden lg:flex h-[600px] relative items-center justify-center">
   @for(project of projects; track project.title){
   <div class="lgProjectCard absolute">
-    <a [href]="project.ownProject ? '../projects/'+project.link : project.link">
+    <a [href]="project.ownProject ? '#/projects/'+project.link : project.link">
       <p-card [header]="project.title" [style]="{width: '300px', height: '500px'}" styleClass="relative shadow-3 bg-basic-1100 text-basic-400">
         <ng-template pTemplate="header">
           <img src="{{env.staticFileUrl}}/projectsImg/{{project.img}}.webp"/>
