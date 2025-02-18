@@ -20,6 +20,8 @@ module.exports = {
       'primary-3': '0 5px 15px var(--primary-900)',
       'primary-4': '0 10px 24px var(--primary-900)',
       'primary-5': '0 15px 35px var(--primary-900)',
+      'input-inset-dark': 'inset 0 2px 5px var(--basic-1000), inset 0 -2px 5px var(--basic-700)',
+      'input-inset-light': 'inset 0 2px 5px var(--basic-600), inset 0 -2px 5px var(--basic-1000)',
       'none': '0 0 0 #000',
     },
 
