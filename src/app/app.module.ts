@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { provideHttpClient, withInterceptorsFromDi, HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi, HttpClientModule, withInterceptors } from '@angular/common/http';
 import lottie from 'lottie-web';
 import { defineElement } from '@lordicon/element';
 import { RouterLinkActive } from '@angular/router';
@@ -14,6 +14,7 @@ import { HeaderOptionsComponent } from "./shared/layout/header-options/header-op
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { TooltipModule } from 'primeng/tooltip';
+import { tokenInterceptor } from './components/projects/e-commerce/token.interceptor';
 
 @NgModule({ 
   declarations: [
@@ -32,7 +33,11 @@ import { TooltipModule } from 'primeng/tooltip';
     TooltipModule,
     AngularSvgIconModule.forRoot(),
   ], 
-  providers: [provideHttpClient(withInterceptorsFromDi()), provideAnimationsAsync()],
+  providers: [
+    provideHttpClient(withInterceptorsFromDi()), 
+    provideHttpClient(withInterceptors([tokenInterceptor])),
+    provideAnimationsAsync(),
+  ],
 })
 export class AppModule { 
   constructor(){
