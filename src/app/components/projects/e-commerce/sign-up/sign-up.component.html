@@ -15,7 +15,7 @@
       formControlName="username"
       class="inputField"
       >
-      <label for="username" class="inputLabel">Username</label>
+      <label for="username" class="inputLabel"><i class="pi pi-user mr-1 text-lg"></i>Username</label>
       <ng-container *ngIf="newUser.controls.username as username">
         <div class="inputError" *ngIf="username.dirty && username.hasError('required')">Username is required</div>
         <div class="inputError" *ngIf="username.dirty && username.hasError('minlength')">Username must be at least <strong class="underline">{{username.getError('minlength').requiredLength}}</strong> letters</div>
@@ -35,7 +35,7 @@
         formControlName="age"
         class="inputField"
         >
-        <label for="age" class="inputLabel">Age</label>
+        <label for="age" class="inputLabel"><i class="pi pi-calendar-times mr-1 text-lg"></i>Age</label>
         <ng-container *ngIf="newUser.controls.age as age">
           <div class="inputError" *ngIf="age.dirty && age.hasError('required')">Age is requird</div>
           <div class="inputError" *ngIf="age.dirty && age.hasError('pattern')">Don't type letters</div>
@@ -47,10 +47,11 @@
           <option value="male">Male</option>
           <option value="female">Female</option>
         </select>
+        <label for="gender" class="absolute -top-5 text-basic-500"><i class="pi pi-mars mr-1 text-lg"></i>Gender</label>
       </div>
     </div>
     <fieldset formGroupName="password" class="w-full mb-7 self-center border-2 border-basic-900 rounded-2xl flex flex-col p-5 justify-center gap-5">
-      <legend class="p-2">Password</legend>
+      <legend class="p-2"><i class="pi pi-lock mr-1 text-lg"></i>Password</legend>
       <div class="relative flex flex-col gap-1 mb-14 inputWrapper">
         <input 
         [type]="togglePass ? 'text' : 'password'" 
