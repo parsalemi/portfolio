@@ -18,7 +18,6 @@
   font-family: 'Titillium-bold';
   src: url('assets/fonts/TitilliumWeb-Bold.ttf');
 }
-
 body{
   height: 100dvh;
   width: 100dvw;
@@ -69,6 +68,29 @@ p{
     border-radius: 10px;
   }
 }
+.ng-dirty.ng-invalid:not(form):not(fieldset):not(div){
+  border-bottom: 2px solid var(--error-600);
+}
+.ng-dirty.ng-valid:not(form):not(.profilePassword):not(fieldset):not(div){
+  border-bottom: 2px solid var(--success-600);
+}
+.inputError{
+  position: absolute;
+  bottom: -24px;
+  color: var(--error-500);
+  animation: errorAnimation .4s ease-in forwards;
+  @apply text-lg;
+}
+@keyframes errorAnimation {
+  from{
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 @layer base{
   .highlight{
     background-color: var(--primary-600);
@@ -107,6 +129,48 @@ p{
       padding: 24px 10px;
       &:last-child{
         border: none;
+      }
+    }
+  }
+  .inputWrapper{
+    .inputLabel{
+      position: absolute;
+      bottom: 5px;
+      color: var(--basic-500);
+      transition: transform .2s;
+    }
+    .inputSelect{
+      background-color: var(--basic-1100);
+      text-align: center;
+      border: none;
+      border-bottom: 2px solid var(--basic-800);
+      margin-top: 6px;
+      cursor: pointer;
+    }
+    .inputField{
+      background-color: transparent;
+      z-index: 1;
+      padding: 3px;
+      border: none;
+      border-bottom: 2px solid var(--basic-800);
+      transition: border-color .2s;
+
+      &.ng-untouched.ng-pristine.ng-valid, &:not(:placeholder-shown) {
+        border-bottom: 2px solid var(--basic-800);
+      }
+      &:focus, &:focus.ng-pristine:not(:placeholder-shown), &:focus.ng-untouched.ng-pristine, &:not(:placeholder-shown){
+        outline: none;
+        border-color: var(--primary-600);
+
+        &+.inputLabel{
+          transform: translateY(-25px);
+        }
+      }
+      &.ng-dirty.ng-invalid, &:not(:placeholder-shown){
+        border-color: var(--error-600);
+      }
+      &.ng-pristine.ng-valid, &:not(:placeholder-shown){
+        border-color: var(--basic-800);
       }
     }
   }
@@ -153,6 +217,53 @@ p{
       }
     }
   }
+  .btn-error-primary{
+    background-color: var(--error-700);
+    border: 2px solid var(--error-900);
+    color: var(--error-300);
+    padding: 10px 20px;
+    border-radius: .8rem;
+    text-align: center;
+    font-size: .875rem;
+    text-wrap: nowrap;
+    transition: all .4s;
+
+    &:hover{
+      background-color: var(--error-500);
+
+      &:active{
+        background-color: var(--error-500);
+        box-shadow: inset 0 2px 3px var(--error-900), inset 0 -2px 3px var(--error-600);
+      }
+    }
+  }
+  .btn-error-secondary{
+    background-color: transparent;
+    color: var(--error-600);
+    border: 2px solid var(--error-600);
+    border-radius: .8rem;
+    font-size: .875rem;
+    padding: 10px 20px;
+    text-align: center;
+    text-wrap: nowrap;
+    transition: all .4s;
+
+    &:hover{
+      background-color: var(--error-500);
+      color: var(--error-900);
+      &:active{
+        background-color: var(--error-600);
+        box-shadow: inset 0 2px 3px var(--error-900), inset 0 -2px 3px var(--error-600);
+      }
+    }
+  }
+  .btn-primary-disabled{
+    background-color: #2466a73b;
+    color: #cde6fe6b;
+    cursor: not-allowed;
+    border: 2px solid var(--basic-1100);
+  }
+  
 }
 // LORD ICONS
 
@@ -234,7 +345,7 @@ p{
     --mdc-linear-progress-track-color: var(--primary-600-tr-50);
 }
 // ACCESSIBILY
-:focus-visible{
+:focus-visible:not(input){
   background-color: var(--warning-400);
   border: none;
   color: black;
@@ -272,7 +383,7 @@ p{
   
 }
 [data-theme="dark"]{
-  :focus-visible{
+  :focus-visible:not(input){
     outline-color: white;
     .letter{
       outline: none;
@@ -288,11 +399,17 @@ p{
     }
   }
   .cityInput{
-    box-shadow: inset 0 2px 5px var(--basic-600), inset 0 -2px 5px var(--basic-1000);
+    @apply shadow-input-inset-light
+  }
+  .signInput{
+    @apply shadow-input-inset-light
   }
 }
 [data-theme="dark"]{
   .cityInput{
-    box-shadow: inset 0 2px 5px var(--basic-1000), inset 0 -2px 5px var(--basic-700);
+    @apply shadow-input-inset-dark
+  }
+  .signInput{
+    @apply shadow-input-inset-dark
   }
 }
