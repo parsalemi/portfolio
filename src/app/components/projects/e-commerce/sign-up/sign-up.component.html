@@ -1,0 +1,95 @@
+<div class="w-full h-full flex items-center justify-center">
+  <p-toast position="top-center"/>
+  <form [formGroup]="newUser" (ngSubmit)="register()"
+  autocomplete="off"
+  class="bg-basic-1100 flex flex-col shadow-3 rounded-lg gap-2 w-68 p-5">
+    <h2 class="mb-10 text-center">Sign Up</h2>
+    <div class="flex flex-col gap-1 relative mb-12 inputWrapper">
+      <input 
+      type="text" 
+      name="username" 
+      placeholder=" "
+      autocomplete="off" 
+      value=""
+      id="username"
+      formControlName="username"
+      class="inputField"
+      >
+      <label for="username" class="inputLabel">Username</label>
+      <ng-container *ngIf="newUser.controls.username as username">
+        <div class="inputError" *ngIf="username.dirty && username.hasError('required')">Username is required</div>
+        <div class="inputError" *ngIf="username.dirty && username.hasError('minlength')">Username must be at least <strong class="underline">{{username.getError('minlength').requiredLength}}</strong> letters</div>
+        <div class="inputError" *ngIf="username.dirty && username.hasError('pattern')">Only <strong class="text-xl">_</strong> and <strong class="text-xl">.</strong> is allowed</div>
+      </ng-container>
+    </div>
+
+    <div class="flex gap-2">
+      <div class="flex flex-col gap-1 w-1/2 relative mb-12 inputWrapper">
+        <input 
+        formControlName="age"
+        type="text" 
+        placeholder=" "
+        name="age" 
+        autocomplete="new-password" 
+        value=""
+        formControlName="age"
+        class="inputField"
+        >
+        <label for="age" class="inputLabel">Age</label>
+        <ng-container *ngIf="newUser.controls.age as age">
+          <div class="inputError" *ngIf="age.dirty && age.hasError('required')">Age is requird</div>
+          <div class="inputError" *ngIf="age.dirty && age.hasError('pattern')">Don't type letters</div>
+          <div class="inputError" *ngIf="age.dirty && age.hasError('minlength')">Must be <strong>{{age.getError('minlength').requiredLength}}</strong> digits</div>
+        </ng-container>
+      </div>
+      <div class="flex flex-col gap-1 w-1/2 relative inputWrapper">
+        <select formControlName="gender" name="gender" id="gender" class="inputSelect">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+    </div>
+    <fieldset formGroupName="password" class="w-full mb-7 self-center border-2 border-basic-900 rounded-2xl flex flex-col p-5 justify-center gap-5">
+      <legend class="p-2">Password</legend>
+      <div class="relative flex flex-col gap-1 mb-14 inputWrapper">
+        <input 
+        [type]="togglePass ? 'text' : 'password'" 
+        name="newPassword" 
+        autocomplete="off" 
+        placeholder=" "
+        value=""
+        formControlName="newPassword"
+        class="inputField mt-2"
+        #password
+        >
+        <label for="newPassword" class="inputLabel">Password</label>
+        <svg-icon (click)="showPassword()" class="absolute top-3 right-3 cursor-pointer z-10" src="{{env.staticFileUrl}}/svg/eye-{{togglePass.toString()}}.svg"></svg-icon>
+        <ng-container *ngIf="newUser.controls.password.controls.newPassword as password">
+          <div class="inputError" *ngIf="password.dirty && password.hasError('required')">Password is required</div>
+          <div class="inputError top-12 leading-none" *ngIf="password.dirty && password.hasError('pattern')">At least 8 characters, using uppercase, lowercase, number nad symbol</div>
+        </ng-container>
+      </div>
+    
+      <div class="relative flex flex-col gap-1 mb-5 inputWrapper">
+        <input 
+        [type]="togglePass ? 'text' : 'password'"
+        formControlName="repeatNewPassword"
+        name="repeatPassword"
+        placeholder=" "
+        autocomplete="off"
+        value=""
+        id="repeatPassword"
+        class="inputField"
+        #repeat
+        >
+        <label for="repeatPassword" class="inputLabel">Repeat Password</label>
+        <ng-container *ngIf="newUser.controls.password.controls.repeatNewPassword as password">
+          <div class="inputError" *ngIf="password.dirty && password.hasError('passwordShouldMatch')">Password should match</div>
+        </ng-container>
+        <svg-icon (click)="showPassword()" class="absolute top-1 right-3 cursor-pointer z-10" src="{{env.staticFileUrl}}/svg/eye-{{togglePass.toString()}}.svg"></svg-icon>
+      </div>
+  </fieldset>
+    <button class="btn-primary mb-3 disabled:btn-primary-disabled" type="submit" [disabled]="newUser.invalid"><h4>Sign Up</h4></button>
+    <p class="text-center">Already have an account? <a class="text-primary-500 underline" routerLink="../login">Sign in</a></p>
+  </form>
+</div>
