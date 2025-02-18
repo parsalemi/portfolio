@@ -15,7 +15,7 @@ import { environment } from 'src/environments/environment';
     CardModule,
     AngularSvgIconModule,
     TagModule,
-  ],
+],
 })
 export class AllProjectsComponent {
   env = environment;
@@ -55,7 +55,16 @@ export class AllProjectsComponent {
       link: 'https://ompfinex.com',
       ownProject: false,
       finished: true,
-    }
+    },
+    {
+      title: 'E-Commerce',
+      description: 'A simple e-commerce with shopping cart',
+      img: 'e-commerce',
+      techsSvg: ['angular', 'rxjs', 'express', 'tailwind'],
+      link: 'e-commerce',
+      ownProject: true,
+      finished: false,
+    },
   ]
   handleLink(el: HTMLAnchorElement, ownProject: boolean, link: string){
     if(ownProject){

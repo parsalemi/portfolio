@@ -27,6 +27,10 @@ export const routes: Routes = [
         title: 'Word Guess Game',
       },
       {
+        path: 'e-commerce',
+        loadChildren: () => import('./e-commerce/e-commerce.route').then(c => c.routes),
+      },
+      {
         path: 'weather',
         loadComponent: () => import('./weather/all-weathers/all-weathers.component').then(c => c.AllWeathersComponent),
         title: 'Weather App',
