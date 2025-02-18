@@ -263,6 +263,12 @@ p{
     cursor: not-allowed;
     border: 2px solid var(--basic-1100);
   }
+  .btn-error-disabled{
+    background-color: transparent;
+    color: #db605757;
+    cursor: not-allowed;
+    border: 2px solid #db605757;
+  }
   
 }
 // LORD ICONS

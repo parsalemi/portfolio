@@ -68,10 +68,10 @@ export class ProfileComponent implements OnInit, OnDestroy{
   }
   deleteUser(){
     const confirmDelete: boolean = confirm('Are you sure?');
-    if(confirmDelete){
-      this._api.deleteUser(this.userId).subscribe({
+    if(confirmDelete && this.userInfo.controls.password.controls.currentPassword.valid){
+      this._api.deleteUser(this.userId, this.userInfo.controls.password.controls.currentPassword.value).subscribe({
         next: () => {
-          this.message.add({severity: 'warning', summary: 'Deleted', detail: 'Account deleted successfully', life: 3000})
+          this.message.add({severity: 'info', summary: 'Deleted', detail: 'Account deleted successfully', life: 3000})
           setTimeout(() => this.router.navigate(['projects/e-commerce/register']) ,3000)
           localStorage.removeItem('token');
         },
@@ -104,6 +104,8 @@ export class ProfileComponent implements OnInit, OnDestroy{
           gender: res.gender
         })
       })
+      this.userInfo.controls.password.controls.currentPassword.updateValueAndValidity();
+      this.userInfo.controls.password.controls.currentPassword.markAsDirty();
     }
   }
   ngOnDestroy(): void {

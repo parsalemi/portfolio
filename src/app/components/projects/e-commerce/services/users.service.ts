@@ -23,7 +23,7 @@ export class UsersService {
   updateUser(id: number, body: UserUpdate) {
     return this._http.put(this.baseUrl + id, body);
   }
-  deleteUser(id: number){
-    return this._http.delete(this.baseUrl + id);
+  deleteUser(id: number, password: string){
+    return this._http.post(this.baseUrl + id + '/delete', {password});
   }
 }
