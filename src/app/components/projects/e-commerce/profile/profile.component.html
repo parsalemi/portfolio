@@ -15,7 +15,7 @@
         id="username"
         class="inputField"
         >
-        <label for="username" class="inputLabel">Username</label>
+        <label for="username" class="inputLabel"><i class="pi pi-user mr-1 text-lg"></i>Username</label>
         <ng-container *ngIf="userInfo.controls.username as username">
           <div class="inputError" *ngIf="username.hasError('required')">Username is required</div>
           <div class="inputError" *ngIf="username.hasError('minlength')">Username must be at least <strong class="underline">{{username.getError('minlength').requiredLength}}</strong> letters</div>
@@ -31,7 +31,7 @@
         formControlName="currentPassword"
         class="inputField"
         >
-        <label for="currentPassword" class="inputLabel">Current password</label>
+        <label for="currentPassword" class="inputLabel"><i class="pi pi-lock mr-1 text-lg"></i>Current password</label>
         <ng-container *ngIf="userInfo.controls.password.controls.currentPassword as password">
           <div class="inputError" *ngIf="password.dirty && password.hasError('required')">Password is required</div>
         </ng-container>
@@ -47,24 +47,25 @@
             name="age"
             class="inputField"
             >
-            <label for="age" class="inputLabel">Age</label>
+            <label for="age" class="inputLabel"><i class="pi pi-calendar-times mr-1 text-lg"></i>Age</label>
             <ng-container *ngIf="userInfo.controls.age as age">
               <div class="inputError" *ngIf="age.hasError('required')">Age is requird</div>
               <div class="inputError" *ngIf="age.hasError('pattern')">Don't type letters</div>
               <div class="inputError" *ngIf="age.hasError('minlength') && age.hasError('pattern')">Must be <strong>{{age.getError('minlength').requiredLength}}</strong> digits</div>
             </ng-container>
           </div>
-          <div class="flex flex-col gap-1 w-1/2 inputWrapper">
+          <div class="flex flex-col gap-1 w-1/2 relative inputWrapper">
             <select class="inputSelect" name="gender" [value]="user.gender" formControlName="gender">
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
+            <label class="inputLabelSelect" for="gender"><i class="pi pi-mars mr-1 text-lg"></i>Gender</label>
           </div>
         </div>
       </div>
       <div class="flex flex-col gap-1 mb-7">
         <fieldset formGroupName="password" class="w-10/12 self-center border-2 border-basic-900 rounded-2xl flex flex-col p-5 items-center justify-center gap-14">
-          <legend class="p-2">Change password</legend>
+          <legend class="p-2"><i class="pi pi-lock mr-1 text-md"></i>Change password</legend>
           <div class="flex flex-col gap-1 mt-2 relative inputWrapper">
             <input 
             [type]="toggleNewPassword ? 'text' : 'password'"
