@@ -1,16 +1,16 @@
 <div class="h-full w-full flex flex-col items-center justify-center pb-28 lg:pb-0">
   <div class="w-full h-20 flex flex-wrap gap-x-5 gap-y-3 items-center justify-around mb-10">
     <button (click)="signOut()" class="flex-1 lg:flex-none btn-secondary hover:group-[bg-error-300,text-error-800,border-error-500] border-error-500 flex gap-3 items-center justify-center">
-      Sign out
       <i class="pi pi-sign-out text-md"></i>
+      Sign out
     </button>
     <a routerLink="../profile" class="flex-1 lg:flex-none btn-secondary flex gap-3 items-center justify-center">
-      {{username}}
       <i class="pi pi-user text-md"></i>
+      {{username}}
     </a>
     <button (click)="showCart('sdf')" class="flex-1 lg:flex-none btn-primary flex gap-3 items-center justify-center">
-      Shopping cart
       <i class="pi pi-shopping-cart text-md"></i>
+      Shopping cart
     </button>
   </div>
   @if(products$ | async; as products){
@@ -26,8 +26,8 @@
           </ng-template>
           <ng-template pTemplate="footer">
             <button (click)="addToCart(product.id)" class="btn-secondary flex gap-2 items-center justify-center">
-              Add to cart
               <i class="pi pi-plus text-md"></i>
+              Add to cart
             </button>
           </ng-template>
         </p-card>
