@@ -16,7 +16,7 @@
       id="username"
       class="inputField"
       >
-      <label for="username" class="inputLabel">Username</label>
+      <label for="username" class="inputLabel"><i class="pi pi-user mr-1 text-lg"></i>Username</label>
       <div class="inputError" *ngIf="signInUser.controls.username.dirty && signInUser.controls.username.hasError('required')">Username is required</div>
     </div>
 
@@ -32,7 +32,7 @@
       class="inputField"
       #password
       >
-      <label for="password" class="inputLabel">Password</label>
+      <label for="password" class="inputLabel"><i class="pi pi-lock mr-1 text-lg"></i>Password</label>
       @if(password.value){
         <svg-icon (click)="showPassword()" class="absolute top-1 right-3 cursor-pointer z-10" src="{{env.staticFileUrl}}/svg/eye-{{togglePassword.toString()}}.svg"></svg-icon>
       }
