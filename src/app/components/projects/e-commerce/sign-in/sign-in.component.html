@@ -1,0 +1,44 @@
+<div class="w-full h-full flex items-center justify-center">
+  <p-toast position="top-center"/>
+  <form [formGroup]="signInUser" (ngSubmit)="signIn()"
+  class="bg-basic-1100 flex flex-col shadow-3 rounded-lg gap-1 w-68 p-5"
+  autocomplete="off"
+  >
+    <h1 class="text-center mb-10">Sign In</h1>
+    <div class="flex flex-col gap-1 relative mb-12 inputWrapper">
+      <input 
+      type="text"
+      placeholder=" "
+      autocomplete="off"
+      name="username"
+      formControlName="username"
+      value=""
+      id="username"
+      class="inputField"
+      >
+      <label for="username" class="inputLabel">Username</label>
+      <div class="inputError" *ngIf="signInUser.controls.username.dirty && signInUser.controls.username.hasError('required')">Username is required</div>
+    </div>
+
+    <div class="flex flex-col gap-1 relative mb-5 inputWrapper">
+      <input 
+      [type]="togglePassword ? 'text' : 'password' "
+      autocomplete="new-password"
+      placeholder=" "
+      id="password"
+      name="password"
+      formControlName="password"
+      value=""
+      class="inputField"
+      #password
+      >
+      <label for="password" class="inputLabel">Password</label>
+      @if(password.value){
+        <svg-icon (click)="showPassword()" class="absolute top-1 right-3 cursor-pointer z-10" src="{{env.staticFileUrl}}/svg/eye-{{togglePassword.toString()}}.svg"></svg-icon>
+      }
+      <div class="inputError" *ngIf="signInUser.controls.password.dirty && signInUser.controls.password.hasError('required')">Password is required</div>
+    </div>
+    <button class="btn-primary py-1 my-3 disabled:btn-primary-disabled" type="submit" [disabled]="signInUser.invalid"><h4>Sign In</h4></button>
+    <p>Don't have an account? <a class="text-primary-500 underline" routerLink="../register">Sign up</a></p>
+  </form>
+</div>
