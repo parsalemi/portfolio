@@ -147,6 +147,11 @@ p{
       margin-top: 6px;
       cursor: pointer;
     }
+    .inputLabelSelect{
+      position: absolute;
+      bottom: 29px;
+      color: var(--basic-500);
+    }
     .inputField{
       background-color: transparent;
       z-index: 1;
