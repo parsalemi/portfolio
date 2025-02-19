@@ -71,14 +71,14 @@ p{
 .ng-dirty.ng-invalid:not(form):not(fieldset):not(div){
   border-bottom: 2px solid var(--error-600);
 }
-.ng-dirty.ng-valid:not(form):not(.profilePassword):not(fieldset):not(div){
+.ng-dirty.ng-valid:not(form):not(.profilePassword):not(fieldset):not(div):not(.login){
   border-bottom: 2px solid var(--success-600);
 }
 .inputError{
   position: absolute;
   bottom: -24px;
   color: var(--error-500);
-  animation: errorAnimation .4s ease-in forwards;
+  animation: errorAnimation .2s ease-in forwards;
   @apply text-lg;
 }
 @keyframes errorAnimation {
@@ -171,10 +171,10 @@ p{
           transform: translateY(-25px);
         }
       }
-      &.ng-dirty.ng-invalid, &:not(:placeholder-shown){
+      &.ng-dirty.ng-invalid:not(:placeholder-shown){
         border-color: var(--error-600);
       }
-      &.ng-pristine.ng-valid, &:not(:placeholder-shown){
+      &.ng-pristine.ng-valid, &:not(:placeholder-shown):not(.login){
         border-color: var(--basic-800);
       }
     }

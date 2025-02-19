@@ -14,7 +14,7 @@
       formControlName="username"
       value=""
       id="username"
-      class="inputField"
+      class="inputField login"
       >
       <label for="username" class="inputLabel"><i class="pi pi-user mr-1 text-lg"></i>Username</label>
       <div class="inputError" *ngIf="signInUser.controls.username.dirty && signInUser.controls.username.hasError('required')">Username is required</div>
@@ -29,7 +29,7 @@
       name="password"
       formControlName="password"
       value=""
-      class="inputField"
+      class="inputField login"
       #password
       >
       <label for="password" class="inputLabel"><i class="pi pi-lock mr-1 text-lg"></i>Password</label>
