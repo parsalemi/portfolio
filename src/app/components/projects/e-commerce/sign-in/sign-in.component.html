@@ -38,14 +38,18 @@
       }
       <div class="inputError" *ngIf="signInUser.controls.password.dirty && signInUser.controls.password.hasError('required')">Password is required</div>
     </div>
-    <re-captcha 
-    id="recaptcha" 
-    type="image" 
-    name="captcha"
-    [siteKey]="env.recaptcha.sitekey"
-    formControlName="recaptcha"
-    ></re-captcha>
-    <button class="btn-primary py-1 my-3 disabled:btn-primary-disabled" type="submit" [disabled]="signInUser.invalid"><h4>Sign In</h4></button>
+    <div class="recaptchaContainer">
+      <re-captcha 
+      id="recaptcha" 
+      type="image" 
+      name="captcha"
+      [siteKey]="env.recaptcha.sitekey"
+      formControlName="recaptcha"
+      size="normal"
+      theme="dark"
+      ></re-captcha>
+    </div>
+    <button class="btn-primary mb-3 -mt-2 disabled:btn-primary-disabled" type="submit" [disabled]="signInUser.invalid"><h4>Sign In</h4></button>
     <p>Don't have an account? <a class="text-primary-500 underline" routerLink="../register">Sign up</a></p>
   </form>
 </div>

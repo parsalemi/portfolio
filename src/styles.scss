@@ -95,6 +95,10 @@ p{
   .highlight{
     background-color: var(--primary-600);
   }
+  .recaptchaContainer{
+    transform: scale(0.7);
+    transform-origin: 0 0;
+  }
   app-main{
     width: 100%;
   }
