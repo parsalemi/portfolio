@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { environment } from 'src/environments/environment';
 import { NgIf } from '@angular/common';
+import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 
 @Component({
   selector: 'app-sign-in',
@@ -22,7 +23,9 @@ import { NgIf } from '@angular/common';
     RouterLink,
     ToastModule,
     AngularSvgIconModule,
-    NgIf
+    NgIf,
+    RecaptchaModule,
+    RecaptchaFormsModule
   ],
 })
 export class SignInComponent implements OnDestroy{
@@ -36,6 +39,7 @@ export class SignInComponent implements OnDestroy{
   signInUser = this.fb.group({
     username: ['', [Validators.required]],
     password: ['', [Validators.required]],
+    recaptcha: [null, [Validators.required]]
   });
 
   signIn(){
