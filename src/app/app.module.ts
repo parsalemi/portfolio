@@ -15,6 +15,8 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { TooltipModule } from 'primeng/tooltip';
 import { tokenInterceptor } from './components/projects/e-commerce/token.interceptor';
+import { RECAPTCHA_SETTINGS, RecaptchaFormsModule, RecaptchaModule, RecaptchaSettings } from 'ng-recaptcha';
+import { environment } from 'src/environments/environment';
 
 @NgModule({ 
   declarations: [
@@ -31,12 +33,20 @@ import { tokenInterceptor } from './components/projects/e-commerce/token.interce
     HeaderOptionsComponent,
     HttpClientModule,
     TooltipModule,
+    RecaptchaModule,
+    RecaptchaFormsModule,
     AngularSvgIconModule.forRoot(),
   ], 
   providers: [
     provideHttpClient(withInterceptorsFromDi()), 
     provideHttpClient(withInterceptors([tokenInterceptor])),
     provideAnimationsAsync(),
+    {
+      provide: RECAPTCHA_SETTINGS,
+      useValue: {
+        siteKey: environment.recaptcha.sitekey
+      } as RecaptchaSettings
+    }
   ],
 })
 export class AppModule { 
