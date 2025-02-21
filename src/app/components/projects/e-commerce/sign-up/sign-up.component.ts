@@ -10,6 +10,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 import { environment } from 'src/environments/environment';
 import { passwordMatch } from '../validators/password-match.validator';
 import { NgIf } from '@angular/common';
+import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 
 @Component({
   selector: 'app-sign-up',
@@ -23,7 +24,9 @@ import { NgIf } from '@angular/common';
     ReactiveFormsModule,
     ToastModule,
     AngularSvgIconModule,
-    NgIf
+    NgIf,
+    RecaptchaFormsModule,
+    RecaptchaModule
   ],
 })
 export class SignUpComponent implements OnDestroy{
@@ -47,6 +50,7 @@ export class SignUpComponent implements OnDestroy{
     },{
       validators: [passwordMatch]
     }),
+    recaptcha: [null, [Validators.required]],
   });
 
   register(){

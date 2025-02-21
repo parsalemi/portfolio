@@ -90,6 +90,12 @@
         <svg-icon (click)="showPassword()" class="absolute top-1 right-3 cursor-pointer z-10" src="{{env.staticFileUrl}}/svg/eye-{{togglePass.toString()}}.svg"></svg-icon>
       </div>
   </fieldset>
+    <re-captcha
+    id="recaptcha"
+    [siteKey]="env.recaptcha.sitekey"
+    type="image"
+    formControlName="recaptcha"
+    ></re-captcha>
     <button class="btn-primary mb-3 disabled:btn-primary-disabled" type="submit" [disabled]="newUser.invalid"><h4>Sign Up</h4></button>
     <p class="text-center">Already have an account? <a class="text-primary-500 underline" routerLink="../login">Sign in</a></p>
   </form>
