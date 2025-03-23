@@ -8,9 +8,12 @@
       <i class="pi pi-user text-md"></i>
       {{username}}
     </a>
-    <button (click)="showCart('sdf')" class="flex-1 lg:flex-none btn-primary flex gap-3 items-center justify-center">
+    <button (click)="showCart(userId)" class="flex-1 lg:flex-none btn-primary flex gap-3 items-center justify-center">
       <i class="pi pi-shopping-cart text-md"></i>
       Shopping cart
+      @if(ordersNum()){
+        <p-tag [styleClass]="'bg-primary-700 rounded-full'" [value]="ordersNum().toString()"/>
+      }
     </button>
   </div>
   @if(products$ | async; as products){
@@ -25,10 +28,21 @@
             <p class="capitalize text-lg mt-3 text-basic-600">Category: {{product.category}}</p>
           </ng-template>
           <ng-template pTemplate="footer">
-            <button (click)="addToCart(product.id)" class="btn-secondary flex gap-2 items-center justify-center">
-              <i class="pi pi-plus text-md"></i>
-              Add to cart
-            </button>
+            <div class="flex items-center justify-between">
+              <button (click)="addToCart(product.id, product.name, product.price)" class="btn-secondary flex gap-2 items-center justify-center">
+                <i class="pi pi-plus text-md"></i>
+                Add to cart
+              </button>
+                <div class="hidden gap-3 items-center justify-center">
+                  <button (click)="decreaseQuantity(product.id, userId); quantity.stepDown()" class="w-10 h-10 border-2 border-error-800 flex items-center justify-center text-2xl rounded-md">-</button>
+                  <input type="number" name="quantity" id="quantity" 
+                  value="1"
+                  class="w-10 h-10 text-center bg-basic-900 text-basic-200 border-2 border-primary-700 focus-visible:outline-none rounded-md"
+                  #quantity
+                  >
+                  <button (click)="increaseQuantity(product.id, userId); quantity.stepUp()" class="w-10 h-10 border-2 border-success-900 flex items-center justify-center text-2xl rounded-md">+</button>
+                </div>
+            </div>
           </ng-template>
         </p-card>
       }
