@@ -1,1 +1,58 @@
-<p>cart works!</p>
+@if(cart(); as cart){
+  @if(order().length){
+
+    <table>
+      <thead>
+        <tr>
+          <td>Product</td>
+          <td>Price</td>
+          <td>Quantity</td>
+          <td>Extended Price</td>
+          <td></td>
+        </tr>
+      </thead>
+      <tbody>
+        @for(product of order(); let i = $index; track product.productId){
+          <tr>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.quantity}}</td>
+            <td>{{extendedPrice()[i].price * extendedPrice()[i].quantity}}</td>
+            <td>
+              <button (click)="decreaseQuantity(product.productId, userId); " >-</button>
+              <input type="number" name="quantity"
+              [value]="product.quantity"
+              class="w-10 h-10 bg-basic-900"
+              #quantity
+              >
+              <button (click)="increaseQuantity(product.productId, userId); ">+</button>
+              <button (click)="deleteProduct(product.productId, userId)">Delete</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+    
+    <div class="flex flex-col gap-2">
+      <div class="flex items-center justify-between">
+        <p>Price</p>
+        <p>{{subTotal()}}</p>
+      </div>
+      <div class="flex items-center justify-between">
+        <p>Tax</p>
+        <p>{{taxFee()}}</p>
+      </div>
+      <div class="flex items-center justify-between">
+        <p>Delivery</p>
+        <p>{{deliveryFee()}}</p>
+      </div>
+      <div class="flex items-center justify-between">
+        <p>Total Price</p>
+        <p>{{totalPrice()}}</p>
+      </div>
+    </div>
+  }
+  @else {
+    <p>Empty Cart</p>
+  }
+}
