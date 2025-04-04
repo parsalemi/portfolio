@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
-import { Product } from '../models/product.model';
+import { map, Observable, shareReplay, tap } from 'rxjs';
+import { Product, ProductDTO } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,14 +9,21 @@ import { Product } from '../models/product.model';
 export class ProductsService {
 
   constructor(private _http: HttpClient) { }
-
-  getProducts() : Observable<Product[]>{
-    return this._http.get<Product[]>('/api/products');
+  
+  getProducts(page: number) : Observable<Product[]>{
+    if(page == 0){
+      return this._http.get<ProductDTO>(`/api/products?limit=20&page=1`).pipe(
+        map(res => res.products),
+        shareReplay(1)
+      ); 
+    } else {
+      return this._http.get<ProductDTO>(`/api/products?limit=20&page=${page}`).pipe(
+        map(res => res.products),
+        shareReplay(1)
+      );
+    }
   }
-  addToCart(productId: number){
-    return this._http.post('/api/cart', productId);
-  }
-  updateCart(productId: number, cartId: number){
-    return this._http.put(`/api/cart/${cartId}`, productId);
+  getProductImg(productId: number){
+    return this._http.get(`/api/products/image/${productId}`);
   }
 }
