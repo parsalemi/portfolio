@@ -16,11 +16,12 @@ export class CartService {
   userId = signal<number | undefined>(undefined);
 
   cartItems = signal<Order[]>([]);
-  cartCount = computed(() => this.cartItems().reduce((accQuantity, item) => accQuantity + item.quantity, 0))
+  cartCount = computed(() => this.cartItems().reduce((accQuantity, product) => accQuantity + product.quantity, 0))
 
-  subTotal = computed(() => this.cartItems().reduce((accTotal, item) => accTotal + (item.price * item.quantity), 0));
+  subTotal = computed(() => this.cartItems().reduce((accTotal, product) => accTotal + (product.price * product.quantity), 0));
   taxFee = computed(() => Math.round(this.subTotal() * 20 ) / 100);
-  deliveryFee = computed(() => this.subTotal() < 50 ? 5 : 0);
+  deliveryFee = computed(() => (this.subTotal() < 100 && this.totalWeight() < 100) ? 5 : (this.subTotal() < 100 && this.totalWeight() > 100) ? 10 : (this.totalWeight() > 100 && this.subTotal() > 100) ? 5 : 0);
+  totalWeight = computed(() => this.cartItems().reduce((accWeight, product) => accWeight + (product.weight * product.quantity), 0))
 
   totalPrice = computed(() => this.subTotal() + this.taxFee() + this.deliveryFee());
   
@@ -39,12 +40,12 @@ export class CartService {
   addToCart(userId: number, order: Order): Observable<Cart>{
     const itemIndex = this.cartItems().findIndex(p => p.productId == order.productId);
     if(itemIndex < 0) {
-      this.cartItems.update(items => [...items, order]);
+      this.cartItems.update(products => [...products, order]);
     } else {
-      this.cartItems.update(items => [
-        ...items.slice(0, itemIndex),
-        { ...items[itemIndex], quantity: items[itemIndex].quantity + 1 },
-        ...items.slice(itemIndex + 1)
+      this.cartItems.update(products => [
+        ...products.slice(0, itemIndex),
+        { ...products[itemIndex], quantity: products[itemIndex].quantity + 1 },
+        ...products.slice(itemIndex + 1)
       ])
     }
     return this._http.post<Cart>(`${this.baseUrl}/${userId}`, order);
@@ -55,20 +56,27 @@ export class CartService {
   }
 
   deleteProduct(productId: number, userId: number){
-    this.cartItems.update(items => items.filter(item => item.productId !== productId));
+    this.cartItems.update(products => products.filter(product => product.productId !== productId));
     return this._http.patch(`${this.baseUrl}/${userId}/delete/${productId}`, {productId});
   }
 
   increaseQuantity(productId: number, userId: number){
-    this.cartItems.update(items => items.map( item => item.productId == productId ? {...item, quantity: item.quantity + 1} : item))
+    this.cartItems.update(products => products.map(product => product.productId == productId ? {...product, quantity: product.quantity + 1} : product))
     return this._http.patch(`${this.baseUrl}/${userId}/${productId}/increase`, {quantity: 1});
   }
   decreaseQuantity(productId: number, userId: number){
     let index = this.cartItems().findIndex(product => product.productId == productId);
-    this.cartItems.update(items => items.map( item => item.productId == productId ? {...item, quantity: item.quantity - 1} : item));
+    let quantityOfProduct = this.cartItems()[index].quantity;
+    if(quantityOfProduct > 1){
+      this.cartItems.update(products => products.map(product => product.productId == productId ? {...product, quantity: product.quantity - 1} : product));
+    } else {
+      this.cartItems.update(products => products.filter(product => product.productId !== productId))
+    }
     return this._http.patch(`${this.baseUrl}/${userId}/${productId}/decrease`, {quantity: 1});
   }
-
+  isProductInCart(productId: number){
+    return this.cartItems().find(product => product.productId == productId);
+  }
   setUserId(userId: number){
     this.userId.set(userId);
   }
