@@ -39,11 +39,12 @@ export class ProductsListComponent implements OnInit, OnDestroy{
   ordersNum: Signal<number> = this._cartApi.cartCount;
   orders = computed(() => this._cartApi.cartItems());
 
-  addToCart(productId: number, name: string, price: number, weight: number){
+  addToCart(productId: number, name: string, price: number, code: string, weight: number){
     const order = {
       productId: productId,
       name: name,
       price: price,
+      code: code,
       weight: weight,
       quantity: 1
     };

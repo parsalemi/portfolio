@@ -2,6 +2,7 @@ export interface Order {
   productId: number;
   name: string;
   price: number;
+  code: string;
   weight: number;
   quantity: number;
 }
