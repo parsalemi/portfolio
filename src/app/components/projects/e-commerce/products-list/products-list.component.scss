@@ -7,3 +7,51 @@
 #quantity {
   -moz-appearance: textfield;
 }
+.cardDesktop{
+  @apply shadow-2;
+  width: 320px;
+  height: 500px;
+  background-color: var(--basic-1100);
+  padding: 20px;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 56px;
+  transition: all .3s;
+
+  &:hover{
+    @apply shadow-3;
+    transform: scale(105%);    
+  }
+  .details{
+    flex-direction: column;
+    visibility: hidden;
+    position: absolute;
+    top: 25%;
+    z-index: 100;
+    padding: 20px;
+    gap: 14px;
+    opacity: 0;
+    background-color: #131820bc;
+    backdrop-filter: blur(5px);
+    transition: all .3s;
+  }
+  .productImg{
+    z-index: 200;
+    top: -70px;
+    right: 0;
+    transition: .4s;
+    &:hover + .details{
+      visibility: visible;
+      opacity: 1;
+    }
+    &:hover{
+      // right: -25%;
+    }
+  }
+}
+.cardMobile{
+  width: 320px;
+  height: 600px;
+}

@@ -1,14 +1,14 @@
-import { AsyncPipe, CurrencyPipe } from '@angular/common';
+import { AsyncPipe, CurrencyPipe, NgOptimizedImage } from '@angular/common';
 import { Component, computed, inject, OnDestroy, OnInit, Signal } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { Product } from 'src/app/models/product';
-import { ProductsService } from 'src/app/services/products.service';
+import { BehaviorSubject, Observable, Subscription, switchMap } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { CardModule } from 'primeng/card';
 import { Router, RouterLink } from '@angular/router';
 import { CartService } from '../services/cart.service';
 import { TagModule } from 'primeng/tag';
-import { Cart, Order } from '../models/cart.model';
+import { Product } from '../models/product.model';
+import { ProductsService } from '../services/products.service';
+import { StarRatingComponent } from './star-rating/star-rating.component';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-products-list',
@@ -18,31 +18,33 @@ import { Cart, Order } from '../models/cart.model';
   imports: [
     AsyncPipe,
     CurrencyPipe,
-    CardModule,
     RouterLink,
-    TagModule
+    TagModule,
+    StarRatingComponent,
+    NgOptimizedImage,
+    MatPaginator,
   ],
 })
 export class ProductsListComponent implements OnInit, OnDestroy{
-  private _api = inject(ProductsService);
-  private _cartApi = inject(CartService);
-  public products$: Observable<Product[]> = this._api.getProducts();
-  router = inject(Router)
   env = environment;
-  cartSub!: Subscription;
-  currentCartSub!: Subscription;
-  productInCartSub!: Subscription;
-  inDecSub!: Subscription;
+  router = inject(Router);
   username!: string;
   userId!: number;
-  cart = this._cartApi.getCart;
-  ordersNum = this._cartApi.cartCount;
+  private _api = inject(ProductsService);
+  private _cartApi = inject(CartService);
+  page$ = new BehaviorSubject(0);
+  products$: Observable<Product[]> = this.page$.pipe(switchMap(page => this._api.getProducts(page)));
+  cartSub!: Subscription;
+  inDecSub!: Subscription;
+  ordersNum: Signal<number> = this._cartApi.cartCount;
+  orders = computed(() => this._cartApi.cartItems());
 
-  addToCart(productId: number, name: string, price: number){
+  addToCart(productId: number, name: string, price: number, weight: number){
     const order = {
       productId: productId,
       name: name,
       price: price,
+      weight: weight,
       quantity: 1
     };
     this.cartSub = this._cartApi.addToCart(this.userId, order).subscribe({
@@ -51,11 +53,26 @@ export class ProductsListComponent implements OnInit, OnDestroy{
       }
     });
   }
+  changePage(event: PageEvent){
+    this.page$.next(event.pageIndex + 1)
+    window.scrollTo(0, 0)
+  }
   increaseQuantity(productId: number, userId: number){
     this.inDecSub = this._cartApi.increaseQuantity(productId, userId).subscribe();
   }
   decreaseQuantity(productId: number, userId: number){
     this.inDecSub = this._cartApi.decreaseQuantity(productId, userId).subscribe();
+  }
+  isInCart(productId: number){
+    return this._cartApi.isProductInCart(productId);
+  }
+  howManyInCart(productId: number){
+    let index = this.orders().findIndex(p => p.productId == productId)
+    if(index > -1){
+      let productsQuantity = this.orders()[index].quantity;
+      return productsQuantity;
+    }
+    return 0;
   }
   signOut(){
     localStorage.removeItem('token');
@@ -63,6 +80,10 @@ export class ProductsListComponent implements OnInit, OnDestroy{
   }
   showCart(userId: number){
     this.router.navigate([`/projects/e-commerce/${this.username}/cart/${userId}`])
+  }
+  calcDiscount(price: number, discount: number){
+    let e = price * (discount / 100);
+    return Math.floor(price - e)
   }
   ngOnInit(): void {
     const token = localStorage.getItem('token');
@@ -75,8 +96,6 @@ export class ProductsListComponent implements OnInit, OnDestroy{
   }
   ngOnDestroy(): void {
     if(this.cartSub) this.cartSub.unsubscribe();
-    if(this.currentCartSub) this.currentCartSub.unsubscribe();
-    if(this.productInCartSub) this.productInCartSub.unsubscribe();
     if(this.inDecSub) this.inDecSub.unsubscribe();
   }
 }
