@@ -359,6 +359,33 @@ p{
     --mdc-linear-progress-active-indicator-color: var(--primary-600);
     --mdc-linear-progress-track-color: var(--primary-600-tr-50);
 }
+.mat-mdc-paginator{
+  border-radius: 24px;
+  .mat-mdc-paginator-outer-container{
+    .mat-mdc-paginator-container{
+      background-color: var(--basic-1100);
+      border: 2px solid var(--primary-800);
+      border-radius: 24px;
+      color: var(--basic-500);
+      .mat-mdc-paginator-page-size{
+        display: none;
+        @screen lg{
+          display: flex;
+        }
+      }
+      button{
+        .mat-mdc-paginator-icon{
+          fill: var(--primary-400);
+        }
+        &[disabled="true"]{
+          .mat-mdc-paginator-icon{
+            fill: var(--primary-900);
+          }
+        }
+      }
+    }
+  }
+}
 // ACCESSIBILY
 :focus-visible:not(input){
   background-color: var(--warning-400);
