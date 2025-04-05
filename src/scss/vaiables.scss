@@ -25,6 +25,8 @@ $basic-blue-700-tr-50: hsla(215, 19%, 40%, .5);
 $basic-blue-700-tr-60: hsla(215, 19%, 40%, .6);
 $basic-blue-700-tr-80: hsla(215, 19%, 40%, .8);
 
+$basic-blue-1100-tr: hsla(215, 25%, 10%, .7);
+
 //BASIC TRANSPARENT LIGHT
 $basic-blue-100-tr-10-ligth: hsla(215, 25%, 10%, .1);
 $basic-blue-100-tr-30-ligth: hsla(215, 25%, 10%, .3);
@@ -37,6 +39,8 @@ $basic-blue-700-tr-30: hsla(215, 15%, 60%, .3);
 $basic-blue-700-tr-50: hsla(215, 15%, 60%, .5);
 $basic-blue-700-tr-60: hsla(215, 15%, 60%, .6);
 $basic-blue-700-tr-80: hsla(215, 15%, 60%, .8);
+
+$basic-blue-1100-tr-light: hsla(215, 20%, 90%, .7);
 
 // PRIMARY
 
@@ -82,6 +86,8 @@ $basic-purple-700-tr-50: hsla(265, 19%, 40%, .5);
 $basic-purple-700-tr-60: hsla(265, 19%, 40%, .6);
 $basic-purple-700-tr-80: hsla(265, 19%, 40%, .8);
 
+$basic-purple-1100-tr: hsla(245, 20%, 10%, .7);
+
 //BASIC TRANSPARENT LIGHT
 $basic-purple-100-tr-10-ligth: hsla(265, 25%, 10%, .1);
 $basic-purple-100-tr-30-ligth: hsla(265, 25%, 10%, .3);
@@ -95,6 +101,7 @@ $basic-purple-700-tr-50: hsla(265, 15%, 60%, .5);
 $basic-purple-700-tr-60: hsla(265, 15%, 60%, .6);
 $basic-purple-700-tr-80: hsla(265, 15%, 60%, .8);
 
+$basic-purple-1100-tr-light: hsla(245, 12%, 90%, .7);
 
 // PRIMARY
 $primary-purple-100: hsl(265, 95%, 90%);
@@ -137,6 +144,8 @@ $basic-green-700-tr-50: hsla(195, 19%, 40%, .5);
 $basic-green-700-tr-60: hsla(195, 19%, 40%, .6);
 $basic-green-700-tr-80: hsla(195, 19%, 40%, .8);
 
+$basic-green-1100-tr: hsla(195, 25%, 10%, .7);
+
 //BASIC TRANSPARENT LIGHT
 $basic-green-100-tr-10-ligth: hsla(195, 25%, 10%, .1);
 $basic-green-100-tr-30-ligth: hsla(195, 25%, 10%, .3);
@@ -149,6 +158,8 @@ $basic-green-700-tr-30: hsla(195, 15%, 60%, .3);
 $basic-green-700-tr-50: hsla(195, 15%, 60%, .5);
 $basic-green-700-tr-60: hsla(195, 15%, 60%, .6);
 $basic-green-700-tr-80: hsla(195, 15%, 60%, .8);
+
+$basic-green-1100-tr-light: hsla(195, 20%, 90%, .7);
 
 // PRIMARY
 $primary-green-100: hsl(160, 95%, 95%);
@@ -164,7 +175,7 @@ $primary-green-900: hsl(160, 94%, 10%);
 $primary-green-600-tr-50: hsla(140, 65%, 40%, .2);
 
 
-// ERROR, WARNING
+// ERROR, WARNING, SUCCESS
 
 $success-100: hsl(120, 95%, 90%);
 $success-200: hsl(120, 85%, 80%);
@@ -294,6 +305,8 @@ $sm-lineHeight-desktop: 1rem;
   --basic-700-tr-50: #{$basic-blue-700-tr-50};
   --basic-700-tr-60: #{$basic-blue-700-tr-60};
   --basic-700-tr-80: #{$basic-blue-700-tr-80};
+
+  --basic-1100-tr: #{$basic-blue-1100-tr};
   
   --success-100: #{$success-100};
   --success-200: #{$success-200};
@@ -409,6 +422,8 @@ $sm-lineHeight-desktop: 1rem;
   --basic-700-tr-60: #{$basic-blue-700-tr-60};
   --basic-700-tr-80: #{$basic-blue-700-tr-80};
 
+  --basic-1100-tr: #{$basic-blue-1100-tr};
+
   --primary-100: #{$primary-blue-100};
   --primary-200: #{$primary-blue-200};
   --primary-300: #{$primary-blue-300};
@@ -446,6 +461,8 @@ $sm-lineHeight-desktop: 1rem;
   --basic-700-tr-50: #{basic-blue-700-tr-50-light};
   --basic-700-tr-60: #{basic-blue-700-tr-60-light};
   --basic-700-tr-80: #{basic-blue-700-tr-80-light};
+
+  --basic-1100-tr: #{$basic-blue-1100-tr-light};
 
   --primary-100: #{$primary-blue-100};
   --primary-200: #{$primary-blue-200};
@@ -486,6 +503,8 @@ $sm-lineHeight-desktop: 1rem;
   --basic-700-tr-60: #{$basic-purple-700-tr-60};
   --basic-700-tr-80: #{$basic-purple-700-tr-80};
 
+  --basic-1100-tr: #{$basic-purple-1100-tr};
+
   --primary-100: #{$primary-purple-100};
   --primary-200: #{$primary-purple-200};
   --primary-300: #{$primary-purple-300};
@@ -523,6 +542,8 @@ $sm-lineHeight-desktop: 1rem;
   --basic-700-tr-50: #{basic-purple-700-tr-50-light};
   --basic-700-tr-60: #{basic-purple-700-tr-60-light};
   --basic-700-tr-80: #{basic-purple-700-tr-80-light};
+
+  --basic-1100-tr: #{$basic-purple-1100-tr-light};
 
   --primary-100: #{$primary-purple-100};
   --primary-200: #{$primary-purple-200};
@@ -562,6 +583,8 @@ $sm-lineHeight-desktop: 1rem;
   --basic-700-tr-60: #{$basic-green-700-tr-60};
   --basic-700-tr-80: #{$basic-green-700-tr-80};
 
+  --basic-1100-tr: #{$basic-green-1100-tr};
+
   --primary-100: #{$primary-green-100};
   --primary-200: #{$primary-green-200};
   --primary-300: #{$primary-green-300};
@@ -599,6 +622,8 @@ $sm-lineHeight-desktop: 1rem;
   --basic-700-tr-50: #{basic-green-700-tr-50-light};
   --basic-700-tr-60: #{basic-green-700-tr-60-light};
   --basic-700-tr-80: #{basic-green-700-tr-80-light};
+
+  --basic-1100-tr: #{$basic-green-1100-tr-light};
 
   --primary-100: #{$primary-green-100};
   --primary-200: #{$primary-green-200};
