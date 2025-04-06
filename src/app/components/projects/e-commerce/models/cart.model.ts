@@ -16,3 +16,8 @@ export interface CartDTO {
   order: Order[];
   purchased: number;
 }
+
+export interface OrderHistory{
+  order: Order[];
+  id: number;
+}

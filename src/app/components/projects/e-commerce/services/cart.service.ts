@@ -2,7 +2,7 @@ import { computed, Injectable, Signal, signal } from '@angular/core';
 import { BehaviorSubject, exhaustMap, filter, map, Observable, of, switchMap, take, tap } from 'rxjs';
 import { Product } from '../models/product.model';
 import { HttpClient } from '@angular/common/http';
-import { Cart, CartDTO, Order } from '../models/cart.model';
+import { Cart, CartDTO, Order, OrderHistory } from '../models/cart.model';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 
 @Injectable({
@@ -76,6 +76,9 @@ export class CartService {
   }
   isProductInCart(productId: number){
     return this.cartItems().find(product => product.productId == productId);
+  }
+  getOrderHistory(userId: number): Observable<OrderHistory[]>{
+    return this._http.get<OrderHistory[]>(`http://localhost:8000/api/${userId}/order-history`);
   }
   setUserId(userId: number){
     this.userId.set(userId);
