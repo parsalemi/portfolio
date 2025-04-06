@@ -1,0 +1,58 @@
+.qtyInp::-webkit-outer-spin-button,
+.qtyInp::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.qtyInp {
+  text-align: center;
+  background-color: var(--basic-1100);
+  width: 40px;
+  height: 40px;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+.qtyBtn{
+  border: 1px solid var(--primary-800);
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  font-size: 1.5rem;
+  text-align: center;
+  vertical-align: middle;
+  transition: border .3s;
+
+  &:hover{
+    border: 1px solid var(--primary-600)
+  }
+}
+td{
+  text-align: center;
+}
+thead td{
+  @apply font-bold 
+}
+tbody td{
+  height: 100px;
+}
+.cartSummary{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & p:first-of-type {
+    @apply text-basic-500 text-lg
+  }
+}
+.cartSummaryDsk{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & p:first-of-type{
+    @apply text-basic-500 text-xl
+  }
+  & p:not(:first-of-type){
+    @apply font-bold tracking-wider
+  }
+}
