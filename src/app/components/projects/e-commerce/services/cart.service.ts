@@ -30,7 +30,7 @@ export class CartService {
     switchMap(id => {
       return this._http.get<Cart>(`${this.baseUrl}/${id}`).pipe(
         tap( (res) => {
-          if(res.order) this.cartItems.set(JSON.parse(res.order));
+          if(res.order) this.cartItems.set(res.order);
         })
       );
     })
@@ -51,8 +51,8 @@ export class CartService {
     return this._http.post<Cart>(`${this.baseUrl}/${userId}`, order);
   }
   
-  purchase(userId: number, purchase: number){
-    return this._http.post(`${this.baseUrl}/purchase/${userId}`, {purchase});
+  purchase(userId: number, purchased: number){
+    return this._http.post(`${this.baseUrl}/purchase/${userId}`, {purchased});
   }
 
   deleteProduct(productId: number, userId: number){

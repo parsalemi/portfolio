@@ -8,11 +8,11 @@ export interface Order {
 }
 
 export interface Cart {
-  order: string;
+  order: Order[];
   purchased: boolean;
 }
 
 export interface CartDTO {
-  order: string;
+  order: Order[];
   purchased: number;
 }
