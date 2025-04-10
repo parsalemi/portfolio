@@ -20,4 +20,5 @@ export interface CartDTO {
 export interface OrderHistory{
   order: Order[];
   id: number;
+  date: string;
 }

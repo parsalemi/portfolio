@@ -1,0 +1,25 @@
+<div class="w-full flex flex-col gap-10 items-center justify-center pb-28">
+  @for(prevOrder of (prevOrders$ | async); track prevOrder.id){
+    <div class="w-full md:w-10/12">
+      <h4 class="mb-2 text-center md:text-left">{{prevOrder.date.split(',')[0]}} {{prevOrder.date.split(',')[1]}}</h4>
+      <div class="flex flex-col bg-basic-1100 rounded-2xl p-5">
+        <div class="w-full h-10 flex justify-between items-center border-b-2 border-basic-900">
+          <h5><span class="text-basic-500">Order Number: </span>{{prevOrder.id}}</h5>
+          <h5><span class="text-basic-500">Total: </span>{{calcTotalPrice(prevOrder.order) | currency}}</h5>
+        </div>
+        <div class="flex flex-col mt-5 md:flex-row md:flex-wrap items-start justify-center gap-8">
+          @for(product of prevOrder.order; track product.code){
+            <div class="flex gap-2 items-center justify-between">
+              <img class="w-20 h-20 object-scale-down" src="{{env.staticFileUrl}}/productsimgs/{{product.code}}.webp" alt="">
+              <div class="flex flex-col gap-1 w-full truncate">
+                <p class="truncate">{{product.name}}</p>
+                <p class="text-basic-300">{{product.price | currency}}</p>
+                <p class="text-basic-500">Quantity: {{product.quantity}}</p>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  }
+</div>
