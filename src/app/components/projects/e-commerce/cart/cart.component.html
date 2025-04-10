@@ -4,7 +4,10 @@
     <!-- FOR MOBILE -->
     <div class="fullPage w-full h-full flex flex-col gap-5 items-center justify-center md:hidden">
       <div class="flex flex-col pb-5 gap-5 items-center justify-center w-full border-b-2 border-basic-800">
-        <a routerLink="../../../products" class="btn-secondary"><i class="pi pi-arrow-left text-md mr-2"></i>Continue Shopping</a>
+        <div class="flex gap-3">
+          <a routerLink="../../../products" class="btn-primary flex-1"><i class="pi pi-arrow-left text-md mr-2"></i>Continue Shopping</a>
+          <a routerLink="../../order-history" class="btn-secondary flex-1"><i class="pi pi-history text-md mr-2"></i>Order History</a>
+        </div>
         @for(product of order(); let i = $index; track product.productId){
           <div class="w-full p-3 flex items-center justify-start relative bg-basic-1100 rounded-2xl shadow-2">
             <button (click)="deleteProduct(product.productId, userId)" class="absolute top-2 right-2"><i class="pi pi-times text-basic-700"></i></button>
@@ -58,7 +61,7 @@
     <!-- FOR DESKTOP -->
     <div class="w-full mb-5 flex items-center justify-start gap-5  border-basic-400">
       <a routerLink="../../../products" class="btn-primary"><i class="pi pi-arrow-left text-md mr-2"></i>Continue Shopping</a>
-      <a class="btn-secondary"><i class="pi pi-history text-md mr-2"></i>Order History</a>
+      <a routerLink="../../order-history" class="btn-secondary"><i class="pi pi-history text-md mr-2"></i>Order History</a>
     </div>
     <div class="fullPage w-full hidden md:flex items-start justify-around gap-10">
       <table class="bg-basic-1100 w-3/4 p-5 rounded-2xl">
@@ -84,7 +87,7 @@
               <td>{{product.name}}</td>
               <td>{{product.price | currency}}</td>
               <td class="t">{{product.quantity}}</td>
-              <td>{{extendedPrice()[i].price * extendedPrice()[i].quantity | number : '1.0-2' | currency}}</td>
+              <td>{{extendedPrice()[i].price * extendedPrice()[i].quantity  | currency}}</td>
               <td>{{product.weight * product.quantity}}</td>
               <td class="flex items-center justify-center gap-5">
                 <div class="flex ">
@@ -121,7 +124,7 @@
           <p>Delivery: </p>
           <p>{{deliveryFee() | currency}}</p>
         </div>
-        <p class="self-center font-bold text-2xl"><span class="text-basic-400 font-normal">Total Price: </span>{{totalPrice() | number : '1.0-2' | currency}}</p>
+        <p class="self-center font-bold text-2xl"><span class="text-basic-400 font-normal">Total Price: </span>{{totalPrice()  | currency}}</p>
         <button (click)="purchase()" class="btn-primary text-xl flex gap-2 mt-5 w-full items-center justify-center">
           <i class="pi pi-dollar text-xl"></i>
           Ckeckout
@@ -133,7 +136,10 @@
   @else {
     <div class="w-full h-full flex flex-col gap-5 items-center justify-center">
       <h2>Your cart is empty!</h2>
-      <a routerLink="../../../products" class="btn-secondary"><i class="pi pi-arrow-left text-md mr-2"></i>Continue Shopping</a>
+      <div class="flex gap-2">
+        <a routerLink="../../../products" class="btn-primary"><i class="pi pi-arrow-left text-md mr-2"></i>Continue Shopping</a>
+        <a routerLink="../../order-history" class="btn-secondary"><i class="pi pi-history text-md mr-2"></i>Order History</a>
+      </div>
     </div>
   }
 }

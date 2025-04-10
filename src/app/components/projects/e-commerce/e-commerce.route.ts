@@ -37,6 +37,11 @@ export const routes: Routes = [
         canActivate: [checkAuthGuard],
         loadComponent: () => import('./cart/cart.component').then(c => c.CartComponent),
       },
+      {
+        path: ':username/order-history',
+        canActivate: [checkAuthGuard],
+        loadComponent: () => import('./order-history/order-history.component').then(c => c.OrderHistoryComponent),
+      }
     ]
   }
 ]
