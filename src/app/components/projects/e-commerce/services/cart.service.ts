@@ -4,6 +4,7 @@ import { Product } from '../models/product.model';
 import { HttpClient } from '@angular/common/http';
 import { Cart, CartDTO, Order, OrderHistory } from '../models/cart.model';
 import { toObservable, toSignal } from '@angular/core/rxjs-interop';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 export class CartService {
 
   constructor(private _http: HttpClient) {  }
-  baseUrl = 'http://localhost:8000/api/cart';
+  baseUrl = `${environment.api_url}/cart`;
   
   userId = signal<number | undefined>(undefined);
 
@@ -78,7 +79,7 @@ export class CartService {
     return this.cartItems().find(product => product.productId == productId);
   }
   getOrderHistory(userId: number): Observable<OrderHistory[]>{
-    return this._http.get<OrderHistory[]>(`http://localhost:8000/api/${userId}/order-history`);
+    return this._http.get<OrderHistory[]>(`${environment.api_url}/${userId}/order-history`);
   }
   setUserId(userId: number){
     this.userId.set(userId);

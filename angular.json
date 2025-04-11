@@ -80,8 +80,7 @@
           },
           "defaultConfiguration": "development",
           "options": {
-            "browserTarget": "portfolio:build",
-            "proxyConfig": "./proxy.config.json"
+            "browserTarget": "portfolio:build"
           }
         },
         "extract-i18n": {
