@@ -6,7 +6,7 @@ import { MainComponent } from "../main/main.component";
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'products',
+    redirectTo: 'login',
     pathMatch: 'full',
   },
   {

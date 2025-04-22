@@ -19,7 +19,7 @@ export class UsersService {
   }
 
   getUserData(id: number): Observable<User> {
-    return this._http.get<UserDTO>(`${this.baseUrl}/users${id}`).pipe(map(res => res.data))
+    return this._http.get<UserDTO>(`${this.baseUrl}/users/${id}`).pipe(map(res => res.data))
   }
   updateUser(id: number, body: UserUpdate) {
     return this._http.put(`${this.baseUrl}/users/${id}`, body);
