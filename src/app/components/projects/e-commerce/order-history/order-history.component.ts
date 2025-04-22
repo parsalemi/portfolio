@@ -2,8 +2,9 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { Observable } from 'rxjs';
 import { Order, OrderHistory } from '../models/cart.model';
-import { AsyncPipe, CurrencyPipe } from '@angular/common';
+import { AsyncPipe, CurrencyPipe, Location } from '@angular/common';
 import { environment } from 'src/environments/environment';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-order-history',
@@ -13,9 +14,11 @@ import { environment } from 'src/environments/environment';
   imports: [
     AsyncPipe,
     CurrencyPipe,
+    RouterLink
   ],
 })
 export class OrderHistoryComponent implements OnInit{
+  constructor(private location: Location){}
   env = environment;
   private _api = inject(CartService);
   userId!: number;
@@ -34,6 +37,9 @@ export class OrderHistoryComponent implements OnInit{
       items += order[i].quantity;
     }
     return items;
+  }
+  goBack(){
+    this.location.back();
   }
   ngOnInit(): void {
     const token = localStorage.getItem('token');
