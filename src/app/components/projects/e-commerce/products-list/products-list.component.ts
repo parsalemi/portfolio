@@ -9,12 +9,15 @@ import { Product } from '../models/product.model';
 import { ProductsService } from '../services/products.service';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-products-list',
   standalone: true,
   templateUrl: './products-list.component.html',
   styleUrl: './products-list.component.scss',
+  providers: [MessageService],
   imports: [
     AsyncPipe,
     CurrencyPipe,
@@ -23,9 +26,11 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
     StarRatingComponent,
     NgOptimizedImage,
     MatPaginator,
+    ToastModule,
   ],
 })
 export class ProductsListComponent implements OnInit, OnDestroy{
+  constructor(private _message: MessageService){}
   env = environment;
   router = inject(Router);
   username!: string;
@@ -53,7 +58,11 @@ export class ProductsListComponent implements OnInit, OnDestroy{
     this.cartSub = this._cartApi.addToCart(this.userId, order).subscribe({
       next: (res) => {
         this.loading = false;
-        
+        this._message.add({severity: 'success', summary: 'Nice choice!', detail: 'Product added to your cart', life: 1000})
+      },
+      error: () => {
+        this.loading = false;
+        this._message.add({severity: 'error', summary: 'An error occured', detail: 'Please try again', life: 2000})
       }
     });
   }
@@ -66,6 +75,10 @@ export class ProductsListComponent implements OnInit, OnDestroy{
     this.inDecSub = this._cartApi.increaseQuantity(productId, userId).subscribe({
       next: () => {
         this.loading = false;
+      },
+      error: () => {
+        this.loading = false;
+        this._message.add({severity: 'error', summary: 'An error occured', detail: 'Please try again', life: 2000})
       }
     });
   }
@@ -74,6 +87,10 @@ export class ProductsListComponent implements OnInit, OnDestroy{
     this.inDecSub = this._cartApi.decreaseQuantity(productId, userId).subscribe({
       next: () => {
         this.loading = false;
+      },
+      error: () => {
+        this.loading = false;
+        this._message.add({severity: 'error', summary: 'An error occured', detail: 'Please try again', life: 2000})
       }
     });
   }
