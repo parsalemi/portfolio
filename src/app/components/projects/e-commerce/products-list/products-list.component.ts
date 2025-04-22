@@ -38,8 +38,10 @@ export class ProductsListComponent implements OnInit, OnDestroy{
   inDecSub!: Subscription;
   ordersNum: Signal<number> = this._cartApi.cartCount;
   orders = computed(() => this._cartApi.cartItems());
+  loading: boolean = false;
 
   addToCart(productId: number, name: string, price: number, code: string, weight: number){
+    this.loading = true;
     const order = {
       productId: productId,
       name: name,
@@ -50,7 +52,8 @@ export class ProductsListComponent implements OnInit, OnDestroy{
     };
     this.cartSub = this._cartApi.addToCart(this.userId, order).subscribe({
       next: (res) => {
-        // Add Toaster
+        this.loading = false;
+        
       }
     });
   }
@@ -59,10 +62,20 @@ export class ProductsListComponent implements OnInit, OnDestroy{
     window.scrollTo(0, 0)
   }
   increaseQuantity(productId: number, userId: number){
-    this.inDecSub = this._cartApi.increaseQuantity(productId, userId).subscribe();
+    this.loading = true;
+    this.inDecSub = this._cartApi.increaseQuantity(productId, userId).subscribe({
+      next: () => {
+        this.loading = false;
+      }
+    });
   }
   decreaseQuantity(productId: number, userId: number){
-    this.inDecSub = this._cartApi.decreaseQuantity(productId, userId).subscribe();
+    this.loading = true;
+    this.inDecSub = this._cartApi.decreaseQuantity(productId, userId).subscribe({
+      next: () => {
+        this.loading = false;
+      }
+    });
   }
   isInCart(productId: number){
     return this._cartApi.isProductInCart(productId);
