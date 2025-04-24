@@ -15,7 +15,6 @@ import { ToastModule } from 'primeng/toast';
   styleUrl: './cart.component.scss',
   providers: [MessageService],
   imports: [
-    DecimalPipe,
     CurrencyPipe,
     RouterLink,
     ToastModule
@@ -31,6 +30,7 @@ export class CartComponent implements OnInit, OnDestroy{
   incDecSub!: Subscription;
   delSub!: Subscription;
   purchaseSub!: Subscription;
+  loading: boolean = false;
   
   cart = computed(() => this._cartApi.getCart());
   order = computed(() => this._cartApi.cartItems());
@@ -43,22 +43,52 @@ export class CartComponent implements OnInit, OnDestroy{
   totalWeight = this._cartApi.totalWeight;
 
   deleteProduct(productId: number, userId: number){
-    this.delSub = this._cartApi.deleteProduct(productId, userId).subscribe();
+    this.loading = true;
+    this.delSub = this._cartApi.deleteProduct(productId, userId).subscribe({
+      next: () => {
+        this.loading = false;
+      },
+      error: () => {
+        this.loading = false;
+        this.message.add({severity: 'error', summary: 'Attempt Failed!', detail: 'Please try again', life: 2000})
+      }
+    });
   }
   increaseQuantity(productId: number, userId: number){
-    this.incDecSub = this._cartApi.increaseQuantity(productId, userId).subscribe();
+    this.loading = true;
+    this.incDecSub = this._cartApi.increaseQuantity(productId, userId).subscribe({
+      next: () => {
+        this.loading = false;
+      },
+      error: () => {
+        this.loading = false;
+        this.message.add({severity: 'error', summary: 'Attempt Failed!', detail: 'Please try again', life: 2000})
+      }
+    });
   }
   decreaseQuantity(productId: number, userId: number){
-    this.incDecSub = this._cartApi.decreaseQuantity(productId, userId).subscribe();
+    this.loading = true;
+    this.incDecSub = this._cartApi.decreaseQuantity(productId, userId).subscribe({
+      next: () => {
+        this.loading = false;
+      },
+      error: () => {
+        this.loading = false;
+        this.message.add({severity: 'error', summary: 'Attempt Failed!', detail: 'Please try again', life: 2000})
+      }
+    });
   }
   purchase(){
+    this.loading = true;
     this.purchaseSub = this._cartApi.purchase(this.userId, 1).subscribe({
       next: () => {
+        this.loading = false;
         this.message.add({severity: 'success', summary: 'Purchased Successfully', detail: 'Thanks for your order', life: 3000})
         this._cartApi.cartItems.set([]);
         setTimeout(() => this.router.navigate(['projects/e-commerce/products']), 2000);
       },
       error: (err) => {
+        this.loading = false;
         console.log(err);
         this.message.add({severity: 'error', summary: 'Failed', detail: 'Please try again', life: 3000})
       }
