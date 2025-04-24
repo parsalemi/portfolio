@@ -173,3 +173,96 @@
   align-items: center;
   justify-content: center;
 }
+
+.mobilePath{
+  stroke-dashoffset: 0;
+  stroke-dasharray: 100;
+  animation: mobile-cycle 6s linear infinite;
+}
+.laptopPath, .tabletPath, .desktopPath{
+  stroke-dashoffset: 110;
+  stroke-dasharray: 100;
+}
+.tabletPath{
+  animation: tablet-cycle 6s linear infinite;
+}
+.laptopPath{
+  animation: laptop-cycle 6s linear infinite;
+}
+.desktopPath{
+  animation: desktop-cycle 6s linear infinite;
+}
+
+@keyframes mobile-cycle {
+  0%{ stroke-dashoffset: 0; }
+  10%{ stroke-dashoffset: 100; }
+  20%{ stroke-dashoffset: 100; }
+  30%{ stroke-dashoffset: 100; }
+  40%{ stroke-dashoffset: 100; }
+  50%{ stroke-dashoffset: 100; }
+  60%{ stroke-dashoffset: 100; }
+  70%{ stroke-dashoffset: 100; }
+  80%{ stroke-dashoffset: 100; }
+  90%{ stroke-dashoffset: 100; }
+  100%{ stroke-dashoffset: 0; }
+}
+@keyframes tablet-cycle {
+  0%{ stroke-dashoffset: 100; }
+  10%{ stroke-dashoffset: 100; }
+  20%{ stroke-dashoffset: 0; }
+  30%{ stroke-dashoffset: 100; }
+  40%{ stroke-dashoffset: 100; }
+  50%{ stroke-dashoffset: 100; }
+  60%{ stroke-dashoffset: 100; }
+  70%{ stroke-dashoffset: 100; }
+  80%{ stroke-dashoffset: 100; }
+  90%{ stroke-dashoffset: 100; }
+  100%{ stroke-dashoffset: 100; }
+}
+@keyframes laptop-cycle {
+  0%{ stroke-dashoffset: 100; }
+  10%{ stroke-dashoffset: 100; }
+  20%{ stroke-dashoffset: 100; }
+  30%{ stroke-dashoffset: 100; }
+  40%{ stroke-dashoffset: 0; }
+  50%{ stroke-dashoffset: 100; }
+  60%{ stroke-dashoffset: 100; }
+  70%{ stroke-dashoffset: 100; }
+  80%{ stroke-dashoffset: 0; }
+  90%{ stroke-dashoffset: 100; }
+  100%{ stroke-dashoffset: 100; }
+}
+@keyframes desktop-cycle {
+  0%{ stroke-dashoffset: 100; }
+  10%{ stroke-dashoffset: 100; }
+  20%{ stroke-dashoffset: 100; }
+  30%{ stroke-dashoffset: 100; }
+  40%{ stroke-dashoffset: 100; }
+  50%{ stroke-dashoffset: 100; }
+  60%{ stroke-dashoffset: 0; }
+  70%{ stroke-dashoffset: 100; }
+  80%{ stroke-dashoffset: 100; }
+  90%{ stroke-dashoffset: 100; }
+  100%{ stroke-dashoffset: 100; }
+}
+.tools{
+  animation: shakeTools 1s linear infinite;
+}
+@keyframes shakeTools {
+  0%{ transform: rotate(0deg); }
+  25%{ transform: rotate(20deg); }
+  50%{ transform: rotate(0deg);}
+  75%{ transform: rotate(-20deg); }
+  100%{ transform: rotate(0deg); }
+}
+
+.human{
+  animation: human 1s linear infinite;
+}
+@keyframes human {
+  0%{ transform: translateY(0px);}
+  25%{ transform: translateY(-2px); }
+  50%{ transform: translateY(0px);}
+  75%{ transform: translateY(2px); }
+  100%{ transform: translateY(0px); }
+}
