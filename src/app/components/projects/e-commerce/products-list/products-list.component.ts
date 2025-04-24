@@ -24,7 +24,6 @@ import { MessageService } from 'primeng/api';
     RouterLink,
     TagModule,
     StarRatingComponent,
-    NgOptimizedImage,
     MatPaginator,
     ToastModule,
   ],
