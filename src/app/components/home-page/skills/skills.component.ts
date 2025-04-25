@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { AngularSvgIconModule } from 'angular-svg-icon';
+import { TooltipDirective } from 'src/app/shared/directives/tooltip.directive';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -11,6 +12,7 @@ import { environment } from 'src/environments/environment';
   imports: [
     MatProgressBarModule,
     AngularSvgIconModule,
+    TooltipDirective,
   ],
 })
 export class SkillsComponent {
