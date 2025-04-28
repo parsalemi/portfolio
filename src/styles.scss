@@ -267,7 +267,7 @@ p{
     }
   }
   .btn-primary-disabled{
-    background-color: #2466a73b;
+    background-color: var(--primary-600-tr-50);
     color: #cde6fe6b;
     cursor: not-allowed;
     border: 2px solid var(--basic-1100);
