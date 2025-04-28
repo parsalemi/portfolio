@@ -76,7 +76,8 @@
               <button [disabled]="loading" (click)="decreaseQuantity(product.id, userId); quantity.stepDown()" class="w-10 h-10 border-2 border-primary-900 flex items-center justify-center text-2xl rounded-md">-</button>
               <input type="number" name="quantity" id="quantity" 
               [value]="howManyInCart(product.id)"
-              class="w-10 h-10 text-center bg-basic-900 text-basic-200 border-2 border-primary-700 focus-visible:outline-none rounded-md"
+              disabled="true"
+              class="w-10 h-10 text-center bg-basic-1100 text-basic-200 border-2 border-primary-700 focus-visible:outline-none rounded-md"
               #quantity
               >
               <button [disabled]="loading" (click)="increaseQuantity(product.id, userId); quantity.stepUp()" class="w-10 h-10 border-2 border-primary-900 flex items-center justify-center text-2xl rounded-md">+</button>

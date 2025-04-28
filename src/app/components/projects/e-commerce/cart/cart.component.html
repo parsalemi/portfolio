@@ -94,6 +94,7 @@
                   <button class="qtyBtn" (click)="decreaseQuantity(product.productId, userId); " >-</button>
                   <input type="number" name="quantity"
                   [value]="product.quantity"
+                  disabled="true"
                   class="qtyInp"
                   #quantity
                   >
