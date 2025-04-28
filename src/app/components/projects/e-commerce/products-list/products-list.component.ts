@@ -125,6 +125,8 @@ export class ProductsListComponent implements OnInit, OnDestroy{
     this._cartApi.setUserId(this.userId);
   }
   ngOnDestroy(): void {
+    this._cartApi.userId.set(undefined);
+    this._cartApi.cartItems.set([])
     if(this.cartSub) this.cartSub.unsubscribe();
     if(this.inDecSub) this.inDecSub.unsubscribe();
   }
