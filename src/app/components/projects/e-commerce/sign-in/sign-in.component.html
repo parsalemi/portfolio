@@ -53,3 +53,8 @@
     <p>Don't have an account? <a class="text-primary-500 underline" routerLink="../register">Sign up</a></p>
   </form>
 </div>
+@if(loading){
+  <div class="loading">
+    <i class="pi pi-spin pi-spinner text-4xl"></i>
+  </div>
+}

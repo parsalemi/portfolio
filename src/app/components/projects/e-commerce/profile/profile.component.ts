@@ -32,6 +32,7 @@ export class ProfileComponent implements OnInit, OnDestroy{
   togglePassword: boolean = false;
   toggleNewPassword: boolean = false;
   env = environment;
+  loading: boolean = false;
   router = inject(Router)
   sub!: Subscription;
   user$!: Observable<User>;
@@ -56,12 +57,15 @@ export class ProfileComponent implements OnInit, OnDestroy{
   });
 
   updateUserInfo(){
+    this.loading = true;
     this.sub = this._api.updateUser(this.userId, this.userInfo.value as UserUpdate).subscribe({
       next: () => {
+        this.loading = false;
         this.message.add({severity: 'success', summary: 'Attempt successfull', detail: 'Your profile updated', life: 3000})
         setTimeout(() => this.router.navigate(['projects/e-commerce/products']), 2000);
       },
       error: () => {
+        this.loading = false;
         this.message.add({severity: 'error', summary: 'Attempt failed', detail: 'wrong password', life: 3000})
       }
     });
@@ -69,13 +73,16 @@ export class ProfileComponent implements OnInit, OnDestroy{
   deleteUser(){
     const confirmDelete: boolean = confirm('Are you sure?');
     if(confirmDelete && this.userInfo.controls.password.controls.currentPassword.valid){
+      this.loading = true;
       this._api.deleteUser(this.userId, this.userInfo.controls.password.controls.currentPassword.value).subscribe({
         next: () => {
+          this.loading = false;
           this.message.add({severity: 'info', summary: 'Deleted', detail: 'Account deleted successfully', life: 3000})
           setTimeout(() => this.router.navigate(['projects/e-commerce/register']) ,3000)
           localStorage.removeItem('token');
         },
         error: () => {
+          this.loading = false;
           this.message.add({severity: 'error', summary: 'An error occured', detail: 'Please try again', life: 2000})
         }
       });

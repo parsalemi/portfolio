@@ -36,6 +36,7 @@ export class SignUpComponent implements OnDestroy{
   env = environment
   router = inject(Router)
   sub!: Subscription;
+  loading: boolean = false;
   
   newUser = this.fbNotNull.group({
     username: ['', [Validators.required, Validators.minLength(2), Validators.pattern(/^[\w.]+$/)]],
@@ -54,8 +55,10 @@ export class SignUpComponent implements OnDestroy{
   });
 
   register(){
+    this.loading = true;
     this.sub = this._api.registerUser(this.newUser.value as UserRegister).subscribe({
       next: (res: User) => {
+        this.loading = false;
         this.message.add({severity: 'success', summary: 'Registered', detail: 'Enjoy shopping', life: 3000})
         if(res.token){
           localStorage.setItem('token', res.token)
@@ -63,6 +66,7 @@ export class SignUpComponent implements OnDestroy{
         }
       },
       error: () => {
+        this.loading = false;
         this.message.add({severity: 'error', summary: 'Attempt failed', detail: 'Please try again', life: 3000})
       }
     })

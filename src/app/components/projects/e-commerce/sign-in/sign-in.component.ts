@@ -35,6 +35,7 @@ export class SignInComponent implements OnDestroy{
   private _api = inject(UsersService)
   router = inject(Router)
   sub!: Subscription;
+  loading: boolean = false;
 
   signInUser = this.fb.group({
     username: ['', [Validators.required]],
@@ -47,14 +48,17 @@ export class SignInComponent implements OnDestroy{
       username: this.signInUser.value.username as string,
       password: this.signInUser.value.password as string,
     }
+    this.loading = true;
     this.sub = this._api.signInUser(this.signInUser.value as UserLogin).subscribe({
       next: (res: User) => {
+        this.loading = false;
         if(res.token){
           localStorage.setItem('token', res.token);
           this.router.navigate(['projects/e-commerce/products']);
         }
       },
       error: () => {
+        this.loading = false;
         this.message.add({severity: 'error', summary: 'Attempt failed', detail: 'Please try again', life: 3000})
       }
     });
