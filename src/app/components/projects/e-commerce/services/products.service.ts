@@ -8,23 +8,29 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ProductsService {
-  baseUrl = environment.api_url;
+  baseUrl = `${environment.api_url}/products`;
   constructor(private _http: HttpClient) { }
   
   getProducts(page: number) : Observable<Product[]>{
     if(page == 0){
-      return this._http.get<ProductDTO>(`${this.baseUrl}/products?limit=20&page=1`).pipe(
+      return this._http.get<ProductDTO>(`${this.baseUrl}?limit=20&page=1`).pipe(
         map(res => res.products),
         shareReplay(1)
       ); 
     } else {
-      return this._http.get<ProductDTO>(`${this.baseUrl}/products?limit=20&page=${page}`).pipe(
+      return this._http.get<ProductDTO>(`${this.baseUrl}?limit=20&page=${page}`).pipe(
         map(res => res.products),
         shareReplay(1)
       );
     }
   }
   getProductImg(productId: number){
-    return this._http.get(`${this.baseUrl}/products/image/${productId}`);
+    return this._http.get(`${this.baseUrl}/image/${productId}`);
+  }
+  getProductsByCategory(ctgy: string): Observable<Product[]>{
+    return this._http.get<ProductDTO>(`${this.baseUrl}?category=${ctgy}`).pipe(
+      map(res => res.products),
+      shareReplay(1)
+    );
   }
 }
