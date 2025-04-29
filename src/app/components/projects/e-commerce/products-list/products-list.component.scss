@@ -55,6 +55,24 @@
   width: 320px;
   height: 600px;
 }
+.searchInput{
+  background-color: var(--basic-800);
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-align: center;
+  color: var(--basic-200);
+  &:focus{
+    outline: none;
+  }
+  &:focus-visible{
+    outline: 2px solid var(--primary-500);
+  }
+  &::placeholder{
+    text-align: center;
+    color: var(--basic-500);
+  }
+}
 :host ::ng-deep {
   .category-menu {
     border-radius: 24px !important;
@@ -65,6 +83,10 @@
     z-index: 1000;
     position: relative;
 
+    &.p-menubar-mobile-active .p-menubar-button:focus{
+      box-shadow: none;
+    }
+    
     li.p-menuitem{
       background-color: var(--basic-900);
       margin: 0.25rem;
@@ -114,5 +136,27 @@
     .p-submenu-icon {
       color: var(--basic-400) !important;
     }
+  }
+  .p-menubar-button{
+    width: 100%;
+    padding: 12px 24px;
+    border-radius: 0;
+    &:after{
+      content: 'Categories';
+      margin-left: 12px;
+      
+    }
+  }
+  
+}
+:host ::ng-deep {
+  .p-menubar-root-list {
+    background-color: var(--basic-1100);
+    width: auto !important;
+    flex-direction: row !important;
+  }
+  
+  .p-menubar {
+    align-items: center !important;
   }
 }
