@@ -1,6 +1,6 @@
 import { AsyncPipe, CurrencyPipe, NgOptimizedImage } from '@angular/common';
 import { Component, computed, inject, OnDestroy, OnInit, Signal } from '@angular/core';
-import { BehaviorSubject, Observable, Subscription, switchMap, throwIfEmpty } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription, switchMap, throwIfEmpty, timeout } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Router, RouterLink } from '@angular/router';
 import { CartService } from '../services/cart.service';
@@ -99,9 +99,14 @@ export class ProductsListComponent implements OnInit, OnDestroy{
       }
     });
   }
-  searchProduct(product: string){
+  searchProduct(event: any){
     this.currentCategory = 'searched';
-    this.products$ = this._api.getProductByName(product);
+    let timeout: ReturnType<typeof setTimeout> | undefined = undefined;
+    const productName = event.target.value;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      this.products$ = this._api.getProductByName(productName);
+    }, 1000)
   }
   isInCart(productId: number){
     return this._cartApi.isProductInCart(productId);
