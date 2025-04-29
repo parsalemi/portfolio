@@ -12,6 +12,7 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { ToastModule } from 'primeng/toast';
 import { MegaMenuItem, MenuItem, MessageService } from 'primeng/api';
 import { MenubarModule } from 'primeng/menubar';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-products-list',
@@ -28,6 +29,7 @@ import { MenubarModule } from 'primeng/menubar';
     MatPaginator,
     ToastModule,
     MenubarModule,
+    FormsModule
   ],
 })
 export class ProductsListComponent implements OnInit, OnDestroy{
@@ -96,6 +98,10 @@ export class ProductsListComponent implements OnInit, OnDestroy{
         this._message.add({severity: 'error', summary: 'An error occured', detail: 'Please try again', life: 2000})
       }
     });
+  }
+  searchProduct(product: string){
+    this.currentCategory = 'searched';
+    this.products$ = this._api.getProductByName(product);
   }
   isInCart(productId: number){
     return this._cartApi.isProductInCart(productId);

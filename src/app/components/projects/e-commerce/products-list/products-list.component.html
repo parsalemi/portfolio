@@ -20,8 +20,15 @@
   @if(products$ | async; as products){
     <div class="wrapper flex flex-col items-center justify-center gap-1">
       <p-menubar styleClass="category-menu" [model]="categories"/>
-      
-      <div class="flex flex-wrap gap-10 mt-10 overflow-hidden items-center justify-center">
+      <form (ngSubmit)="searchProduct(search.value)" class="flex items-center justify-center gap-3 mt-5">
+        <input 
+        #search
+        class="searchInput"
+        placeholder="Search for Product"
+        type="text">
+        <button type="submit" class="btn-primary text-h5"><i class="pi pi-search text-md mr-2"></i>Search</button>
+      </form>
+      <div class="flex flex-wrap gap-10 mt-8 overflow-hidden items-center justify-center">
         @for(product of products; track product.id){
           <div class="cardDesktop rounded-xl md:mt-16 flex">
             @if(product.stock < 10){

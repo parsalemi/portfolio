@@ -24,8 +24,10 @@ export class ProductsService {
       );
     }
   }
-  getProductImg(productId: number){
-    return this._http.get(`${this.baseUrl}/image/${productId}`);
+  getProductByName(product: string): Observable<Product[]>{
+    return this._http.get<ProductDTO>(`${this.baseUrl}?name=${product}`).pipe(
+      map(res => res.products)
+    );
   }
   getProductsByCategory(ctgy: string): Observable<Product[]>{
     return this._http.get<ProductDTO>(`${this.baseUrl}?category=${ctgy}`).pipe(
