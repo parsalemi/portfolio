@@ -1,16 +1,17 @@
 import { AsyncPipe, CurrencyPipe, NgOptimizedImage } from '@angular/common';
 import { Component, computed, inject, OnDestroy, OnInit, Signal } from '@angular/core';
-import { BehaviorSubject, Observable, Subscription, switchMap } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription, switchMap, throwIfEmpty } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Router, RouterLink } from '@angular/router';
 import { CartService } from '../services/cart.service';
 import { TagModule } from 'primeng/tag';
-import { Product } from '../models/product.model';
+import { Product, ProductDTO } from '../models/product.model';
 import { ProductsService } from '../services/products.service';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { ToastModule } from 'primeng/toast';
-import { MessageService } from 'primeng/api';
+import { MegaMenuItem, MenuItem, MessageService } from 'primeng/api';
+import { MenubarModule } from 'primeng/menubar';
 
 @Component({
   selector: 'app-products-list',
@@ -26,6 +27,7 @@ import { MessageService } from 'primeng/api';
     StarRatingComponent,
     MatPaginator,
     ToastModule,
+    MenubarModule,
   ],
 })
 export class ProductsListComponent implements OnInit, OnDestroy{
@@ -43,6 +45,8 @@ export class ProductsListComponent implements OnInit, OnDestroy{
   ordersNum: Signal<number> = this._cartApi.cartCount;
   orders = computed(() => this._cartApi.cartItems());
   loading: boolean = false;
+  currentCategory: string = 'all';
+  categories: MenuItem[] | undefined;
 
   addToCart(productId: number, name: string, price: number, code: string, weight: number){
     this.loading = true;
@@ -115,6 +119,213 @@ export class ProductsListComponent implements OnInit, OnDestroy{
     let e = price * (discount / 100);
     return Math.floor(price - e)
   }
+  initMenubarItems(){
+    this.categories = [
+      {
+        label: 'All',
+        command: () => {
+          this.currentCategory = 'all';
+          this.products$ = this.page$.pipe(switchMap(page => this._api.getProducts(page)));
+        }
+      },
+      {
+        label: 'Groceries',
+        command: () => {
+          this.currentCategory = 'groceries';
+          this.products$ = this._api.getProductsByCategory('groceries')
+        }
+      },
+      {
+        label: 'Cosmetic',
+        items: [
+          {
+            label: 'Beauty',
+            command: () => {
+              this.currentCategory = 'beauty';
+              this.products$ = this._api.getProductsByCategory('beauty');
+            }
+          },
+          {
+            label: 'Frangrances',
+            command: () => {
+              this.currentCategory = 'frangrances';
+              this.products$ = this._api.getProductsByCategory('fragrances');
+            }
+          },
+          {
+            label: 'Skin Care',
+            command: () => {
+              this.currentCategory = 'skin-care';
+              this.products$ = this._api.getProductsByCategory('skin-care');
+            }
+          }
+        ],
+      },
+      {
+        label: 'Home And Kitchen',
+        items: [
+          {
+            label: 'furniture',
+            command: () => {
+              this.currentCategory = 'furniture';
+              this.products$ = this._api.getProductsByCategory('furniture');
+            }
+          },
+          {
+            label: 'Home Decoration',
+            command: () => {
+              this.currentCategory = 'home-decoration';
+              this.products$ = this._api.getProductsByCategory('home-decoration');
+            }
+          },
+          {
+            label: 'Kitchen Accessories',
+            command: () => {
+              this.currentCategory = 'kitchen-accessories';
+              this.products$ = this._api.getProductsByCategory('kitchen-accessories')
+            }
+          }
+        ]
+      },
+      {
+        label: 'Electronics',
+        items: [
+          {
+            label: 'Laptops',
+            command: () => {
+              this.currentCategory = 'laptops';
+              this.products$ = this._api.getProductsByCategory('laptops');
+            }
+          },
+          {
+            label: 'Smartphones',
+            command: () => {
+              this.currentCategory = 'smartphones';
+              this.products$ = this._api.getProductsByCategory('smartphones');
+            }
+          },
+          {
+            label: 'Tablets',
+            command: () => {
+              this.currentCategory = 'tablets';
+              this.products$ = this._api.getProductsByCategory('tablets');
+            }
+          }
+        ]
+      },
+      {
+        label: "Men's Fashion",
+        items: [
+          {
+            label: 'Shirts',
+            command: () => {
+              this.currentCategory = 'mens-shirts';
+              this.products$ = this._api.getProductsByCategory('mens-shirts');
+            }
+          },
+          {
+            label: 'Watches',
+            command: () => {
+              this.currentCategory = 'mens-watches';
+              this.products$ = this._api.getProductsByCategory('mens-watches');
+            }
+          },
+        ],
+      },
+      {
+        label: "Women's Fashion",
+        items: [
+          {
+            label: 'Bags',
+            command: () => {
+              this.currentCategory = 'womens-bags';
+              this.products$ = this._api.getProductsByCategory('womens-bags');
+            }
+          },
+          {
+            label: 'Dresses',
+            command: () => {
+              this.currentCategory = 'womens-dresses';
+              this.products$ = this._api.getProductsByCategory('womens-dresses');
+            }
+          },
+          {
+            label: 'Tops',
+            command: () => {
+              this.currentCategory = 'tops';
+              this.products$ = this._api.getProductsByCategory('tops');
+            }
+          },
+          {
+            label: 'Jewellery',
+            command: () => {
+              this.currentCategory = 'womens-jewellery';
+              this.products$ = this._api.getProductsByCategory('womens-jewellery');
+            }
+          },
+          {
+            label: 'Shoes',
+            command: () => {
+              this.currentCategory = 'womens-shoes';
+              this.products$ = this._api.getProductsByCategory('womens-shoes');
+            }
+          },
+          {
+            label: 'Watches',
+            command: () => {
+              this.currentCategory = 'womens-watches';
+              this.products$ = this._api.getProductsByCategory('womens-watches');
+            }
+          }
+        ]
+      },
+      {
+        label: 'Accessories',
+        items: [
+          {
+            label: 'Sports',
+            command: () => {
+              this.currentCategory = 'sports-accessories';
+              this.products$ = this._api.getProductsByCategory('sports-accessories');
+            }
+          },
+          {
+            label: 'Sun Glasses',
+            command: () => {
+              this.currentCategory = 'sunglasses';
+              this.products$ = this._api.getProductsByCategory('sunglasses');
+            }
+          },
+          {
+            label: 'Mobile',
+            command: () => {
+              this.currentCategory = 'mobile-accessories';
+              this.products$ = this._api.getProductsByCategory('mobile-accessories');
+            }
+          }
+        ]
+      },
+      {
+        label: 'Vehicles',
+        items: [
+          {
+            label: 'Cars',
+            command: () => {
+              this.currentCategory = 'vehicle';
+              this.products$ = this._api.getProductsByCategory('vehicle');
+            }
+          },
+          {
+            label: 'Motorcycles',
+            command: () => {
+              this.currentCategory = 'motorcycles';
+              this.products$ = this._api.getProductsByCategory('motorcycle');
+            }
+          }
+        ]
+      }
+    ]
+  }
   ngOnInit(): void {
     const token = localStorage.getItem('token');
     if(token){
@@ -123,6 +334,7 @@ export class ProductsListComponent implements OnInit, OnDestroy{
       this.userId = JSON.parse(atob(payload)).userId;
     }
     this._cartApi.setUserId(this.userId);
+    this.initMenubarItems();
   }
   ngOnDestroy(): void {
     this._cartApi.userId.set(undefined);

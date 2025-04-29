@@ -19,87 +19,88 @@
   </div>
   @if(products$ | async; as products){
     <div class="wrapper flex flex-col items-center justify-center gap-1">
-
-      <div class="flex flex-wrap gap-10 overflow-hidden items-center justify-center">
-
+      <p-menubar styleClass="category-menu" [model]="categories"/>
       
-      @for(product of products; track product.id){
-        <div class="cardDesktop rounded-xl md:mt-16 flex">
-          @if(product.stock < 10){
-            <p-tag value="Low stock!" severity="danger" class="absolute -left-1 top-5 -rotate-45" [styleClass]="'rounded-md'"/>
-          }
-          <div class="productImg w-full flex justify-center items-center absolute">
-            <img class="max-w-[70%] h-[200px] object-scale-down" src="{{env.staticFileUrl}}/productsimgs/{{product.image}}.webp" alt="">
-          </div>
-          <div class="details flex absolute w-full h-[70%]" #details>
-            <div class="border-b-2 p-2 border-basic-900">
-              <button (click)="details.style.opacity = '0'; details.style.visibility = 'hidden'" class="block md:hidden absolute top-5 right-5">
-                <i class="pi pi-times text-2xl text-error-400"></i>
-              </button>
-              <p class="font-bold"><span class="text-basic-600 font-normal text-lg">Brand: </span>{{product.brand}}</p>
-              <p class="font-bold"><span class="text-basic-600 font-normal text-lg">Code: </span>{{product.code}}</p>
-              <p class="font-bold"><span class="text-basic-600 font-normal text-lg">In Stock: </span>{{product.stock}}</p>
-              <p class="font-bold"><span class="text-basic-600 font-normal text-lg">Weight: </span>{{product.weight}}00g</p>
+      <div class="flex flex-wrap gap-10 mt-10 overflow-hidden items-center justify-center">
+        @for(product of products; track product.id){
+          <div class="cardDesktop rounded-xl md:mt-16 flex">
+            @if(product.stock < 10){
+              <p-tag value="Low stock!" severity="danger" class="absolute -left-1 top-5 -rotate-45" [styleClass]="'rounded-md'"/>
+            }
+            <div class="productImg w-full flex justify-center items-center absolute">
+              <img class="max-w-[70%] h-[200px] object-scale-down" src="{{env.staticFileUrl}}/productsimgs/{{product.image}}.webp" alt="">
             </div>
-            <div class="flex flex-col gap-2 items-center justify-center">
-              <h4 class="my-5">Comments</h4>
-              @for(review of product.reviews; track review.name){
-                <div class="flex gap-2 items-center justify-center border-b-2 border-primary-900">
-                  <p>{{review.name}}</p>
-                  <app-star-rating [rating]="review.rating"></app-star-rating>
+            <div class="details flex absolute w-full h-[70%]" #details>
+              <div class="border-b-2 p-2 border-basic-900">
+                <button (click)="details.style.opacity = '0'; details.style.visibility = 'hidden'" class="block md:hidden absolute top-5 right-5">
+                  <i class="pi pi-times text-2xl text-error-400"></i>
+                </button>
+                <p class="font-bold"><span class="text-basic-600 font-normal text-lg">Brand: </span>{{product.brand}}</p>
+                <p class="font-bold"><span class="text-basic-600 font-normal text-lg">Code: </span>{{product.code}}</p>
+                <p class="font-bold"><span class="text-basic-600 font-normal text-lg">In Stock: </span>{{product.stock}}</p>
+                <p class="font-bold"><span class="text-basic-600 font-normal text-lg">Weight: </span>{{product.weight}}00g</p>
+              </div>
+              <div class="flex flex-col gap-2 items-center justify-center">
+                <h4 class="my-5">Comments</h4>
+                @for(review of product.reviews; track review.name){
+                  <div class="flex gap-2 items-center justify-center border-b-2 border-primary-900">
+                    <p>{{review.name}}</p>
+                    <app-star-rating [rating]="review.rating"></app-star-rating>
+                  </div>
+                }
+              </div>
+            </div>
+            <button (click)="details.style.opacity = '1'; details.style.visibility = 'visible'; " class="cursor-pointer absolute right-5 top-5 md:hidden z-[300]"><i class="pi pi-list text-2xl"></i></button>
+            <div class="cardContent text-center flex flex-col gap-5 mt-24">
+              <h4>{{product.name}}</h4>
+              @if(product.discount > 10){
+                <div class="flex gap-3 items-center justify-center">
+                  <h4 class="line-through text-basic-400">{{product.price | currency}}</h4>
+                  <h3>{{calcDiscount(product.price, product.discount) | currency}}</h3>
                 </div>
               }
+              @else{
+                <h3>{{product.price | currency}}</h3>
+              }
+              <p class="text-lg text-basic-600">{{product.description}}</p>
+              <div class="flex gap-3">
+                @for(tag of product.tags; let i = $index; track i){
+                  <p-tag severity="contrast" [value]="tag" styleClass="border-2 border-primary-900"/>
+                }
+              </div>
+              <app-star-rating [rating]="product.rating"></app-star-rating>
             </div>
-          </div>
-          <button (click)="details.style.opacity = '1'; details.style.visibility = 'visible'; " class="cursor-pointer absolute right-5 top-5 md:hidden z-[300]"><i class="pi pi-list text-2xl"></i></button>
-          <div class="cardContent text-center flex flex-col gap-5 mt-24">
-            <h4>{{product.name}}</h4>
-            @if(product.discount > 10){
+            @if(isInCart(product.id)){
               <div class="flex gap-3 items-center justify-center">
-                <h4 class="line-through text-basic-400">{{product.price | currency}}</h4>
-                <h3>{{calcDiscount(product.price, product.discount) | currency}}</h3>
+                <button [disabled]="loading" (click)="decreaseQuantity(product.id, userId);" class="w-10 h-10 border-2 border-primary-900 flex items-center justify-center text-2xl rounded-md">-</button>
+                <input type="number" name="quantity" id="quantity" 
+                [value]="howManyInCart(product.id)"
+                disabled="true"
+                class="w-10 h-10 text-center bg-basic-1100 text-basic-200 border-2 border-primary-700 focus-visible:outline-none rounded-md"
+                #quantity
+                >
+                <button [disabled]="loading" (click)="increaseQuantity(product.id, userId);" class="w-10 h-10 border-2 border-primary-900 flex items-center justify-center text-2xl rounded-md">+</button>
               </div>
             }
-            @else{
-              <h3>{{product.price | currency}}</h3>
+            @else {
+              <div class="flex w-full items-center justify-center">
+                <button class="btn-primary self-center" (click)="addToCart(product.id, product.name, product.price, product.code, product.weight)">
+                  <i class="pi pi-cart-arrow-down text-lg mr-2"></i>Add to cart
+                </button>
+              </div>
             }
-            <p class="text-lg text-basic-600">{{product.description}}</p>
-            <div class="flex gap-3">
-              @for(tag of product.tags; let i = $index; track i){
-                <p-tag severity="contrast" [value]="tag" styleClass="border-2 border-primary-900"/>
-              }
-            </div>
-            <app-star-rating [rating]="product.rating"></app-star-rating>
           </div>
-          @if(isInCart(product.id)){
-            <div class="flex gap-3 items-center justify-center">
-              <button [disabled]="loading" (click)="decreaseQuantity(product.id, userId);" class="w-10 h-10 border-2 border-primary-900 flex items-center justify-center text-2xl rounded-md">-</button>
-              <input type="number" name="quantity" id="quantity" 
-              [value]="howManyInCart(product.id)"
-              disabled="true"
-              class="w-10 h-10 text-center bg-basic-1100 text-basic-200 border-2 border-primary-700 focus-visible:outline-none rounded-md"
-              #quantity
-              >
-              <button [disabled]="loading" (click)="increaseQuantity(product.id, userId);" class="w-10 h-10 border-2 border-primary-900 flex items-center justify-center text-2xl rounded-md">+</button>
-            </div>
-          }
-          @else {
-            <div class="flex w-full items-center justify-center">
-              <button class="btn-primary self-center" (click)="addToCart(product.id, product.name, product.price, product.code, product.weight)">
-                <i class="pi pi-cart-arrow-down text-lg mr-2"></i>Add to cart
-              </button>
-            </div>
-          }
+        }
+      </div>
+      @if(currentCategory == 'all'){
+        <div class="w-full my-10 lg:my-0 lg:mt-10 lg:w-1/3 flex items-center justify-center">
+          <mat-paginator
+          (page)="changePage($event)"
+          length="194"
+          pageSize="20"
+          ></mat-paginator>
         </div>
       }
-    </div>
-      <div class="w-full my-10 lg:my-0 lg:mt-10 lg:w-1/3 flex items-center justify-center">
-        <mat-paginator
-        (page)="changePage($event)"
-        length="194"
-        pageSize="20"
-        ></mat-paginator>
-      </div>
     </div>
   }
 </div>

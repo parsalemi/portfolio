@@ -55,3 +55,64 @@
   width: 320px;
   height: 600px;
 }
+:host ::ng-deep {
+  .category-menu {
+    border-radius: 24px !important;
+    border: 1px solid var(--primary-800) !important;
+    background-color: var(--basic-1100) !important;
+    color: var(--basic-400) !important;
+    padding: 8px;
+    z-index: 1000;
+    position: relative;
+
+    li.p-menuitem{
+      background-color: var(--basic-900);
+      margin: 0.25rem;
+      border-radius: 16px;
+      
+      &.p-highlight.p-menuitem-active.p-focus{
+        border-radius: 16px;
+        .p-menuitem-link{
+          border-radius: 16px;
+          background-color: var(--basic-1000);
+        } 
+        .p-menuitem-content{
+          border-radius: 16px;
+        }
+        .p-submenu-list{
+          background-color: var(--basic-800);
+          border: 2px solid var(--basic-700);
+          li.p-menuitem{
+            background-color: var(--basic-800);
+            margin: 0;
+            border-radius: 0;
+          }
+          .p-menuitem-link{
+            background-color: var(--basic-800);
+            border-radius: 0;
+            transition: all .3s;
+            &:hover{
+              background-color: var(--basic-900);
+            }
+          }
+        }
+      }
+      &:hover{
+        background-color: var(--basic-1000);
+      }
+      .p-menuitem-link{
+        border-radius: 16px;
+      }
+      .p-menuitem-content{
+        border-radius: 16px;
+        &:hover{
+          background-color: var(--basic-1000);
+          border-radius: 16px;
+        }
+      }
+    }
+    .p-submenu-icon {
+      color: var(--basic-400) !important;
+    }
+  }
+}
