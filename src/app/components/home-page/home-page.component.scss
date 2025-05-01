@@ -177,20 +177,20 @@
 .mobilePath{
   stroke-dashoffset: 0;
   stroke-dasharray: 100;
-  animation: mobile-cycle 6s linear infinite;
+  animation: mobile-cycle 10s linear infinite;
 }
 .laptopPath, .tabletPath, .desktopPath{
   stroke-dashoffset: 110;
   stroke-dasharray: 100;
 }
 .tabletPath{
-  animation: tablet-cycle 6s linear infinite;
+  animation: tablet-cycle 10s linear infinite;
 }
 .laptopPath{
-  animation: laptop-cycle 6s linear infinite;
+  animation: laptop-cycle 10s linear infinite;
 }
 .desktopPath{
-  animation: desktop-cycle 6s linear infinite;
+  animation: desktop-cycle 10s linear infinite;
 }
 
 @keyframes mobile-cycle {
