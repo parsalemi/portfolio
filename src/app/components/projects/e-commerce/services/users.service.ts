@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class UsersService {
-  baseUrl = environment.api_url;
+  baseUrl = environment.ecommerce_api_url;
   constructor(private _http: HttpClient) { }
 
   signInUser(user: UserLogin): Observable<User>{

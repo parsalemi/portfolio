@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ProductsService {
-  baseUrl = `${environment.api_url}/products`;
+  baseUrl = `${environment.ecommerce_api_url}/products`;
   constructor(private _http: HttpClient) { }
   
   getProducts(page: number) : Observable<Product[]>{

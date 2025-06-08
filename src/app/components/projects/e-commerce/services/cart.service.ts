@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 export class CartService {
 
   constructor(private _http: HttpClient) {  }
-  baseUrl = `${environment.api_url}/cart`;
+  baseUrl = `${environment.ecommerce_api_url}/cart`;
   
   userId = signal<number | undefined>(undefined);
 
@@ -79,7 +79,7 @@ export class CartService {
     return this.cartItems().find(product => product.productId == productId);
   }
   getOrderHistory(userId: number): Observable<OrderHistory[]>{
-    return this._http.get<OrderHistory[]>(`${environment.api_url}/${userId}/order-history`);
+    return this._http.get<OrderHistory[]>(`${environment.ecommerce_api_url}/${userId}/order-history`);
   }
   setUserId(userId: number){
     this.userId.set(userId);
