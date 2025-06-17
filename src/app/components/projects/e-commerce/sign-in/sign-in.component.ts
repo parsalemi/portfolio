@@ -44,10 +44,6 @@ export class SignInComponent implements OnDestroy{
   });
 
   signIn(){
-    const body: UserLogin = {
-      username: this.signInUser.value.username as string,
-      password: this.signInUser.value.password as string,
-    }
     this.loading = true;
     this.sub = this._api.signInUser(this.signInUser.value as UserLogin).subscribe({
       next: (res: User) => {
