@@ -49,6 +49,7 @@ export class ProductsListComponent implements OnInit, OnDestroy{
   loading: boolean = false;
   currentCategory: string = 'all';
   categories: MenuItem[] | undefined;
+  searchValue: string = '';
 
   addToCart(productId: number, name: string, price: number, code: string, weight: number){
     this.loading = true;
@@ -105,8 +106,8 @@ export class ProductsListComponent implements OnInit, OnDestroy{
     const productName = event.target.value;
     clearTimeout(timeout);
     timeout = setTimeout(() => {
-      this.products$ = this._api.getProductByName(productName);
-    }, 1000)
+      this.products$ = this._api.getProductByName(this.searchValue);
+    }, 1500)
   }
   isInCart(productId: number){
     return this._cartApi.isProductInCart(productId);
