@@ -31,6 +31,10 @@ export const routes: Routes = [
         loadChildren: () => import('./e-commerce/e-commerce.route').then(c => c.routes),
       },
       {
+        path: 'expense-tracker',
+        loadChildren: () => import('./expense-tracker/expense.route').then(c => c.routes),
+      },
+      {
         path: 'weather',
         loadComponent: () => import('./weather/all-weathers/all-weathers.component').then(c => c.AllWeathersComponent),
         title: 'Weather App',
