@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
   imports: [],
 })
 export class ExpenseListComponent {
-  // mode!: 'income' | 'expense' | '';
   private _router = inject(Router);
 
   addInExp(mode: string){
