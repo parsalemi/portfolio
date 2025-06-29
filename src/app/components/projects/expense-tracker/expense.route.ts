@@ -4,13 +4,17 @@ import { MainComponent } from "./main/main.component";
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'list',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
     path: '',
     component: MainComponent,
     children: [
+      {
+        path: 'home',
+        loadComponent: () => import('./home/home.component').then(c => c.HomeComponent),
+      },
       {
         path: 'list',
         loadComponent: () => import('./expense-list/expense-list.component').then(c => c.ExpenseListComponent),
@@ -39,6 +43,10 @@ export const routes: Routes = [
         path: 'add-expense',
         loadComponent: () => import('./add-expense/add-expense.component').then(c => c.AddExpenseComponent),
       },
+      {
+        path: 'settings',
+        loadComponent: () => import('./settings/settings.component').then(c => c.SettingsComponent),
+      }
     ]
   }
 ]
