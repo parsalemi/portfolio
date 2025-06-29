@@ -1,7 +1,7 @@
-import { Component, ElementRef, HostListener, inject } from '@angular/core';
+import { Component, ElementRef, HostListener, inject, OnDestroy } from '@angular/core';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { filter } from 'rxjs';
+import { filter, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-nav-menu',
@@ -31,15 +31,19 @@ import { filter } from 'rxjs';
     RouterLinkActive
   ],
 })
-export class NavMenuComponent {
+export class NavMenuComponent implements OnDestroy{
   menuState: 'void' | 'visible' = 'void';
   elRef = inject(ElementRef);
   router = inject(Router);
+  private _destroy$ = new Subject<void>();
 
   constructor(){
-    this.router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe(
+    this.router.events.pipe(
+      filter(e => e instanceof NavigationEnd),
+      takeUntil(this._destroy$)
+    ).subscribe(
       () => this.menuState = 'void'
-    )
+    );
   }
 
   toggleMenu(){
@@ -50,5 +54,9 @@ export class NavMenuComponent {
     if(!this.elRef.nativeElement.contains(event.target)) {
       this.menuState = 'void';
     }
+  }
+  ngOnDestroy(): void {
+    this._destroy$.next();
+    this._destroy$.complete();
   }
 }
