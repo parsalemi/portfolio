@@ -1,1 +1,31 @@
-<p>nav-menu works!</p>
+<button #toggleBtn (click)="toggleMenu()"
+  class="text-basic-400 fixed top-5 left-5 z-[901]"
+><i class="pi pi-bars text-2xl"></i></button>
+@if(menuState === 'visible'){
+  <nav [@menuAnimation]="menuState" #menu class="expense-nav w-full bg-basic-1100 lg:hidden text-basic-600">
+    <button (click)="toggleMenu()"><i class="pi pi-times text-xl"></i></button>
+    <ul>
+      <li>
+        <a routerLink="./home" routerLinkActive="active"><i class="pi pi-home"></i>Home</a>
+      </li>
+      <li>
+        <a routerLink="./list" routerLinkActive="active"><i class="pi pi-list"></i>Expenses List</a>
+      </li>
+      <li>
+        <a routerLink="./add-expense" routerLinkActive="active"><i class="pi pi-dollar"></i>Add New Expense</a>
+      </li>
+      <li>
+        <a routerLink="./add-income" routerLinkActive="active"><i class="pi pi-plus"></i>Add New Income</a>
+      </li>
+      <li>
+        <a routerLink="./settings" routerLinkActive="active"><i class="pi pi-cog"></i>Settings</a>
+      </li>
+      <li>
+        <a routerLink="./profile" routerLinkActive="active"><i class="pi pi-user"></i>Profile</a>
+      </li>
+      <li>
+        <a class="text-error-700" routerLink="../login" routerLinkActive="active"><i class="pi pi-sign-out"></i>Sign Out</a>
+      </li>
+    </ul>
+  </nav>
+}
