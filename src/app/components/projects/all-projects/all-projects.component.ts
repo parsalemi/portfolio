@@ -65,6 +65,15 @@ export class AllProjectsComponent {
       ownProject: true,
       finished: false,
     },
+    {
+      title: 'Expense Tracker',
+      description: 'An expense tracker app. I put PWA app in my github that works both online and offline',
+      img: 'expense-tracker',
+      techsSvg: ['angular', 'sass', 'tailwind'],
+      link: 'expense-tracker',
+      ownProject: true,
+      finished: false,
+    }
   ]
   handleLink(el: HTMLAnchorElement, ownProject: boolean, link: string){
     if(ownProject){
