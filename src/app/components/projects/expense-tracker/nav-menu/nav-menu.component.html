@@ -1,7 +1,7 @@
 <button #toggleBtn (click)="toggleMenu()"
   class="text-basic-400 fixed top-5 left-5 z-[901] lg:hidden"
 ><i class="pi pi-bars text-2xl"></i></button>
-<div class="w-52 h-full hidden lg:block fixed inset-0" (mouseenter)="toggleMenu()"></div>
+<div class="w-20 h-full hidden lg:block fixed inset-0" (mouseenter)="toggleMenu()"></div>
 @if(menuState === 'visible'){
   <nav [@menuAnimation]="menuState" #menu 
   class="expense-nav w-[60%] md:w-[30%] lg:w-[max(10%,calc(25%-(0.1*100vw)))] lg:max-w-96 bg-basic-1100 text-basic-600" 
