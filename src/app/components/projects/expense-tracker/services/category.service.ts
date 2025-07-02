@@ -51,6 +51,10 @@ export class CategoryService {
       this.categories.update(ctgs => [...ctgs, categoryToAdd]);
       const userAddedCtgs = this.categories().filter(c => !c.isDefault);
       localStorage.setItem('userCategories', JSON.stringify(userAddedCtgs));
+      return true;
+    }
+    else {
+      return false;
     }
   }
 
