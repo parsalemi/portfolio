@@ -57,7 +57,11 @@ export class CategoryService {
       return false;
     }
   }
-
+  deleteCategory(id: number){
+    this.categories.update(ctg => ctg.filter(c => c.id !== id));
+    const userAddedCtgs = this.categories().filter(c => !c.isDefault);
+    localStorage.setItem('userCategories', JSON.stringify(userAddedCtgs))
+  }
   getCategoryById(id: number): Category | undefined{
     return this.categories().find(c => c.id === id);
   }
