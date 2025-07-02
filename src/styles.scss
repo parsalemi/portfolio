@@ -105,6 +105,18 @@ p{
   *{
     transition: color 1s;
     transition: background-color 1s;
+    scrollbar-width: thin;
+    scrollbar-color: var(--basic-1100) var(--basic-1000);
+    &::-webkit-scrollbar-track{
+      background: var(--primary-1000);
+    }
+    &::-webkit-scrollbar-thumb{
+      background: var(--basic-1100);
+      border-radius: 0;
+    }
+    &::-webkit-scrollbar{
+      width: 8px;
+    }
   }
   body{
     background-color: var(--basic-1000);
