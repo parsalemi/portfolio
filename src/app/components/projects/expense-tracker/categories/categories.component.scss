@@ -1,0 +1,32 @@
+.categoryContainer{
+  position: relative;
+  display: inline-block;
+}
+.categoryMenu {
+  background-color: var(--basic-800);
+  color: var(--basic-300);
+  padding: 12px;
+  border-radius: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  left: 100%;
+  top: 10%; 
+  margin-left: 12px;
+  overflow-y: scroll;
+}
+.categoryNameInput{
+  background-color: var(--basic-1000);
+  color: var(--basic-300);
+  width: 100%;
+  margin-right: 8px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  &:focus-visible{
+    border: 2px solid var(--primary-600);
+    outline: none;
+  }
+}

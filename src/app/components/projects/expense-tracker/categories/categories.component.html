@@ -1,0 +1,58 @@
+<p-toast position="top-center"/>
+<div class="w-full flex items-center justify-center">
+  <div class="addForm w-80 h-64 flex flex-col items-center justify-between p-5 rounded-xl shadow-2 border border-primary-900 bg-basic-1100">
+    <div class="flex items-center justify-between">
+      <input type="text"
+      [(ngModel)]="newCategory.name"
+      class="categoryNameInput"
+      name="category"
+      placeholder="Category Name">
+        
+      <div class="categoryContainer">
+        <button class="btn-secondary" (mouseover)="ctgMenu.classList.replace('hidden', 'flex')">
+          Icons
+        </button>
+        <div #ctgMenu class="w-44 h-56 hidden shadow-4 categoryMenu" (mouseleave)="ctgMenu.classList.replace('flex', 'hidden')"
+        >
+        @for(icon of iconOptions; track icon){
+          <button (click)="handleIcon(icon)" class="flex-1" [class.text-primary-500]="newCategory.icon == icon">
+            <mat-icon>{{icon}}</mat-icon>
+          </button>
+        }
+        </div>
+      </div>
+    </div>
+    <h3 class="flex items-center justify-center gap-2"><mat-icon>{{newCategory.icon}}</mat-icon>{{newCategory.name}} </h3>
+    <button class="btn-primary self-stretch" (click)="addCategory()">Add Category</button>
+  </div>
+
+  <div class="bg-basic-1100 p-5 border border-primary-900 shadow-2 rounded-xl ml-10 flex gap-10">
+    <div class="flex flex-col gap-3 items-start">
+      <h3>Default</h3>
+      <ul class="">
+        @for(ctg of categories(); track ctg.id){
+          @if(ctg.isDefault){
+            <li class="flex items-center justify-start gap-2 mt-3 text-start">
+              <mat-icon>{{ctg.icon}}</mat-icon>
+              {{ctg.name}}
+            </li>       
+          }
+        }
+      </ul>
+    </div>
+    <div class="flex flex-col gap-3 items-start">
+      <h3 class="">Yours</h3>
+      <ul class="">
+        @for(ctg of categories(); track ctg.id){
+          @if(!ctg.isDefault){
+            <li class="flex items-center justify-start gap-2 mt-3 text-start">
+              <mat-icon>{{ctg.icon}}</mat-icon>
+              {{ctg.name}}
+              <button class="ml-2" (click)="deleteCategory(ctg.id)"><i class="pi pi-trash text-lg text-error-700"></i></button>
+            </li>              
+          }
+        }
+      </ul>
+    </div>
+  </div>
+</div>
