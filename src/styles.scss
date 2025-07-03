@@ -68,10 +68,10 @@ p{
     border-radius: 10px;
   }
 }
-.ng-dirty.ng-invalid:not(form):not(fieldset):not(div){
+.ng-dirty.ng-invalid:not(form):not(fieldset):not(div):not(.categoryNameInput){
   border-bottom: 2px solid var(--error-600);
 }
-.ng-dirty.ng-valid:not(form):not(.profilePassword):not(fieldset):not(div):not(.login){
+.ng-dirty.ng-valid:not(form):not(.profilePassword):not(fieldset):not(div):not(.login):not(.categoryNameInput){
   border-bottom: 2px solid var(--success-600);
 }
 .inputError{
