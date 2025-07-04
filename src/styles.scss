@@ -68,10 +68,10 @@ p{
     border-radius: 10px;
   }
 }
-.ng-dirty.ng-invalid:not(form):not(fieldset):not(div):not(.categoryNameInput){
+.ng-dirty.ng-invalid:not(form):not(fieldset):not(div):not(.categoryNameInput):not(p-calendar){
   border-bottom: 2px solid var(--error-600);
 }
-.ng-dirty.ng-valid:not(form):not(.profilePassword):not(fieldset):not(div):not(.login):not(.categoryNameInput){
+.ng-dirty.ng-valid:not(form):not(.profilePassword):not(fieldset):not(div):not(.login):not(.categoryNameInput):not(p-calendar){
   border-bottom: 2px solid var(--success-600);
 }
 .inputError{
@@ -403,6 +403,50 @@ p{
     color: var(--warning-600);
   }
 }
+.p-datepicker-group-container{
+  *{
+    transition: background-color .3s, color .3s;
+  }
+  @apply shadow-3;
+  background-color: var(--basic-1100);
+  border-radius: 16px;
+
+  .p-datepicker-header {
+    border-radius: 16px;
+  }
+  .p-datepicker-calendar-container{
+    background-color: var(--basic-1100);
+    margin-top: -8px;
+    border-radius: 0 0 16px 16px;
+    
+    .p-datepicker-today span{
+      background-color: var(--basic-900);
+      color: var(--basic-500)
+    }
+    .p-highlight.p-datepicker-current-day{
+      background-color: var(--primary-800);
+      color: var(--primary-200);
+    }
+    .p-element:hover{
+      background-color: var(--primary-600);
+      color: var(--primary-200);
+    }
+  }
+}
+.p-inputtext.p-component {
+  +calendaricon > svg.p-icon{
+    color: var(--primary-500);
+  }
+  padding: 8px 12px;
+  border: 2px solid transparent;
+  outline: none;
+  box-shadow: none;
+  background-color: var(--basic-900);
+  color: var(--basic-400);
+  &:focus-within{
+    border: 2px solid var(--primary-600);
+  }
+}
 .mat-mdc-progress-bar{
     --mdc-linear-progress-active-indicator-color: var(--primary-600);
     --mdc-linear-progress-track-color: var(--primary-600-tr-50);
@@ -435,7 +479,7 @@ p{
   }
 }
 // ACCESSIBILY
-:focus-visible:not(input){
+:focus-visible:not(input):not(.p-calendar.p-focus):not(.p-inputwrapper){
   background-color: var(--warning-400);
   border: none;
   color: black;
@@ -473,7 +517,7 @@ p{
   
 }
 [data-theme="dark"]{
-  :focus-visible:not(input){
+  :focus-visible:not(input):not(.p-calendar.p-focus){
     outline-color: white;
     .letter{
       outline: none;
