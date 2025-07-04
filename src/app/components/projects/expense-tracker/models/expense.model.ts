@@ -6,4 +6,5 @@ export interface Expense{
   description?: string;
   date: string;
   category: Category
+  mode: 'expense';
 }

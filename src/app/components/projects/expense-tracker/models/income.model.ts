@@ -5,4 +5,5 @@ export interface Income {
   amount: number;
   date: string;
   category: Category;
+  mode: 'income';
 }
