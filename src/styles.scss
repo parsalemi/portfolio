@@ -68,10 +68,10 @@ p{
     border-radius: 10px;
   }
 }
-.ng-dirty.ng-invalid:not(form):not(fieldset):not(div):not(.categoryNameInput):not(p-calendar){
+.ng-dirty.ng-invalid:not(form):not(fieldset):not(div):not(.categoryNameInput):not(p-calendar):not(textarea):not(.expenseInput){
   border-bottom: 2px solid var(--error-600);
 }
-.ng-dirty.ng-valid:not(form):not(.profilePassword):not(fieldset):not(div):not(.login):not(.categoryNameInput):not(p-calendar){
+.ng-dirty.ng-valid:not(form):not(.profilePassword):not(fieldset):not(div):not(.login):not(.categoryNameInput):not(p-calendar):not(textarea):not(.expenseInput){
   border-bottom: 2px solid var(--success-600);
 }
 .inputError{
@@ -479,7 +479,7 @@ p{
   }
 }
 // ACCESSIBILY
-:focus-visible:not(input):not(.p-calendar.p-focus):not(.p-inputwrapper){
+:focus-visible:not(input):not(.p-calendar.p-focus):not(.p-inputwrapper):not(textarea){
   background-color: var(--warning-400);
   border: none;
   color: black;
