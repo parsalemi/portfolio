@@ -20,22 +20,6 @@ export const routes: Routes = [
         loadComponent: () => import('./expense-list/expense-list.component').then(c => c.ExpenseListComponent),
       },
       {
-        path: 'register',
-        loadComponent: () => import('./register/register.component').then(c => c.RegisterComponent),
-      },
-      {
-        path: 'login',
-        loadComponent: () => import ('./login/login.component').then(c => c.LoginComponent),
-      },
-      {
-        path: 'profile',
-        loadComponent: () => import('./profile/profile.component').then(c => c.ProfileComponent),
-      },
-      {
-        path: 'expenses',
-        loadComponent: () => import('./expenses/expenses.component').then(c => c.ExpensesComponent),
-      },
-      {
         path: 'add-income',
         loadComponent: () => import('./add-income/add-income.component').then(c => c.AddIncomeComponent),
       },
