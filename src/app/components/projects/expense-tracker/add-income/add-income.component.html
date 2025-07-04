@@ -1,1 +1,41 @@
-<p>add-income works!</p>
+<div class="w-full h-full flex center">
+  <form #form class="min-w-80 p-5 flex flex-col items-center justify-between gap-5 bg-basic-1100 border border-primary-900 rounded-xl shadow-3 relative">
+    <h3 class="text-center">Add Income</h3>
+    <div class="formWrapper">
+      <label for="subject">Subject</label>
+      <input type="text"
+      name="subject"
+      placeholder="Subject"
+      class="expenseInput"
+      [(ngModel)]="newIncome.subject"
+      >
+    </div>
+    <div class="formWrapper">
+      <label for="amount">Amount</label>
+      <input type="number"
+      name="amount"
+      placeholder="Amount"
+      class="expenseInput"
+      [(ngModel)]="newIncome.amount">
+    </div>
+    <div class="formWrapper">
+      <label for="category" class="-mr-1">Category</label>
+      <button class="btn-secondary flex-1 rounded-lg" (click)="ctgMenu.classList.replace('hidden', 'flex')">{{newIncome.category.name}}</button>
+      <div #ctgMenu class="min-w-full h-full absolute hidden flex-col flex-wrap items-start justify-center gap-3 bg-basic-1100 inset-0 rounded-xl z-20 p-3">
+        <button class="absolute top-3 right-3" (click)="ctgMenu.classList.replace('flex', 'hidden')"><i class="pi pi-times"></i></button>
+        @for(category of categories(); track category.id){
+          <button class="flex center gap-2" [class.text-primary-500]="newIncome.category.id == category.id"
+          (click)="handleCategory(category); ctgMenu.classList.replace('flex', 'hidden');">
+            <mat-icon>{{category.icon}}</mat-icon>
+            {{category.name}}
+          </button>
+        }
+      </div>
+    </div>
+    <div class="formWrapper">
+      <label for="date">Date</label>
+      <p-calendar name="date" (onSelect)="formatDate($event)" [showTime]="false" [showSeconds]="false" dateFormat="dd/mm/yy" [(ngModel)]="selectedDate" [showIcon]="true" [iconDisplay]="'input'" styleClass="z-10"></p-calendar>
+    </div>
+    <button type="submit" [disabled]="!isFormValid()" class="btn-primary self-stretch disabled:btn-primary-disabled" (click)="addIncome()">Add Income</button>
+  </form>
+</div>

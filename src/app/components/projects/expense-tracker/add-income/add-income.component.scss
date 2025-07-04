@@ -1,0 +1,75 @@
+.categoryContainer{
+  position: relative;
+  display: inline-block;
+}
+.categoryMenu {
+  background-color: var(--basic-800);
+  color: var(--basic-300);
+  padding: 12px;
+  border-radius: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  left: 100%;
+  top: 10%; 
+  margin-left: 12px;
+  overflow-y: scroll;
+}
+.categoryNameInput{
+  background-color: var(--basic-1000);
+  color: var(--basic-300);
+  width: 100%;
+  margin-right: 8px;
+  padding: 10px 20px;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  &:focus-visible{
+    border: 2px solid var(--primary-600);
+    outline: none;
+  }
+}
+.amountInp::-webkit-outer-spin-button,
+.amountInp::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+textarea{
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 8px;
+  &:focus{
+    border: 2px solid var(--primary-700);
+    outline: none;
+  }
+}
+.formWrapper{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  label{
+    justify-self: left;
+  }
+  input, textarea, p-calendar{
+    margin-left: auto;
+  }
+  input {
+    text-align: center;
+    background-color: var(--basic-900);
+    padding: 8px 12px;
+    border-radius: 8px;
+    &:focus{
+      outline: none;
+    }
+    &:focus-visible{
+      outline: 2px solid var(--primary-600)
+    }
+
+    appearance: textfield;
+    -moz-appearance: textfield;
+  }
+}
