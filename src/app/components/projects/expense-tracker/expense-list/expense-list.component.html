@@ -1,4 +1,48 @@
-<div class="w-full h-full">
-  <button (click)="addInExp('income')" class="btn-success-secondary"><i class="pi pi-plus text-md mr-2"></i>Income</button>
-  <button (click)="addInExp('expense')" class="btn-error-secondary"><i class="pi pi-dollar text-md mr-2"></i>Expense</button>
+<div class="w-full h-full flex flex-col center">
+  <p-toast position="top-center"/>
+  <h2 class="mb-5">This is a demo app</h2>
+  <p>You can use all options such as create an account, see charts, change setting that suits you in the full app </p>
+  <p>You can download it from<a class="text-primary-500 underline hover:no-underline" href="https://github.com/parsalemi/expense-tracker"> my github</a>.</p>
+  <p class="mb-10">For now you can see your expenses and incomes here.</p>
+  <table class="w-[90%] bg-basic-1100 p-5 rounded-xl shadow-3 overflow-hidden">
+    <thead class="bg-basic-900">
+      <tr class="h-12">
+        <th>Subject</th>
+        <th>Amount</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(exp of allData(); track exp.subject){
+        <tr class="h-16 even:bg-basic-1000 text-center">
+          <td>{{exp.subject}}</td>
+          <td [ngClass]="exp.mode == 'expense' ? 'text-error-500' : 'text-success-600'">{{exp.amount | currency}}</td>
+          <td class="">{{exp.category.name}} <mat-icon class="align-middle text-xl">{{exp.category.icon}}</mat-icon></td>
+          @if(exp.mode == 'expense'){
+            <td>{{exp?.description}}</td>
+          }
+          @else {
+            <td></td>
+          }
+          <td>{{exp.date}}</td>
+          @if(exp.mode == 'expense'){
+            <td >
+              <button (click)="deleteExpense(exp)" class="mr-10"><i class="pi pi-trash text-error-600"></i></button>
+              <button (click)="editExpense()"><i class="pi pi-pencil text-primary-400"></i></button>
+            </td>
+          }
+          @else {
+            <td>
+              <button (click)="deleteIncome(exp)" class="mr-10"><i class="pi pi-trash text-error-600"></i></button>
+              <button (click)="editExpense()"><i class="pi pi-pencil text-primary-400"></i></button>
+            </td>
+          }
+        </tr>
+      }
+    </tbody>
+  </table>
+
 </div>
