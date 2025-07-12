@@ -59,11 +59,11 @@ export class AllProjectsComponent {
     {
       title: 'E-Commerce',
       description: 'A simple e-commerce with shopping cart',
-      img: 'e-commerce',
-      techsSvg: ['angular', 'rxjs', 'express', 'tailwind'],
+      img: 'ecommerce',
+      techsSvg: ['angular', 'rxjs', 'nodejs', 'postgresql', 'tailwind'],
       link: 'e-commerce',
       ownProject: true,
-      finished: false,
+      finished: true,
     },
     {
       title: 'Expense Tracker',
