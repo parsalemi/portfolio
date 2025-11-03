@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { environment } from 'src/environments/environment';
 import { NgIf } from '@angular/common';
-import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
+import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha-2';
 
 @Component({
   selector: 'app-sign-in',
